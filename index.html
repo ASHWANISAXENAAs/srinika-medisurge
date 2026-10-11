@@ -43,6 +43,11 @@
   <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
+  <!-- Favicon (Srinika Medisurge Cross & Leaf) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="assets/css/custom.css">
 </head>
@@ -78,31 +83,29 @@
       <div class="flex items-center justify-between h-20">
         
         <!-- Brand Logo -->
-        <a href="#home" class="flex items-center gap-3 group">
-          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-700 via-brand-600 to-medical-teal flex items-center justify-center shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+        <a href="#home" class="flex items-center gap-3 group shrink-0">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-700 via-brand-600 to-medical-teal flex items-center justify-center shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform shrink-0">
             <!-- Custom Medical Care SVG Emblem -->
-            <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 6v12m-6-6h12" />
               <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" fill="currentColor" fill-opacity="0.2" />
             </svg>
           </div>
-          <div>
-            <div class="flex items-center gap-1.5">
-              <span class="text-2xl font-extrabold tracking-tight text-slate-900 font-heading">
-                Srinika <span class="text-brand-600">Medisurge</span>
-              </span>
-            </div>
-            <p class="text-[11px] font-semibold text-medical-teal uppercase tracking-wider">
+          <div class="flex flex-col">
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 font-heading whitespace-nowrap leading-none">
+              Srinika <span class="text-brand-600">Medisurge</span>
+            </span>
+            <span class="text-[10px] sm:text-[11px] font-bold text-medical-teal uppercase tracking-wider whitespace-nowrap mt-1">
               Strong Bonds. Lifelong Care.
-            </p>
+            </span>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-semibold text-slate-600">
           <a href="#services" class="hover:text-brand-600 transition">Services</a>
-          <a href="#doorstep-advantage" class="hover:text-brand-600 transition">Why Doorstep?</a>
-          <a href="#doctor-profile" class="hover:text-brand-600 transition">Dr. Piyush Saxena</a>
+          <a href="#doorstep-advantage" class="hover:text-brand-600 transition">Why Us?</a>
+          <a href="#doctor-profile" class="hover:text-brand-600 transition">Dr. Piyush</a>
           <a href="#calculator" class="hover:text-brand-600 transition">Cost Estimator</a>
           <a href="#coverage" class="hover:text-brand-600 transition">Coverage Areas</a>
           <a href="#testimonials" class="hover:text-brand-600 transition">Reviews</a>
@@ -915,57 +918,67 @@
       <div class="space-y-4">
         
         <!-- FAQ 1 -->
-        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="faq-item bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden transition-all">
           <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold text-slate-800 text-base sm:text-lg flex items-center justify-between gap-4">
             <span>Are the nurses and healthcare staff certified and qualified?</span>
             <i class="fa-solid fa-chevron-down faq-icon text-slate-400 text-sm transition-transform duration-300"></i>
           </button>
-          <div class="faq-content px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
-            Yes, 100%. All nursing attendants and clinical officers at Srinika Medisurge are certified professionals (GNM/B.Sc Nursing) trained in clinical hygiene, sterile catheterization, painless injection administration, and surgical dressing under the direct oversight of Dr. Piyush Saxena.
+          <div class="faq-content">
+            <div class="px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Yes, 100%. All nursing attendants and clinical officers at Srinika Medisurge are certified professionals (GNM/B.Sc Nursing) trained in clinical hygiene, sterile catheterization, painless injection administration, and surgical dressing under the direct oversight of Dr. Piyush Saxena.
+            </div>
           </div>
         </div>
 
         <!-- FAQ 2 -->
-        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="faq-item bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden transition-all">
           <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold text-slate-800 text-base sm:text-lg flex items-center justify-between gap-4">
             <span>How fast can a nurse reach my house in Lucknow?</span>
             <i class="fa-solid fa-chevron-down faq-icon text-slate-400 text-sm transition-transform duration-300"></i>
           </button>
-          <div class="faq-content px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
-            In Gomti Nagar, Gomti Nagar Extension, and Vibhuti Khand, our average arrival time is <strong>15 to 25 minutes</strong>. For other areas like Indira Nagar, Hazratganj, and Mahanagar, arrival is typically within <strong>30 to 45 minutes</strong>.
+          <div class="faq-content">
+            <div class="px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              In Gomti Nagar, Gomti Nagar Extension, and Vibhuti Khand, our average arrival time is <strong>15 to 25 minutes</strong>. For other areas like Indira Nagar, Hazratganj, and Mahanagar, arrival is typically within <strong>30 to 45 minutes</strong>.
+            </div>
           </div>
         </div>
 
         <!-- FAQ 3 -->
-        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="faq-item bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden transition-all">
           <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold text-slate-800 text-base sm:text-lg flex items-center justify-between gap-4">
             <span>Do you bring the required medicines and equipment?</span>
             <i class="fa-solid fa-chevron-down faq-icon text-slate-400 text-sm transition-transform duration-300"></i>
           </button>
-          <div class="faq-content px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
-            Our team carries complete sterile consumable kits (sterile gloves, Betadine, gauze, surgical tape, syringes, normal saline, catheter packs). Specific prescribed medicines (such as specialty antibiotics or injectable ampoules) should be available at home or can be arranged upon prior prescription confirmation.
+          <div class="faq-content">
+            <div class="px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Our team carries complete sterile consumable kits (sterile gloves, Betadine, gauze, surgical tape, syringes, normal saline, catheter packs). Specific prescribed medicines (such as specialty antibiotics or injectable ampoules) should be available at home or can be arranged upon prior prescription confirmation.
+            </div>
           </div>
         </div>
 
         <!-- FAQ 4 -->
-        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="faq-item bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden transition-all">
           <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold text-slate-800 text-base sm:text-lg flex items-center justify-between gap-4">
             <span>Is Dr. Piyush Saxena available for telephonic consultation before visits?</span>
             <i class="fa-solid fa-chevron-down faq-icon text-slate-400 text-sm transition-transform duration-300"></i>
           </button>
-          <div class="faq-content px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
-            Yes. You can directly call <strong>+91 8931985484</strong> to explain the patient's condition, surgical history, or immediate symptoms. Dr. Piyush Saxena ensures the exact care requirements are clearly understood before dispatching staff.
+          <div class="faq-content">
+            <div class="px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Yes. You can directly call <strong>+91 8931985484</strong> to explain the patient's condition, surgical history, or immediate symptoms. Dr. Piyush Saxena ensures the exact care requirements are clearly understood before dispatching staff.
+            </div>
           </div>
         </div>
 
         <!-- FAQ 5 -->
-        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="faq-item bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden transition-all">
           <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold text-slate-800 text-base sm:text-lg flex items-center justify-between gap-4">
             <span>Are home medical services available at night or on weekends?</span>
             <i class="fa-solid fa-chevron-down faq-icon text-slate-400 text-sm transition-transform duration-300"></i>
           </button>
-          <div class="faq-content px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
-            Yes, Srinika Medisurge provides <strong>24/7 on-call emergency doorstep coverage</strong> across all 7 days of the week, including holidays and night hours.
+          <div class="faq-content">
+            <div class="px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Yes, Srinika Medisurge provides <strong>24/7 on-call emergency doorstep coverage</strong> across all 7 days of the week, including holidays and night hours.
+            </div>
           </div>
         </div>
 

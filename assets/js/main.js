@@ -472,18 +472,23 @@ function resetBookingModal() {
   closeBookingModal();
 }
 
-// Toggle FAQ item
+// Toggle FAQ item (Clean accordion logic)
 function toggleFaq(button) {
-  const content = button.nextElementSibling;
-  const icon = button.querySelector(".faq-icon");
+  const item = button.closest(".faq-item");
+  if (!item) return;
+  const content = item.querySelector(".faq-content");
+  if (!content) return;
   const isOpen = content.classList.contains("open");
 
   // Close all other FAQs
-  document.querySelectorAll(".faq-content").forEach(c => c.classList.remove("open"));
-  document.querySelectorAll(".faq-icon").forEach(i => i.style.transform = "rotate(0deg)");
+  document.querySelectorAll(".faq-item").forEach(i => {
+    i.classList.remove("active");
+    const c = i.querySelector(".faq-content");
+    if (c) c.classList.remove("open");
+  });
 
   if (!isOpen) {
+    item.classList.add("active");
     content.classList.add("open");
-    if (icon) icon.style.transform = "rotate(180deg)";
   }
 }

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Rounded Base Background -->
+  <rect width="64" height="64" rx="16" fill="#0f172a" />
+  
+  <!-- Medical Cross Top & Left arms (Royal Blue) -->
+  <path d="M26 12 h12 v14 h14 v12 h-14 v14 h-12 v-14 h-14 v-12 h14 z" fill="url(#blueGrad)" filter="url(#shadow)" />
+  
+  <!-- Healing Care Leaf / Hand embracing the cross (Emerald Green) -->
+  <path d="M12 40 C14 26, 26 20, 32 20 C34 24, 32 30, 26 36 C22 40, 20 46, 22 52 C16 48, 12 44, 12 40 Z" fill="url(#greenGrad)" />
+  <circle cx="28" cy="24" r="3.5" fill="#ffffff" />
+</svg>
