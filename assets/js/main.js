@@ -423,20 +423,30 @@ function handleBookingSubmit(e) {
   const timeSlot = document.getElementById("booking-time")?.value || "Immediate / Morning";
   const notes = document.getElementById("booking-notes")?.value || "None";
 
-  // Pre-formatted WhatsApp Message for Dr. Piyush Saxena
-  const whatsappMsg = `*🏥 NEW DOORSTEP CARE BOOKING REQUEST*\n` +
-    `*Business:* Srinika Medisurge\n` +
-    `*Doctor:* Dr. Piyush Saxena\n` +
-    `--------------------------------\n` +
-    `👤 *Patient Name:* ${name}\n` +
-    `📞 *Phone:* ${phone}\n` +
-    `🩺 *Service Required:* ${service}\n` +
-    `📍 *Address:* ${address}\n` +
-    `📅 *Preferred Date:* ${date}\n` +
-    `⏰ *Preferred Time:* ${timeSlot}\n` +
-    `📝 *Patient Condition / Notes:* ${notes}\n` +
-    `--------------------------------\n` +
-    `_Sent via Srinika Medisurge Web Portal_`;
+  // Format date nicely (DD-MM-YYYY)
+  let formattedDate = date;
+  if (date && date.includes("-")) {
+    const parts = date.split("-");
+    if (parts.length === 3 && parts[0].length === 4) {
+      formattedDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
+    }
+  }
+
+  // Pre-formatted Clean WhatsApp Message (Universal encoding, zero broken symbols)
+  const whatsappMsg = [
+    "*NEW DOORSTEP CARE BOOKING REQUEST*",
+    "*Srinika Medisurge | Dr. Piyush Saxena*",
+    "----------------------------------------",
+    `* Patient Name:* ${name}`,
+    `* Mobile:* ${phone}`,
+    `* Service:* ${service}`,
+    `* Address:* ${address}`,
+    `* Preferred Date:* ${formattedDate}`,
+    `* Time Slot:* ${timeSlot}`,
+    `* Patient Notes:* ${notes}`,
+    "----------------------------------------",
+    "_Sent via Srinika Medisurge Portal_"
+  ].join("\n");
 
   const waUrl = `https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${encodeURIComponent(whatsappMsg)}`;
 
