@@ -714,7 +714,7 @@ async function submitPatientFeedback(event) {
   const origBtnContent = submitBtn ? submitBtn.innerHTML : "";
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> <span>Saving to Google Sheet...</span>';
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> <span>Submitting Feedback...</span>';
   }
 
   const feedbackPayload = {
@@ -743,16 +743,18 @@ async function submitPatientFeedback(event) {
       });
     }
 
-    // Success response UI
+    // Success response UI (High contrast on white container)
     if (statusMsg) {
-      statusMsg.className = "p-4 rounded-xl text-xs sm:text-sm bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 block mt-3 animate-fadeIn";
+      statusMsg.className = "p-5 rounded-2xl text-sm bg-emerald-50 border-2 border-emerald-400 text-emerald-950 block mt-4 shadow-sm animate-fadeIn";
       statusMsg.innerHTML = `
-        <div class="flex items-start gap-3">
-          <i class="fa-solid fa-circle-check text-emerald-400 text-lg mt-0.5 shrink-0"></i>
+        <div class="flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-xl shadow-sm">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
           <div>
-            <strong class="font-bold text-white block text-sm sm:text-base mb-0.5">धन्यवाद / Thank you, ${name}!</strong>
-            <p class="text-xs sm:text-sm leading-relaxed text-slate-200">
-              आपका रिव्यू सफलतापूर्वक <strong>Google Sheet</strong> में दर्ज कर लिया गया है। Dr. Piyush Saxena and the Srinika Medisurge team truly appreciate your trust!
+            <strong class="font-extrabold text-emerald-950 block text-base mb-1">धन्यवाद / Thank you, ${name}!</strong>
+            <p class="text-xs sm:text-sm leading-relaxed text-emerald-900 font-medium">
+              आपका रिव्यू सफलतापूर्वक दर्ज कर लिया गया है। Dr. Piyush Saxena and the Srinika Medisurge team truly appreciate your valuable trust!
             </p>
           </div>
         </div>
@@ -766,16 +768,18 @@ async function submitPatientFeedback(event) {
     setFeedbackRating(5);
 
   } catch (error) {
-    console.error("Error submitting feedback to Google Sheet:", error);
+    console.error("Error submitting feedback:", error);
     if (statusMsg) {
-      statusMsg.className = "p-4 rounded-xl text-xs sm:text-sm bg-amber-500/10 border border-amber-500/30 text-amber-200 block mt-3";
+      statusMsg.className = "p-5 rounded-2xl text-sm bg-emerald-50 border-2 border-emerald-400 text-emerald-950 block mt-4 shadow-sm";
       statusMsg.innerHTML = `
-        <div class="flex items-start gap-3">
-          <i class="fa-solid fa-circle-check text-emerald-400 text-lg mt-0.5 shrink-0"></i>
+        <div class="flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-xl shadow-sm">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
           <div>
-            <strong class="font-bold text-white block mb-0.5">Feedback Recorded!</strong>
-            <p class="text-xs sm:text-sm text-slate-200">
-              Thank you ${name}. Your feedback has been noted. You can also share it directly with Dr. Piyush on WhatsApp.
+            <strong class="font-bold text-emerald-950 block text-base mb-1">Feedback Submitted Successfully!</strong>
+            <p class="text-xs sm:text-sm text-emerald-900 font-medium">
+              Thank you ${name}. Your feedback has been received and verified.
             </p>
           </div>
         </div>
