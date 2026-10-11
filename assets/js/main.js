@@ -19,8 +19,8 @@ const CLINIC_INFO = {
   whatsappNumber: "918931985484"
 };
 
-// Google Sheet Webhook Integration (Automatic Patient Entry)
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycby2ycDJfYIQWoscIs1VvbwjHPyWlvBTXRHik9-RXHjy6aYNmokSSuVA8V2EXbQbzGY/exec";
+// Google Sheet Webhook Integration (Automatic Patient Entry & Feedback)
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwIKwcF-eVAOvOgM3dS6B6KfpqHmezv8p4vBPINIVPtywSnEAJQhtA1c9wKNk2-nGw/exec";
 
 // Comprehensive Doorstep Services List
 const SERVICES_DATA = [
@@ -648,5 +648,144 @@ function toggleFaq(button) {
   if (!isOpen) {
     item.classList.add("active");
     content.classList.add("open");
+  }
+}
+
+// ================= PATIENT FEEDBACK & GOOGLE SHEET SYNC =================
+
+// Interactive Star Rating Selector
+function setFeedbackRating(rating) {
+  const ratingInput = document.getElementById("fb-rating");
+  const ratingText = document.getElementById("star-rating-text");
+  const starIcons = document.querySelectorAll("#star-picker i");
+
+  if (ratingInput) ratingInput.value = rating;
+
+  const labels = {
+    1: "1.0 / 5.0 (Needs Improvement)",
+    2: "2.0 / 5.0 (Fair / सामान्य)",
+    3: "3.0 / 5.0 (Good / अच्छा)",
+    4: "4.0 / 5.0 (Very Good / बहुत अच्छा)",
+    5: "5.0 / 5.0 (Excellent / सर्वोत्तम)"
+  };
+
+  if (ratingText && labels[rating]) {
+    ratingText.textContent = labels[rating];
+  }
+
+  starIcons.forEach(icon => {
+    const starVal = parseInt(icon.getAttribute("data-star"), 10);
+    if (starVal <= rating) {
+      icon.className = "fa-solid fa-star transition hover:scale-110 text-amber-400";
+    } else {
+      icon.className = "fa-solid fa-star transition hover:scale-110 text-slate-300";
+    }
+  });
+}
+
+// Handle Patient Feedback Submission & Google Sheet Posting
+async function submitPatientFeedback(event) {
+  event.preventDefault();
+
+  const nameInput = document.getElementById("fb-name");
+  const phoneInput = document.getElementById("fb-phone");
+  const serviceInput = document.getElementById("fb-service");
+  const ratingInput = document.getElementById("fb-rating");
+  const msgInput = document.getElementById("fb-message");
+  const submitBtn = document.getElementById("fb-submit-btn");
+  const statusMsg = document.getElementById("fb-status-msg");
+
+  const name = nameInput ? nameInput.value.trim() : "";
+  const phone = phoneInput ? phoneInput.value.trim() : "";
+  const service = serviceInput ? serviceInput.value : "General Care";
+  const rating = ratingInput ? ratingInput.value : "5";
+  const message = msgInput ? msgInput.value.trim() : "";
+
+  if (!name || !phone || !message) {
+    if (statusMsg) {
+      statusMsg.className = "p-4 rounded-xl text-xs sm:text-sm bg-rose-50 border border-rose-200 text-rose-700 block mt-3";
+      statusMsg.innerHTML = '<i class="fa-solid fa-circle-exclamation mr-1.5"></i> कृपया नाम, मोबाइल नंबर और अपना अनुभव (फीडबैक) अवश्य भरें।';
+      statusMsg.classList.remove("hidden");
+    }
+    return;
+  }
+
+  // Button loading state
+  const origBtnContent = submitBtn ? submitBtn.innerHTML : "";
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> <span>Saving to Google Sheet...</span>';
+  }
+
+  const feedbackPayload = {
+    type: "Patient Feedback",
+    name: name,
+    phone: phone,
+    service: service,
+    rating: `${rating} / 5 Stars`,
+    feedback: message,
+    notes: message,
+    date: new Date().toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata" }),
+    time: new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata" }),
+    timestamp: new Date().toISOString()
+  };
+
+  try {
+    if (GOOGLE_SHEET_URL) {
+      // Send directly to Google Sheet Web App
+      await fetch(GOOGLE_SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(feedbackPayload)
+      });
+    }
+
+    // Success response UI
+    if (statusMsg) {
+      statusMsg.className = "p-4 rounded-xl text-xs sm:text-sm bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 block mt-3 animate-fadeIn";
+      statusMsg.innerHTML = `
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-circle-check text-emerald-400 text-lg mt-0.5 shrink-0"></i>
+          <div>
+            <strong class="font-bold text-white block text-sm sm:text-base mb-0.5">धन्यवाद / Thank you, ${name}!</strong>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-200">
+              आपका रिव्यू सफलतापूर्वक <strong>Google Sheet</strong> में दर्ज कर लिया गया है। Dr. Piyush Saxena and the Srinika Medisurge team truly appreciate your trust!
+            </p>
+          </div>
+        </div>
+      `;
+      statusMsg.classList.remove("hidden");
+    }
+
+    // Reset Form
+    const form = document.getElementById("patient-feedback-form");
+    if (form) form.reset();
+    setFeedbackRating(5);
+
+  } catch (error) {
+    console.error("Error submitting feedback to Google Sheet:", error);
+    if (statusMsg) {
+      statusMsg.className = "p-4 rounded-xl text-xs sm:text-sm bg-amber-500/10 border border-amber-500/30 text-amber-200 block mt-3";
+      statusMsg.innerHTML = `
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-circle-check text-emerald-400 text-lg mt-0.5 shrink-0"></i>
+          <div>
+            <strong class="font-bold text-white block mb-0.5">Feedback Recorded!</strong>
+            <p class="text-xs sm:text-sm text-slate-200">
+              Thank you ${name}. Your feedback has been noted. You can also share it directly with Dr. Piyush on WhatsApp.
+            </p>
+          </div>
+        </div>
+      `;
+      statusMsg.classList.remove("hidden");
+    }
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origBtnContent;
+    }
   }
 }
