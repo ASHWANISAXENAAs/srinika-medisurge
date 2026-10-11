@@ -80,48 +80,48 @@
   <!-- ================= STICKY NAVBAR ================= -->
   <header class="sticky top-0 z-40 glass-nav shadow-sm transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+      <div class="flex items-center justify-between h-20 gap-3">
         
         <!-- Brand Logo -->
-        <a href="#home" class="flex items-center gap-3 group shrink-0">
-          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-700 via-brand-600 to-medical-teal flex items-center justify-center shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform shrink-0">
+        <a href="#home" class="flex items-center gap-2.5 group shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-700 via-brand-600 to-medical-teal flex items-center justify-center shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform shrink-0">
             <!-- Custom Medical Care SVG Emblem -->
-            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 6v12m-6-6h12" />
               <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" fill="currentColor" fill-opacity="0.2" />
             </svg>
           </div>
           <div class="flex flex-col">
-            <span class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 font-heading whitespace-nowrap leading-none">
+            <span class="text-lg xl:text-xl font-black tracking-tight text-slate-900 font-heading whitespace-nowrap leading-none">
               Srinika <span class="text-brand-600">Medisurge</span>
             </span>
-            <span class="text-[10px] sm:text-[11px] font-bold text-medical-teal uppercase tracking-wider whitespace-nowrap mt-1">
+            <span class="text-[9px] xl:text-[10px] font-bold text-medical-teal uppercase tracking-wider whitespace-nowrap mt-0.5">
               Strong Bonds. Lifelong Care.
             </span>
           </div>
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-semibold text-slate-600">
-          <a href="#services" class="hover:text-brand-600 transition">Services</a>
-          <a href="#doorstep-advantage" class="hover:text-brand-600 transition">Why Us?</a>
-          <a href="#doctor-profile" class="hover:text-brand-600 transition">Dr. Piyush</a>
-          <a href="#calculator" class="hover:text-brand-600 transition">Cost Estimator</a>
-          <a href="#coverage" class="hover:text-brand-600 transition">Coverage Areas</a>
-          <a href="#testimonials" class="hover:text-brand-600 transition">Reviews</a>
-          <a href="#faq" class="hover:text-brand-600 transition">FAQ</a>
+        <!-- Desktop Navigation Links (Clean single line, compact on 1024-1366px laptops) -->
+        <nav class="hidden lg:flex items-center gap-3 xl:gap-5 text-[13px] xl:text-sm font-semibold text-slate-600 whitespace-nowrap">
+          <a href="#services" class="hover:text-brand-600 transition py-1">Services</a>
+          <a href="#specialists" class="hover:text-brand-600 transition py-1">Specialists</a>
+          <a href="#equipment" class="hover:text-brand-600 transition py-1">Equipment</a>
+          <a href="#calculator" class="hover:text-brand-600 transition py-1">Estimator</a>
+          <a href="#coverage" class="hover:text-brand-600 transition py-1">Coverage</a>
+          <a href="#doorstep-advantage" class="hover:text-brand-600 transition py-1">Why Us?</a>
+          <a href="#faq" class="hover:text-brand-600 transition py-1">FAQ</a>
         </nav>
 
         <!-- CTA Action Buttons -->
-        <div class="hidden sm:flex items-center gap-3">
-          <a href="tel:8931985484" class="px-4 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:text-brand-700 hover:border-brand-300 font-semibold text-sm transition flex items-center gap-2">
-            <i class="fa-solid fa-phone text-brand-600"></i>
+        <div class="hidden sm:flex items-center gap-2 xl:gap-3 shrink-0">
+          <a href="tel:8931985484" class="px-3 xl:px-4 py-2 rounded-xl border border-slate-200 text-slate-700 hover:text-brand-700 hover:border-brand-300 font-bold text-xs xl:text-sm transition flex items-center gap-1.5 whitespace-nowrap">
+            <i class="fa-solid fa-phone text-brand-600 text-xs"></i>
             <span>8931985484</span>
           </a>
 
-          <button onclick="openBookingModal()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-medical-teal text-white font-bold text-sm shadow-md shadow-brand-500/25 hover:shadow-lg hover:shadow-brand-500/35 hover:scale-[1.02] active:scale-[0.98] transition flex items-center gap-2">
-            <i class="fa-regular fa-calendar-check"></i>
-            <span>Book Home Visit</span>
+          <button onclick="openBookingModal()" class="px-3.5 xl:px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-medical-teal text-white font-bold text-xs xl:text-sm shadow-md shadow-brand-500/25 hover:shadow-lg hover:shadow-brand-500/35 hover:scale-[1.02] active:scale-[0.98] transition flex items-center gap-1.5 whitespace-nowrap">
+            <i class="fa-regular fa-calendar-check text-xs"></i>
+            <span>Book Visit</span>
           </button>
         </div>
 
@@ -139,11 +139,11 @@
     <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-5 shadow-lg animate-fadeIn">
       <div class="flex flex-col gap-4 text-base font-semibold text-slate-700">
         <a href="#services" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-brand-600 transition py-1">Doorstep Services</a>
-        <a href="#doorstep-advantage" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-brand-600 transition py-1">Why Choose Us?</a>
-        <a href="#doctor-profile" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-brand-600 transition py-1">Dr. Piyush Saxena</a>
+        <a href="#specialists" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-brand-600 transition py-1">Our Specialists & Doctors</a>
+        <a href="#equipment" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-brand-600 transition py-1">Equipment & Mechanical Support</a>
         <a href="#calculator" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-brand-600 transition py-1">Cost Estimator</a>
         <a href="#coverage" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-brand-600 transition py-1">Lucknow Coverage Areas</a>
-        <a href="#testimonials" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-brand-600 transition py-1">Patient Reviews</a>
+        <a href="#doorstep-advantage" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-brand-600 transition py-1">Why Choose Us?</a>
         <a href="#faq" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-brand-600 transition py-1">FAQ</a>
         
         <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
@@ -323,6 +323,12 @@
           <button class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-sky-600 text-white shadow-sm transition" data-category="all">
             All Services
           </button>
+          <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-50 border border-slate-200 transition" data-category="consultation">
+            Consultations (Online & Doorstep)
+          </button>
+          <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-50 border border-slate-200 transition" data-category="physiotherapy">
+            Physiotherapy
+          </button>
           <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-50 border border-slate-200 transition" data-category="nursing">
             Patient Care
           </button>
@@ -336,7 +342,7 @@
             Wound Dressing
           </button>
           <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-50 border border-slate-200 transition" data-category="icu">
-            Critical & ICU
+            BiPAP, Nebulization & Critical Care
           </button>
           <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-50 border border-slate-200 transition" data-category="tests">
             Lab Tests
@@ -599,6 +605,355 @@
     </div>
   </section>
 
+  <!-- ================= OUR SPECIALISTS & EXPERT DOCTORS ================= -->
+  <section id="specialists" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-3 border border-brand-200">
+          <i class="fa-solid fa-user-doctor"></i> Medical Specialists Team
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
+          Meet Our Dedicated <br><span class="text-gradient">Specialist Doctors & Clinicians</span>
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg mt-4">
+          Expert care delivered with empathy. Consult online (₹500) or request personal doorstep doctor visits (₹2000 within 5km) and physiotherapy sessions (₹600) across Lucknow.
+        </p>
+      </div>
+
+      <!-- Specialists Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Specialist 1: Dr. Piyush Saxena -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1.5">
+          <div class="relative h-72 overflow-hidden bg-slate-100">
+            <img src="assets/images/dr-piyush-saxena.jpg" alt="Dr. Piyush Saxena" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-700 shadow-sm border border-slate-100">
+              Founder & Lead
+            </div>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent p-4 text-white">
+              <span class="text-xs uppercase tracking-wider text-emerald-400 font-bold block">Critical & Surgical Care</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading mb-1 group-hover:text-brand-600 transition">
+                Dr. Piyush Saxena
+              </h3>
+              <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+                General & Surgical Care Lead
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                Founder of Srinika Medisurge, dedicated to hospital-grade home care, minor surgical procedures, IV therapy, and critical vital monitoring.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-md">General Care</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-md">Doorstep Lead</span>
+                <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-[11px] font-semibold rounded-md">On-Call Active</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-100 flex items-center gap-2">
+              <a href="tel:8931985484" class="flex-1 py-2 px-3 text-center bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-phone"></i> Call Doctor
+              </a>
+              <button onclick="openBookingModal('consultation-doorstep')" class="py-2 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-xs rounded-xl transition">
+                Book
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specialist 2: Dr. Desh Deepak Singh (P.T.) -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1.5">
+          <div class="relative h-72 overflow-hidden bg-slate-100">
+            <img src="assets/images/dr-desh-deepak-singh.jpg" alt="Dr. Desh Deepak Singh (P.T.)" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-purple-700 shadow-sm border border-slate-100">
+              Neuro Specialist
+            </div>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent p-4 text-white">
+              <span class="text-xs uppercase tracking-wider text-purple-300 font-bold block">B.P.T., M.P.T. (NEURO)</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading mb-1 group-hover:text-purple-600 transition">
+                Dr. Desh Deepak Singh <span class="text-sm font-semibold text-slate-500">(P.T.)</span>
+              </h3>
+              <p class="text-xs font-semibold text-purple-700 uppercase tracking-wider mb-3">
+                Physiotherapist &bull; B.P.T., M.P.T. (NEURO)
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                Specialized in neurological rehabilitation, post-stroke recovery, paralysis mobilization, orthopedic joint recovery, and home physiotherapy sessions.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span class="px-2.5 py-1 bg-purple-50 text-purple-700 text-[11px] font-semibold rounded-md">Neuro Rehab</span>
+                <span class="px-2.5 py-1 bg-purple-50 text-purple-700 text-[11px] font-semibold rounded-md">Doorstep ₹600</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-md">Mobility Care</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-100 flex items-center gap-2">
+              <button onclick="quickWhatsAppService('Doorstep Physiotherapy with Dr. Desh Deepak Singh (P.T.)')" class="flex-1 py-2 px-3 text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </button>
+              <button onclick="openBookingModal('physiotherapy-doorstep')" class="py-2 px-3 bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold text-xs rounded-xl transition">
+                Book ₹600
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specialist 3: Dr. Akash -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1.5">
+          <div class="relative h-72 overflow-hidden bg-slate-100">
+            <img src="assets/images/dr-akash.jpg" alt="Dr. Akash" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-sky-700 shadow-sm border border-slate-100">
+              General Medicine
+            </div>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent p-4 text-white">
+              <span class="text-xs uppercase tracking-wider text-sky-300 font-bold block">General Physician</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading mb-1 group-hover:text-sky-600 transition">
+                Dr. Akash
+              </h3>
+              <p class="text-xs font-semibold text-sky-700 uppercase tracking-wider mb-3">
+                General Physician
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                Primary healthcare diagnosis, management of acute fevers, seasonal infections, hypertension, diabetes titration, and online/doorstep consultations.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span class="px-2.5 py-1 bg-sky-50 text-sky-700 text-[11px] font-semibold rounded-md">General Medicine</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-md">Online ₹500</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-md">Home Visit</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-100 flex items-center gap-2">
+              <button onclick="quickWhatsAppService('Consultation with Dr. Akash (General Physician)')" class="flex-1 py-2 px-3 text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </button>
+              <button onclick="openBookingModal('consultation-online')" class="py-2 px-3 bg-sky-50 hover:bg-sky-100 text-sky-700 font-bold text-xs rounded-xl transition">
+                Book
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specialist 4: Dr. Reshmi R -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1.5">
+          <div class="relative h-72 overflow-hidden bg-slate-100">
+            <img src="assets/images/dr-reshmi-r.jpg" alt="Dr. Reshmi R" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-rose-700 shadow-sm border border-slate-100">
+              Women's Health
+            </div>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent p-4 text-white">
+              <span class="text-xs uppercase tracking-wider text-rose-300 font-bold block">Physician & Gynaecologist</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading mb-1 group-hover:text-rose-600 transition">
+                Dr. Reshmi R
+              </h3>
+              <p class="text-xs font-semibold text-rose-700 uppercase tracking-wider mb-3">
+                Physician & Gynaecologist
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                Comprehensive women's healthcare, prenatal/postnatal home consultation, hormonal health, gynecological wellness, and general physician care.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span class="px-2.5 py-1 bg-rose-50 text-rose-700 text-[11px] font-semibold rounded-md">Gynaecology</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-md">Women Care</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-md">Online ₹500</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-100 flex items-center gap-2">
+              <button onclick="quickWhatsAppService('Consultation with Dr. Reshmi R (Physician & Gynaecologist)')" class="flex-1 py-2 px-3 text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </button>
+              <button onclick="openBookingModal('consultation-online')" class="py-2 px-3 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs rounded-xl transition">
+                Book
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pricing Notice Banner -->
+      <div class="mt-12 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-xl shrink-0">
+            <i class="fa-solid fa-tags"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-base">Transparent Specialist Fees in Lucknow</h4>
+            <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
+              Online Video Consultation: <strong class="text-brand-700">₹500</strong> &bull; Doorstep Doctor Visit (up to 5 km): <strong class="text-brand-700">₹2,000</strong> &bull; Home Physiotherapy Session: <strong class="text-brand-700">₹600</strong>. Other services as per requirement.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 shrink-0">
+          <a href="tel:8931985484" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs rounded-xl transition">
+            Call Clinic
+          </a>
+          <button onclick="openBookingModal()" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl shadow transition">
+            Schedule Appointment
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= AVAILABLE INSTRUMENTS & MECHANICAL SUPPORT ================= -->
+  <section id="equipment" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200">
+          <i class="fa-solid fa-microchip"></i> Hospital-Grade Medical Technology
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
+          Available Instruments & <br><span class="text-gradient">Mechanical Support at Home</span>
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg mt-4">
+          Complete high-dependency medical infrastructure delivered and operated at your doorstep with certified technicians and clinical supervision.
+        </p>
+      </div>
+
+      <!-- Equipment Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Equipment 1: BIPAP -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:shadow-xl hover:border-sky-300 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-sky-100 text-brand-700 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-lungs"></i>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-brand-600 block mb-1">Non-Invasive Ventilation</span>
+          <h3 class="text-xl font-bold text-slate-900 font-heading mb-2">BIPAP Machine Support</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+            Advanced dual-pressure ventilatory support for respiratory distress, COPD exacerbations, and severe sleep apnea with professional mask calibration.
+          </p>
+          <ul class="space-y-1.5 text-xs text-slate-700 mb-5">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> IPAP / EPAP pressure titration</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Full face / nasal mask sizing</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Humidifier chamber maintenance</li>
+          </ul>
+          <button onclick="quickWhatsAppService('BiPAP Machine & Support Requirement')" class="w-full py-2.5 px-3 bg-white border border-slate-200 group-hover:border-sky-500 group-hover:text-brand-600 text-slate-700 font-semibold text-xs rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-600"></i> Request BiPAP Support
+          </button>
+        </div>
+
+        <!-- Equipment 2: OXYGEN CONCENTRATOR -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:shadow-xl hover:border-emerald-300 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-wind"></i>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block mb-1">Continuous Flow Support</span>
+          <h3 class="text-xl font-bold text-slate-900 font-heading mb-2">Oxygen Concentrator</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+            Continuous medical-grade 5L & 10L oxygen concentrators providing uninterrupted oxygen therapy at home with high purity output (93% ± 3%).
+          </p>
+          <ul class="space-y-1.5 text-xs text-slate-700 mb-5">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 5 Litre & 10 Litre high flow models</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Nasal cannula & tubing included</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Immediate home delivery in Lucknow</li>
+          </ul>
+          <button onclick="quickWhatsAppService('Oxygen Concentrator Requirement')" class="w-full py-2.5 px-3 bg-white border border-slate-200 group-hover:border-emerald-500 group-hover:text-emerald-700 text-slate-700 font-semibold text-xs rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-600"></i> Request Concentrator
+          </button>
+        </div>
+
+        <!-- Equipment 3: INFUSION PUMP -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:shadow-xl hover:border-cyan-300 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-syringe"></i>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-700 block mb-1">Precision Drug Administration</span>
+          <h3 class="text-xl font-bold text-slate-900 font-heading mb-2">Infusion Pump / Syringe Pump</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+            Micro-controlled volumetric infusion and syringe pumps for accurate, micro-dosed IV medications, inotropes, chemo supportive fluids, and electrolytes.
+          </p>
+          <ul class="space-y-1.5 text-xs text-slate-700 mb-5">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Precise flow-rate titration (ml/hr)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Occlusion & air-in-line safety alarms</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Monitored by certified nursing staff</li>
+          </ul>
+          <button onclick="quickWhatsAppService('Infusion Pump Setup Requirement')" class="w-full py-2.5 px-3 bg-white border border-slate-200 group-hover:border-cyan-500 group-hover:text-cyan-700 text-slate-700 font-semibold text-xs rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-600"></i> Request Infusion Pump
+          </button>
+        </div>
+
+        <!-- Equipment 4: OXYGEN CYLINDER -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:shadow-xl hover:border-amber-300 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-gas-pump"></i>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 block mb-1">Emergency High Pressure</span>
+          <h3 class="text-xl font-bold text-slate-900 font-heading mb-2">Oxygen Cylinder & Regulator</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+            Portable and jumbo medical oxygen cylinders with double-gauge regulators, flow meters, and sterile humidifiers for emergency and backup care.
+          </p>
+          <ul class="space-y-1.5 text-xs text-slate-700 mb-5">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> B-Type (Portable) & D-Type (Jumbo) cylinders</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Key-wrench & click flow regulator attached</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Rapid refill & home replacement in Lucknow</li>
+          </ul>
+          <button onclick="quickWhatsAppService('Oxygen Cylinder Emergency Dispatch')" class="w-full py-2.5 px-3 bg-white border border-slate-200 group-hover:border-amber-500 group-hover:text-amber-700 text-slate-700 font-semibold text-xs rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-600"></i> Order Oxygen Cylinder
+          </button>
+        </div>
+
+        <!-- Equipment 5: MULTI-PARA MONITOR & VITAL INSTRUMENTS -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:shadow-xl hover:border-rose-300 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-rose-700 block mb-1">ICU Vital Signs Tracking</span>
+          <h3 class="text-xl font-bold text-slate-900 font-heading mb-2">Multi-Para Monitor & Vital Instruments</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+            Hospital-grade 5-Para patient monitor displaying real-time ECG leads, Pulse Rate, NIBP (Blood Pressure), SpO2 Oxygen, and Body Temperature.
+          </p>
+          <ul class="space-y-1.5 text-xs text-slate-700 mb-5">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Continuous bedside cardiac waveform</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Digital BP apparatus & Glucometer kits</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Suction apparatus & sterile consumables</li>
+          </ul>
+          <button onclick="quickWhatsAppService('Multi-Para ICU Monitor Setup')" class="w-full py-2.5 px-3 bg-white border border-slate-200 group-hover:border-rose-500 group-hover:text-rose-700 text-slate-700 font-semibold text-xs rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-600"></i> Request Patient Monitor
+          </button>
+        </div>
+
+        <!-- Equipment 6: PHYSIOTHERAPY ALL MEDICAL SYSTEM -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:shadow-xl hover:border-purple-300 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-dumbbell"></i>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-purple-700 block mb-1">Complete Rehab Technology</span>
+          <h3 class="text-xl font-bold text-slate-900 font-heading mb-2">Physiotherapy All Medical System</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+            Comprehensive therapeutic electrotherapy and muscle stimulation systems: TENS, IFT (Interferential Therapy), Ultrasound Therapy (UST), and Muscle Stimulators.
+          </p>
+          <ul class="space-y-1.5 text-xs text-slate-700 mb-5">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> TENS & IFT multi-channel machines</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Therapeutic Ultrasound (UST 1MHz / 3MHz)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Paralysis muscle stimulator & traction kit</li>
+          </ul>
+          <button onclick="quickWhatsAppService('Physiotherapy Medical System & Session')" class="w-full py-2.5 px-3 bg-white border border-slate-200 group-hover:border-purple-500 group-hover:text-purple-700 text-slate-700 font-semibold text-xs rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-600"></i> Book Physio Session (₹600)
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- ================= INTERACTIVE COST ESTIMATOR ================= -->
   <section id="calculator" class="py-20 bg-slate-50 border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -646,12 +1001,17 @@
                 </label>
                 <div class="relative">
                   <select id="calc-service" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium text-sm focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition appearance-none cursor-pointer">
+                    <option value="consultation-online">Online Doctor Consultation (₹500)</option>
+                    <option value="consultation-doorstep">Doctor Consultation At Doorstep (Within 5km) (₹2,000)</option>
+                    <option value="physiotherapy-doorstep">Physiotherapy At Doorstep (₹600)</option>
                     <option value="wound-dressing-basic">Basic Surgical Wound Dressing (₹399)</option>
                     <option value="wound-dressing-complex">Complex Diabetic / Bed Sore Dressing (₹699)</option>
                     <option value="catheter-insertion">Urinary Catheterization (Foley/Silicone) (₹599)</option>
                     <option value="ryles-tube">Ryle's Tube / NG Feeding Tube Insertion (₹699)</option>
                     <option value="iv-infusion">IV Saline / Fluid Infusion Bottle Drip (₹449)</option>
                     <option value="im-injection">IM / SC Injection & Vitals Check (₹299)</option>
+                    <option value="bipap-setup">BiPAP Machine & Respiratory Therapy (₹1,200)</option>
+                    <option value="nebulization">Nebulization Therapy Session (₹350)</option>
                     <option value="patient-care-12h">12-Hour Patient Care Attendant (₹999)</option>
                     <option value="patient-care-24h">24-Hour Patient Care Attendant (₹1,799)</option>
                     <option value="vitals-ecg">Full Vitals & Blood Sugar / ECG Checkup (₹499)</option>
@@ -1028,12 +1388,15 @@
             Core Services
           </h4>
           <ul class="space-y-2 text-xs sm:text-sm text-slate-400">
+            <li><a href="#services" class="hover:text-white transition">Online Doctor Consultation (₹500)</a></li>
+            <li><a href="#services" class="hover:text-white transition">Doorstep Consultation (₹2000 / 5km)</a></li>
+            <li><a href="#services" class="hover:text-white transition">Physiotherapy at Door Step (₹600)</a></li>
+            <li><a href="#services" class="hover:text-white transition">BiPAP & Mechanical Respiratory Care</a></li>
+            <li><a href="#services" class="hover:text-white transition">IV Fluids & Saline Infusion</a></li>
+            <li><a href="#services" class="hover:text-white transition">Nebulization Therapy at Home</a></li>
             <li><a href="#services" class="hover:text-white transition">All Types of Patient Care</a></li>
-            <li><a href="#services" class="hover:text-white transition">Drug Administration & IV Therapy</a></li>
-            <li><a href="#services" class="hover:text-white transition">Catheterization (Foley/Silicone)</a></li>
-            <li><a href="#services" class="hover:text-white transition">Ryle's Tube / NG Feeding Tube</a></li>
-            <li><a href="#services" class="hover:text-white transition">Surgical & Diabetic Wound Dressing</a></li>
-            <li><a href="#services" class="hover:text-white transition">Home ICU & Critical Monitoring</a></li>
+            <li><a href="#specialists" class="hover:text-white transition">Our Specialists & Doctors</a></li>
+            <li><a href="#equipment" class="hover:text-white transition">Equipment & Mechanical Support</a></li>
           </ul>
         </div>
 
@@ -1154,8 +1517,14 @@
           <div>
             <label for="modal-service-select" class="block text-xs font-bold text-slate-700 uppercase mb-1">Required Service *</label>
             <select id="modal-service-select" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+              <option value="Online Doctor Consultation (₹500)">Online Doctor Consultation (₹500)</option>
+              <option value="Doctor Consultation At Door Step (Within 5km - ₹2000)">Doctor Consultation At Door Step (Within 5km - ₹2000)</option>
+              <option value="Physiotherapy At Door Step (₹600)">Physiotherapy At Door Step (₹600)</option>
+              <option value="BiPAP Machine & Mechanical Support">BiPAP Machine & Mechanical Support</option>
+              <option value="IV Fluids & Infusions (NS/RL/D5)">IV Fluids & Infusions (NS/RL/D5)</option>
+              <option value="Nebulization Therapy At Home">Nebulization Therapy At Home</option>
               <option value="All Types of Patient Care (Elderly/Post-Op)">All Types of Patient Care (Elderly / Post-Op)</option>
-              <option value="Drug Administration & IV Infusions">Drug Administration & IV Infusions</option>
+              <option value="Drug Administration & Injections">Drug Administration & Injections</option>
               <option value="Injectables & Catheterization (Foley/Ryle's Tube)">Injectables & Catheterization (Foley / Ryle's Tube)</option>
               <option value="Advanced Surgical & Wound Dressing">Advanced Surgical & Wound Dressing</option>
               <option value="Critical Care & Vital Monitoring">Critical Care & Vital Monitoring</option>

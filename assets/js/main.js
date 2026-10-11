@@ -25,6 +25,114 @@ const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycby2ycDJfYIQWos
 // Comprehensive Doorstep Services List
 const SERVICES_DATA = [
   {
+    id: "consultation-online",
+    category: "consultation",
+    title: "Online Doctor Consultation",
+    badge: "Popular • Instant Access",
+    icon: "fa-video",
+    iconColor: "text-brand-600 bg-sky-50",
+    description: "Connect face-to-face with our experienced medical specialists from the comfort of your home via HD Video or Tele-call.",
+    features: [
+      "Consultation Fee: ₹500 Only",
+      "Digital Prescription shared instantly on WhatsApp",
+      "Specialist Medical Advice & Symptom Evaluation",
+      "Follow-up Guidance & Medicine Review"
+    ],
+    pricing: "₹500 / consultation",
+    estimatedDuration: "20 - 30 mins",
+    includesKit: false
+  },
+  {
+    id: "consultation-doorstep",
+    category: "consultation",
+    title: "Doctor Consultation At Your Doorstep",
+    badge: "Within 5km Radius",
+    icon: "fa-user-doctor",
+    iconColor: "text-emerald-600 bg-emerald-50",
+    description: "Doctor visits your residence directly for physical assessment, examination, diagnosis, and treatment planning in Lucknow.",
+    features: [
+      "Doorstep Doctor Visit (Up to 5 km): ₹2000",
+      "Complete Physical & Clinical Examination",
+      "On-spot Treatment Plan & Prescription Writing",
+      "Family Counseling & Recovery Roadmap"
+    ],
+    pricing: "₹2,000 / visit (Within 5km)",
+    estimatedDuration: "45 - 60 mins",
+    includesKit: true
+  },
+  {
+    id: "physiotherapy-doorstep",
+    category: "physiotherapy",
+    title: "Physiotherapy At Your Doorstep",
+    badge: "Neuro & Ortho Care",
+    icon: "fa-person-walking",
+    iconColor: "text-purple-600 bg-purple-50",
+    description: "Certified Physiotherapist home visit for neuro rehabilitation, joint pain relief, paralysis recovery, and post-op mobility.",
+    features: [
+      "Home Physiotherapy Session: ₹600 Only",
+      "Neuro Rehab, Stroke Recovery & Bedridden Mobilization",
+      "Post-Surgical Joint & Muscle Rehabilitation",
+      "Advanced Physiotherapy Medical Equipment Support"
+    ],
+    pricing: "₹600 / session",
+    estimatedDuration: "45 - 60 mins",
+    includesKit: true
+  },
+  {
+    id: "bipap-therapy",
+    category: "icu",
+    title: "BiPAP & Mechanical Respiratory Therapy",
+    badge: "ICU Respiratory Support",
+    icon: "fa-lungs",
+    iconColor: "text-rose-600 bg-rose-50",
+    description: "Comprehensive BiPAP machine setup, pressure titration, mask fitting, and continuous respiratory management at home.",
+    features: [
+      "BiPAP Setup & Continuous Pressure Calibration",
+      "COPD, Respiratory Distress & Sleep Apnea Care",
+      "Oxygen Saturation (SpO2) Continuous Monitoring",
+      "Mask Fit & Airway Hygiene Support"
+    ],
+    pricing: "Charges as per requirement",
+    estimatedDuration: "As required / Shift",
+    includesKit: true
+  },
+  {
+    id: "iv-fluids",
+    category: "injection",
+    title: "IV Fluids & Saline Infusion Therapy",
+    badge: "100% Sterile Protocol",
+    icon: "fa-faucet-drip",
+    iconColor: "text-cyan-600 bg-cyan-50",
+    description: "Sterile intravenous infusion of Normal Saline (NS), Ringer Lactate (RL), D5, and prescribed IV antibiotics at your home.",
+    features: [
+      "Aseptic IV Cannulation & Heparin Lock",
+      "Infusion Rate Titration & Vital Sign Checks",
+      "Dehydration, Post-operative & Weakness Recovery",
+      "Single-use Hospital Grade Sterile Disposables"
+    ],
+    pricing: "Charges as per requirement",
+    estimatedDuration: "45 - 75 mins",
+    includesKit: true
+  },
+  {
+    id: "nebulization-therapy",
+    category: "icu",
+    title: "Nebulization Therapy At Home",
+    badge: "Immediate Breathing Relief",
+    icon: "fa-mask-ventilator",
+    iconColor: "text-teal-600 bg-teal-50",
+    description: "Sterile aerosolized bronchodilator & steroid nebulization for acute asthma, bronchospasm, chest congestion, and COPD relief.",
+    features: [
+      "Hospital-Grade Compressor Nebulizer Device",
+      "Prescribed Respules / Bronchodilator Delivery",
+      "Pre & Post SpO2 / Pulse / Respiratory Rate Check",
+      "Chest Percussion & Airway Clearance Guidance"
+    ],
+    pricing: "Charges as per requirement",
+    estimatedDuration: "20 - 30 mins",
+    includesKit: true
+  },
+  {
     id: "patient-care",
     category: "nursing",
     title: "All Types of Patient Care",
@@ -45,16 +153,16 @@ const SERVICES_DATA = [
   {
     id: "drug-admin",
     category: "injection",
-    title: "Drug Administration & Infusions",
+    title: "Drug Administration & Injections",
     badge: "100% Sterile",
     icon: "fa-syringe",
     iconColor: "text-sky-600 bg-sky-50",
-    description: "Accurate, painless, and sterile administration of prescription medications, IV fluid bottles, and antibiotic regimens.",
+    description: "Accurate, painless, and sterile administration of prescription medications, IM/SC injections, and antibiotic regimens.",
     features: [
-      "Intravenous (IV) Saline & Fluid Infusion (NS/RL/D5)",
       "Intramuscular (IM) & Subcutaneous (SC) Injections",
       "Prescribed Antibiotic / Painkiller Dosing",
-      "Vitals Tracking Before & After Medication"
+      "Vitals Tracking Before & After Medication",
+      "Hospital Grade Sterile Protocol"
     ],
     pricing: "From ₹349 / visit",
     estimatedDuration: "30 - 45 mins",
@@ -106,9 +214,9 @@ const SERVICES_DATA = [
     description: "Continuous vital signs tracking, oxygen setup management, and specialized monitoring for high-dependency patients.",
     features: [
       "Oxygen Concentrator & Cylinder Setup / Titration",
-      "BiPAP & CPAP Machine Support",
-      "Digital ECG at Home & Blood Glucose Profiling",
-      "Nebulization & Chest Suctioning Assistance"
+      "Multi-Para Cardiac Monitor & SpO2 Setup",
+      "Infusion Pump Setup & Fluid Management",
+      "Digital ECG at Home & Blood Glucose Profiling"
     ],
     pricing: "From ₹799 / visit",
     estimatedDuration: "1 - 2 hours",
@@ -150,6 +258,9 @@ const LUCKNOW_AREAS = [
 
 // Service Calculator Base Rates
 const PRICING_CATALOG = {
+  "consultation-online": { label: "Online Doctor Video Consultation", price: 500 },
+  "consultation-doorstep": { label: "Doctor Consultation At Door Step (Within 5km)", price: 2000 },
+  "physiotherapy-doorstep": { label: "Physiotherapy At Door Step Session", price: 600 },
   "patient-care-12h": { label: "12-Hour Patient Care / Attendant", price: 999 },
   "patient-care-24h": { label: "24-Hour Patient Care / Attendant", price: 1799 },
   "wound-dressing-basic": { label: "Basic Surgical Wound Dressing", price: 399 },
@@ -158,6 +269,8 @@ const PRICING_CATALOG = {
   "ryles-tube": { label: "Ryle's Tube / NG Feeding Tube Insertion", price: 699 },
   "iv-infusion": { label: "IV Fluid Infusion / Drip Administration", price: 449 },
   "im-injection": { label: "IM / SC Injection & Vitals Check", price: 299 },
+  "bipap-setup": { label: "BiPAP Machine & Critical Respiratory Support", price: 1200 },
+  "nebulization": { label: "Nebulization Therapy Session", price: 350 },
   "vitals-ecg": { label: "Full Vitals & Sugar / ECG Checkup", price: 499 }
 };
 
@@ -369,8 +482,14 @@ function openBookingModal(defaultServiceId = null) {
     const select = document.getElementById("modal-service-select");
     if (select) {
       const mapping = {
+        "consultation-online": "Online Doctor Consultation (₹500)",
+        "consultation-doorstep": "Doctor Consultation At Door Step (Within 5km - ₹2000)",
+        "physiotherapy-doorstep": "Physiotherapy At Door Step (₹600)",
+        "bipap-therapy": "BiPAP Machine & Mechanical Support",
+        "iv-fluids": "IV Fluids & Infusions (NS/RL/D5)",
+        "nebulization-therapy": "Nebulization Therapy At Home",
         "patient-care": "All Types of Patient Care (Elderly/Post-Op)",
-        "drug-admin": "Drug Administration & IV Infusions",
+        "drug-admin": "Drug Administration & Injections",
         "catheterization": "Injectables & Catheterization (Foley/Ryle's Tube)",
         "wound-dressing": "Advanced Surgical & Wound Dressing",
         "home-icu": "Critical Care & Vital Monitoring",
