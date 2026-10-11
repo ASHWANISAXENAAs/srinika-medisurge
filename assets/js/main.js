@@ -19,6 +19,9 @@ const CLINIC_INFO = {
   whatsappNumber: "918931985484"
 };
 
+// Google Sheet Webhook Integration (Automatic Patient Entry)
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycby2ycDJfYIQWoscIs1VvbwjHPyWlvBTXRHik9-RXHjy6aYNmokSSuVA8V2EXbQbzGY/exec";
+
 // Comprehensive Doorstep Services List
 const SERVICES_DATA = [
   {
@@ -450,7 +453,31 @@ function handleBookingSubmit(e) {
 
   const waUrl = `https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${encodeURIComponent(whatsappMsg)}`;
 
-  // Show Success Screen inside modal or trigger redirect
+  // 1. Automatically Send Entry to Google Sheet
+  const sheetPayload = {
+    name: name,
+    phone: phone,
+    service: service,
+    address: address,
+    date: formattedDate,
+    time: timeSlot,
+    notes: notes
+  };
+
+  if (GOOGLE_SHEET_URL) {
+    try {
+      fetch(GOOGLE_SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(sheetPayload)
+      }).catch(err => console.log("Google Sheet sync notice:", err));
+    } catch (err) {
+      console.log("Sheet save error:", err);
+    }
+  }
+
+  // 2. Show Success Screen inside modal and prepare WhatsApp redirection
   const formContainer = document.getElementById("modal-form-content");
   const successContainer = document.getElementById("modal-success-content");
 
@@ -462,6 +489,8 @@ function handleBookingSubmit(e) {
     if (waLink) {
       waLink.href = waUrl;
     }
+    // Automatically trigger WhatsApp in background window
+    window.open(waUrl, "_blank");
   } else {
     window.open(waUrl, "_blank");
     closeBookingModal();
