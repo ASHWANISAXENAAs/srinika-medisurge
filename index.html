@@ -1994,16 +1994,16 @@
     <div class="bg-white rounded-3xl w-full max-w-xl shadow-2xl border border-slate-100 overflow-hidden my-8">
       
       <!-- Modal Header -->
-      <div class="bg-gradient-to-r from-slate-900 to-brand-900 p-6 text-white flex items-center justify-between">
+      <div class="bg-gradient-to-r from-slate-900 to-brand-900 p-5 sm:p-6 text-white flex items-center justify-between">
         <div>
           <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">
             <i class="fa-solid fa-house-medical"></i> Srinika Medisurge
           </div>
-          <h3 class="text-xl sm:text-2xl font-extrabold font-heading">
-            Book Doorstep Medical Visit
+          <h3 id="modal-title-text" class="text-xl sm:text-2xl font-extrabold font-heading">
+            Book Medical Service
           </h3>
-          <p class="text-xs text-slate-300 mt-0.5">
-            Dr. Piyush Saxena &bull; Lucknow Doorstep Service
+          <p id="modal-subtitle-text" class="text-xs text-slate-300 mt-0.5">
+            Dr. Piyush Saxena &bull; Lucknow Healthcare
           </p>
         </div>
         <button onclick="closeBookingModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition focus:outline-none">
@@ -2011,9 +2011,22 @@
         </button>
       </div>
 
-      <!-- Modal Body (Form Container) -->
+      <!-- Step 1: Booking Details Form Container -->
       <div id="modal-form-content" class="p-6 sm:p-8 space-y-4">
         
+        <!-- Online Consultation Payment Badge (Shown dynamically when Online Consultation is selected) -->
+        <div id="online-consult-alert" class="p-3.5 rounded-2xl bg-gradient-to-r from-sky-50 to-emerald-50 border border-sky-200 text-sky-950 text-xs sm:text-sm flex items-start gap-3">
+          <div class="w-7 h-7 rounded-xl bg-sky-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+            <i class="fa-solid fa-video text-xs"></i>
+          </div>
+          <div>
+            <strong class="font-bold text-slate-900 block">Online Tele-Consultation (₹500 Fee)</strong>
+            <span class="text-slate-600 text-xs leading-relaxed">
+              Dr. Piyush Saxena connects directly via video/tele-call. Pay ₹500 via UPI to generate your confirmed invoice & instant doctor connect slot.
+            </span>
+          </div>
+        </div>
+
         <form id="doorstep-booking-form" class="space-y-4">
           
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -2046,9 +2059,11 @@
             </select>
           </div>
 
-          <div>
-            <label for="modal-address-input" class="block text-xs font-bold text-slate-700 uppercase mb-1">Address / Locality in Lucknow *</label>
-            <input type="text" id="modal-address-input" required placeholder="e.g. Flat 302, Sector 4, Gomti Nagar" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+          <div id="modal-address-field">
+            <label for="modal-address-input" class="block text-xs font-bold text-slate-700 uppercase mb-1">
+              <span id="modal-address-label">Address / Locality in Lucknow *</span>
+            </label>
+            <input type="text" id="modal-address-input" placeholder="e.g. Flat 302, Sector 4, Gomti Nagar" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -2058,9 +2073,9 @@
             </div>
 
             <div>
-              <label for="booking-time" class="block text-xs font-bold text-slate-700 uppercase mb-1">Time Slot</label>
+              <label for="booking-time" class="block text-xs font-bold text-slate-700 uppercase mb-1">Preferred Slot</label>
               <select id="booking-time" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
-                <option value="Immediate / Emergency (Within 30-45 mins)">Immediate / Emergency (Within 30-45 mins)</option>
+                <option value="Immediate / Earliest Slot (Within 15-30 mins)">Immediate / Earliest (Within 15-30 mins)</option>
                 <option value="Morning (8 AM - 12 PM)">Morning (8 AM - 12 PM)</option>
                 <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
                 <option value="Evening (4 PM - 8 PM)">Evening (4 PM - 8 PM)</option>
@@ -2070,17 +2085,17 @@
           </div>
 
           <div>
-            <label for="booking-notes" class="block text-xs font-bold text-slate-700 uppercase mb-1">Patient Symptoms / Notes (Optional)</label>
-            <textarea id="booking-notes" rows="2" placeholder="Briefly describe the condition or prescribed medicines..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-sm focus:ring-2 focus:ring-brand-500 outline-none"></textarea>
+            <label for="booking-notes" class="block text-xs font-bold text-slate-700 uppercase mb-1">Patient Symptoms / Concerns (Optional)</label>
+            <textarea id="booking-notes" rows="2" placeholder="Describe symptoms, previous diagnosis or concerns..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-sm focus:ring-2 focus:ring-brand-500 outline-none"></textarea>
           </div>
 
           <div class="pt-2">
-            <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-brand-600 to-medical-teal hover:from-brand-700 hover:to-medical-emerald text-white font-bold text-base shadow-lg transition flex items-center justify-center gap-2">
-              <i class="fa-solid fa-paper-plane"></i>
-              <span>Submit & Confirm on WhatsApp</span>
+            <button type="submit" id="modal-submit-btn" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-brand-600 to-medical-teal hover:from-brand-700 hover:to-medical-emerald text-white font-bold text-base shadow-lg transition flex items-center justify-center gap-2">
+              <i id="modal-submit-icon" class="fa-solid fa-lock"></i>
+              <span id="modal-submit-text">Proceed to Pay ₹500 Online</span>
             </button>
-            <p class="text-center text-xs text-slate-500 mt-2">
-              <i class="fa-solid fa-lock text-slate-400"></i> Direct medical communication with Dr. Piyush Saxena
+            <p id="modal-security-note" class="text-center text-xs text-slate-500 mt-2">
+              <i class="fa-solid fa-shield-halved text-emerald-600"></i> Direct consultation with Dr. Piyush Saxena &bull; Instant Confirmation
             </p>
           </div>
 
@@ -2088,7 +2103,236 @@
 
       </div>
 
-      <!-- Success Screen Container -->
+      <!-- Step 2: UPI Online Payment Screen (for Online Consultation) -->
+      <div id="modal-payment-content" class="hidden p-6 sm:p-8 space-y-5">
+        
+        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+          <button onclick="backToBookingForm()" type="button" class="text-xs font-bold text-slate-600 hover:text-brand-600 flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-arrow-left"></i> Edit Details
+          </button>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+            Step 2: Online Payment
+          </span>
+        </div>
+
+        <!-- Consultation Summary Card -->
+        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 flex items-center justify-between">
+          <div>
+            <span class="text-[11px] uppercase font-bold text-slate-400 block tracking-wider">Service Fee</span>
+            <h4 class="font-bold text-slate-800 text-sm">Online Doctor Consultation</h4>
+            <p id="pay-patient-summary" class="text-xs text-slate-500 mt-0.5">Patient: Piyush • Call / Video</p>
+          </div>
+          <div class="text-right">
+            <span class="text-2xl font-black text-brand-700">₹500</span>
+            <span class="text-[10px] text-emerald-600 font-bold block uppercase tracking-wider">Zero Extra Fee</span>
+          </div>
+        </div>
+
+        <!-- Primary Option: Razorpay Official Instant Payment Gateway -->
+        <div class="bg-gradient-to-br from-slate-900 via-brand-950 to-slate-900 rounded-2xl p-5 text-white shadow-xl space-y-3.5 border border-brand-500/30">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
+              <i class="fa-solid fa-bolt text-amber-400"></i> Recommended • 100% Automatic
+            </span>
+            <span class="text-[10px] bg-emerald-500/20 px-2.5 py-0.5 rounded-full text-emerald-300 font-bold border border-emerald-500/40">
+              Zero Fraud • Instant Receipt
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Pay seamlessly using <strong>UPI (GPay, PhonePe, Paytm), Debit/Credit Cards, or NetBanking</strong>. Official confirmed invoice is generated instantly after bank verification!
+          </p>
+
+          <button onclick="launchRazorpayPayment()" type="button" id="btn-launch-razorpay" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm sm:text-base shadow-lg transition flex items-center justify-center gap-2 group">
+            <i class="fa-solid fa-lock text-sm group-hover:scale-110 transition-transform"></i>
+            <span>Pay ₹500 via Razorpay Secure</span>
+          </button>
+
+          <div class="flex items-center justify-center gap-3 text-[11px] text-slate-400 pt-0.5">
+            <span><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i>256-Bit SSL Encrypted</span>
+            <span>&bull;</span>
+            <span>Razorpay Certified</span>
+          </div>
+        </div>
+
+        <!-- Visual Divider -->
+        <div class="flex items-center my-3">
+          <div class="flex-grow border-t border-slate-200"></div>
+          <span class="px-3 text-[11px] text-slate-400 uppercase font-bold tracking-wider">Or Pay Directly via UPI QR</span>
+          <div class="flex-grow border-t border-slate-200"></div>
+        </div>
+
+        <!-- Secondary Option: Direct UPI QR Code Container -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 text-center space-y-3">
+          
+          <!-- Dynamic QR Code Card -->
+          <div class="flex flex-col items-center justify-center">
+            <div class="w-40 h-40 sm:w-44 sm:h-44 bg-white rounded-2xl p-2 shadow-sm border border-slate-200 flex items-center justify-center relative">
+              <img id="upi-qr-image" src="" alt="UPI Payment QR Code" class="w-full h-full object-contain rounded-xl">
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1.5 font-medium">
+              Scan with GPay, PhonePe, Paytm, BHIM
+            </p>
+          </div>
+
+          <!-- Direct Mobile UPI Intent Button -->
+          <div>
+            <a id="pay-upi-intent-link" href="#" class="w-full py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              <span>Open Installed UPI App</span>
+            </a>
+          </div>
+
+          <!-- UPI ID Copy Bar -->
+          <div class="flex items-center justify-between bg-slate-50 rounded-xl px-3 py-2 text-xs border border-slate-200">
+            <div class="text-left truncate mr-2">
+              <span class="text-[10px] text-slate-400 uppercase font-bold block">Doctor UPI ID</span>
+              <strong id="upi-id-text" class="text-slate-800 font-mono text-xs select-all">8931985484@upi</strong>
+            </div>
+            <button onclick="copyUpiId()" type="button" id="copy-upi-btn" class="px-2.5 py-1 rounded-lg bg-white hover:bg-slate-50 text-brand-700 font-bold text-xs border border-slate-200 shadow-sm transition flex items-center gap-1 shrink-0">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+
+          <!-- UTR / Manual Verification Input -->
+          <div class="space-y-2 pt-2 border-t border-slate-100">
+            <div class="text-left">
+              <label for="upi-utr-input" class="block text-xs font-bold text-slate-700 uppercase mb-1">
+                Enter 12-Digit UPI Ref / UTR Number *
+              </label>
+              <input type="text" id="upi-utr-input" maxlength="20" placeholder="e.g. 428198302194" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-brand-500 outline-none">
+            </div>
+
+            <button onclick="confirmOnlinePayment()" type="button" id="btn-confirm-payment" class="w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs shadow transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Verify UTR & Generate Receipt</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Step 3: Confirmation & Digital Invoice Container -->
+      <div id="modal-invoice-content" class="hidden p-6 sm:p-8 space-y-5">
+        
+        <!-- Prominent Doctor Connect Announcement -->
+        <div class="text-center space-y-2">
+          <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto shadow-inner">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <h3 class="text-2xl font-black text-slate-900 font-heading">
+            Booking & Payment Confirmed!
+          </h3>
+          <div class="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-md max-w-md mx-auto text-center">
+            <div class="flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-100 mb-0.5">
+              <i class="fa-solid fa-stethoscope"></i> Dr. Piyush Saxena Connecting
+            </div>
+            <p class="text-sm sm:text-base font-extrabold">
+              Dr. Piyush Saxena will connect with you shortly on Video / Phone Call.
+            </p>
+            <span class="text-xs text-emerald-100 font-medium block mt-1">
+              Estimated connect time: <strong>15 to 30 minutes</strong>
+            </span>
+          </div>
+        </div>
+
+        <!-- The Official Printable / Screenshot Invoice Card -->
+        <div id="consultation-invoice-card" class="bg-white rounded-2xl border-2 border-dashed border-slate-300 p-5 sm:p-6 shadow-sm space-y-4 relative overflow-hidden">
+          
+          <!-- Medical Watermark Logo (subtle background) -->
+          <div class="absolute -right-6 -bottom-6 text-slate-100 pointer-events-none text-9xl font-black select-none opacity-40">
+            <i class="fa-solid fa-house-medical"></i>
+          </div>
+
+          <!-- Invoice Header -->
+          <div class="flex items-start justify-between border-b border-slate-200 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-brand-600 text-white flex items-center justify-center text-xs font-bold">
+                  <i class="fa-solid fa-plus"></i>
+                </span>
+                <span class="font-extrabold text-base sm:text-lg text-slate-900 font-heading">
+                  Srinika <span class="text-brand-600">Medisurge</span>
+                </span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-0.5">
+                Lucknow Doorstep & Digital Care &bull; Dr. Piyush Saxena
+              </p>
+            </div>
+            <div class="text-right">
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                <i class="fa-solid fa-check text-[10px]"></i> PAID
+              </span>
+              <p id="inv-number-display" class="font-mono text-xs font-bold text-slate-700 mt-1">#SRN-2610-0000</p>
+            </div>
+          </div>
+
+          <!-- Invoice Details Table Grid -->
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div>
+              <span class="text-[10px] text-slate-400 font-bold uppercase block">Patient Name</span>
+              <strong id="inv-patient-name" class="text-slate-800 text-sm block">-</strong>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400 font-bold uppercase block">Mobile Number</span>
+              <strong id="inv-patient-phone" class="text-slate-800 text-sm block">-</strong>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400 font-bold uppercase block">Consulting Doctor</span>
+              <strong class="text-slate-800 block">Dr. Piyush Saxena</strong>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400 font-bold uppercase block">Date & Time</span>
+              <strong id="inv-date-time" class="text-slate-800 block">-</strong>
+            </div>
+          </div>
+
+          <!-- Line Item & Amount -->
+          <div class="bg-slate-50 rounded-xl p-3 border border-slate-200">
+            <div class="flex items-center justify-between text-xs mb-1">
+              <span class="font-semibold text-slate-700">Online Doctor Consultation (Tele-call / Video)</span>
+              <span class="font-bold text-slate-800">₹500.00</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px] text-slate-500 pt-1 border-t border-slate-200/60">
+              <span>Payment Mode: <strong id="inv-payment-mode" class="text-emerald-700">Razorpay Verified</strong></span>
+              <span>Ref / ID: <strong id="inv-utr-display" class="font-mono text-slate-700">pay_xxxxxxxx</strong></span>
+            </div>
+            <div class="flex items-center justify-between text-sm font-black text-slate-900 pt-2 mt-2 border-t border-slate-200">
+              <span>Total Paid:</span>
+              <span class="text-brand-700 text-base">₹500.00</span>
+            </div>
+          </div>
+
+          <!-- Screenshot Notice Tag -->
+          <div class="bg-amber-50 rounded-xl p-2.5 text-center border border-amber-200 text-amber-900 text-xs font-semibold flex items-center justify-center gap-2">
+            <i class="fa-solid fa-camera text-amber-600"></i>
+            <span>Take a screenshot of this invoice for your consultation records.</span>
+          </div>
+
+        </div>
+
+        <!-- Action Buttons (Screenshot & WhatsApp to Dr. Piyush) -->
+        <div class="space-y-2.5 pt-1">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <button onclick="takeInvoiceScreenshot()" type="button" class="py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-print"></i>
+              <span>Save / Print Invoice</span>
+            </button>
+            <a id="inv-whatsapp-btn" href="#" target="_blank" class="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Notify Dr. Piyush</span>
+            </a>
+          </div>
+
+          <button onclick="resetBookingModal()" type="button" class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition">
+            Close & Return to Website
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Doorstep WhatsApp Success Screen (Kept for all other doorstep services) -->
       <div id="modal-success-content" class="hidden p-8 text-center space-y-5">
         <div class="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto shadow-inner">
           <i class="fa-solid fa-circle-check"></i>
@@ -2116,6 +2360,9 @@
 
     </div>
   </div>
+
+  <!-- Razorpay Official Payment Gateway SDK -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
   <!-- Main JavaScript File -->
   <script src="assets/js/main.js" charset="UTF-8"></script>

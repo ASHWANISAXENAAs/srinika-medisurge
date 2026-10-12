@@ -116,3 +116,36 @@ h1, h2, h3, h4, .font-heading {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
+
+/* Print / PDF Invoice Mode */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #booking-modal,
+  #modal-invoice-content,
+  #consultation-invoice-card,
+  #consultation-invoice-card * {
+    visibility: visible !important;
+  }
+  #booking-modal {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+  #consultation-invoice-card {
+    position: absolute !important;
+    left: 50% !important;
+    top: 20px !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    max-width: 620px !important;
+    border: 2px solid #0f172a !important;
+    box-shadow: none !important;
+  }
+}
