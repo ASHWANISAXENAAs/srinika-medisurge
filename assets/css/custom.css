@@ -117,35 +117,81 @@ h1, h2, h3, h4, .font-heading {
   -webkit-backdrop-filter: blur(8px);
 }
 
-/* Print / PDF Invoice Mode */
+/* Print / PDF Invoice Mode - Strictly 1 Page Only */
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
 @media print {
-  body * {
-    visibility: hidden !important;
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
   }
-  #booking-modal,
-  #modal-invoice-content,
-  #consultation-invoice-card,
-  #consultation-invoice-card * {
-    visibility: visible !important;
+  
+  /* Suppress all normal page sections from layout so they take 0px height */
+  header, nav, main, footer, section, #hero, #services, #pricing, #doctors, #reviews, #faq, #contact, .fixed, .floating-actions {
+    display: none !important;
   }
+
+  body > *:not(#booking-modal) {
+    display: none !important;
+  }
+
   #booking-modal {
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: 100% !important;
-    background: white !important;
+    position: static !important;
+    display: block !important;
+    background: transparent !important;
     padding: 0 !important;
     margin: 0 !important;
     box-shadow: none !important;
+    backdrop-filter: none !important;
   }
-  #consultation-invoice-card {
-    position: absolute !important;
-    left: 50% !important;
-    top: 20px !important;
-    transform: translateX(-50%) !important;
-    width: 90% !important;
-    max-width: 620px !important;
-    border: 2px solid #0f172a !important;
+
+  #booking-modal .modal-backdrop-wrap,
+  #booking-modal .modal-backdrop-wrap > div {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
     box-shadow: none !important;
+    max-width: 100% !important;
+    background: transparent !important;
+  }
+
+  /* Hide modal top header, booking form, payment step, and helper buttons during print */
+  #booking-modal .sticky,
+  #booking-modal button,
+  #modal-form-content,
+  #modal-payment-content,
+  #modal-success-content,
+  #modal-invoice-content > div:first-child,
+  #modal-invoice-content > .text-center:first-of-type,
+  #modal-invoice-content > .space-y-2\.5 {
+    display: none !important;
+  }
+
+  #modal-invoice-content {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #consultation-invoice-card {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 620px !important;
+    margin: 0 auto !important;
+    border: 1.5px solid #0f172a !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  #consultation-invoice-card * {
+    visibility: visible !important;
   }
 }
+

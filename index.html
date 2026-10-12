@@ -890,8 +890,8 @@
               <a href="tel:8931985484" class="flex-1 py-2 px-3 text-center bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5">
                 <i class="fa-solid fa-phone"></i> Call Doctor
               </a>
-              <button onclick="openBookingModal('consultation-doorstep')" class="py-2 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-xs rounded-xl transition">
-                Book
+              <button onclick="openBookingModal('consultation-online', 'Dr. Piyush Saxena')" class="py-2 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-xs rounded-xl transition">
+                Consult ₹500
               </button>
             </div>
           </div>
@@ -931,7 +931,7 @@
               <button onclick="quickWhatsAppService('Doorstep Physiotherapy with Dr. Desh Deepak Singh (P.T.)')" class="flex-1 py-2 px-3 text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
               </button>
-              <button onclick="openBookingModal('physiotherapy-doorstep')" class="py-2 px-3 bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold text-xs rounded-xl transition">
+              <button onclick="openBookingModal('physiotherapy-doorstep', 'Dr. Desh Deepak Singh')" class="py-2 px-3 bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold text-xs rounded-xl transition">
                 Book ₹600
               </button>
             </div>
@@ -978,8 +978,8 @@
               <button onclick="quickWhatsAppService('Consultation with Dr. Akash Shrivastav (MBBS, Emergency & General Physician)')" class="flex-1 py-2 px-3 text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
               </button>
-              <button onclick="openBookingModal('consultation-online')" class="py-2 px-3 bg-sky-50 hover:bg-sky-100 text-sky-700 font-bold text-xs rounded-xl transition">
-                Book
+              <button onclick="openBookingModal('consultation-online', 'Dr. Akash Shrivastav')" class="py-2 px-3 bg-sky-50 hover:bg-sky-100 text-sky-700 font-bold text-xs rounded-xl transition">
+                Consult ₹500
               </button>
             </div>
           </div>
@@ -1026,8 +1026,8 @@
               <button onclick="quickWhatsAppService('Consultation with Dr. Reshmi R (MBBS, Physician & Women Health Clinician)')" class="flex-1 py-2 px-3 text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
               </button>
-              <button onclick="openBookingModal('consultation-online')" class="py-2 px-3 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs rounded-xl transition">
-                Book
+              <button onclick="openBookingModal('consultation-online', 'Dr. Reshmi R')" class="py-2 px-3 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs rounded-xl transition">
+                Consult ₹500
               </button>
             </div>
           </div>
@@ -1993,74 +1993,86 @@
   </div>
 
   <!-- ================= INTERACTIVE BOOKING MODAL ================= -->
-  <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/70 modal-backdrop overflow-y-auto">
-    <div class="bg-white rounded-3xl w-full max-w-xl shadow-2xl border border-slate-100 overflow-hidden my-8">
-      
-      <!-- Modal Header -->
-      <div class="bg-gradient-to-r from-slate-900 to-brand-900 p-5 sm:p-6 text-white flex items-center justify-between">
-        <div>
-          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">
-            <i class="fa-solid fa-house-medical"></i> Srinika Medisurge
-          </div>
-          <h3 id="modal-title-text" class="text-xl sm:text-2xl font-extrabold font-heading">
-            Book Medical Service
-          </h3>
-          <p id="modal-subtitle-text" class="text-xs text-slate-300 mt-0.5">
-            Dr. Piyush Saxena &bull; Lucknow Healthcare
-          </p>
-        </div>
-        <button onclick="closeBookingModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition focus:outline-none">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-
-      <!-- Step 1: Booking Details Form Container -->
-      <div id="modal-form-content" class="p-6 sm:p-8 space-y-4">
+  <div id="booking-modal" onclick="handleBackdropClick(event)" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 modal-backdrop p-2 sm:p-6 backdrop-blur-sm">
+    <div class="flex min-h-full items-start sm:items-center justify-center py-2 sm:py-6 modal-backdrop-wrap">
+      <div class="bg-white rounded-3xl w-full max-w-xl shadow-2xl border border-slate-100 overflow-hidden relative" onclick="event.stopPropagation()">
         
-        <!-- Online Consultation Payment Badge (Shown dynamically when Online Consultation is selected) -->
-        <div id="online-consult-alert" class="p-3.5 rounded-2xl bg-gradient-to-r from-sky-50 to-emerald-50 border border-sky-200 text-sky-950 text-xs sm:text-sm flex items-start gap-3">
-          <div class="w-7 h-7 rounded-xl bg-sky-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-            <i class="fa-solid fa-video text-xs"></i>
-          </div>
+        <!-- Modal Header (Sticky at top so Close button is ALWAYS visible) -->
+        <div class="sticky top-0 z-30 bg-gradient-to-r from-slate-900 to-brand-900 p-4 sm:p-5 text-white flex items-center justify-between shadow-md">
           <div>
-            <strong class="font-bold text-slate-900 block">Online Tele-Consultation (₹500 Fee)</strong>
-            <span class="text-slate-600 text-xs leading-relaxed">
-              Dr. Piyush Saxena connects directly via video/tele-call. Pay ₹500 via UPI to generate your confirmed invoice & instant doctor connect slot.
-            </span>
+            <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 uppercase tracking-wider mb-0.5">
+              <i class="fa-solid fa-house-medical"></i> Srinika Medisurge
+            </div>
+            <h3 id="modal-title-text" class="text-lg sm:text-xl font-extrabold font-heading">
+              Book Medical Service
+            </h3>
+            <p id="modal-subtitle-text" class="text-[11px] text-slate-300">
+              Dr. Piyush Saxena &bull; Lucknow Healthcare
+            </p>
           </div>
+          <button onclick="closeBookingModal()" type="button" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition focus:outline-none" aria-label="Close modal">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
         </div>
 
-        <form id="doorstep-booking-form" class="space-y-4">
+        <!-- Step 1: Booking Details Form Container -->
+        <div id="modal-form-content" class="p-5 sm:p-8 space-y-4">
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label for="booking-name" class="block text-xs font-bold text-slate-700 uppercase mb-1">Patient Name *</label>
-              <input type="text" id="booking-name" required placeholder="Full Name" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+          <!-- Online Consultation Payment Badge (Shown dynamically when Online Consultation is selected) -->
+          <div id="online-consult-alert" class="p-3.5 rounded-2xl bg-gradient-to-r from-sky-50 to-emerald-50 border border-sky-200 text-sky-950 text-xs sm:text-sm flex items-start gap-3">
+            <div class="w-7 h-7 rounded-xl bg-sky-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+              <i class="fa-solid fa-video text-xs"></i>
             </div>
-
             <div>
-              <label for="booking-phone" class="block text-xs font-bold text-slate-700 uppercase mb-1">Mobile Number *</label>
-              <input type="tel" id="booking-phone" required placeholder="10-digit Mobile" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+              <strong class="font-bold text-slate-900 block">Online Tele-Consultation (₹500 Fee)</strong>
+              <span class="text-slate-600 text-xs leading-relaxed">
+                Connect directly via video/tele-call. Pay ₹500 via Razorpay/UPI to generate your confirmed invoice & instant doctor connect slot.
+              </span>
             </div>
           </div>
 
-          <div>
-            <label for="modal-service-select" class="block text-xs font-bold text-slate-700 uppercase mb-1">Required Service *</label>
-            <select id="modal-service-select" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
-              <option value="Online Doctor Consultation (₹500)">Online Doctor Consultation (₹500)</option>
-              <option value="Doctor Consultation At Door Step (Within 5km - ₹2000)">Doctor Consultation At Door Step (Within 5km - ₹2000)</option>
-              <option value="Physiotherapy At Door Step (₹600)">Physiotherapy At Door Step (₹600)</option>
-              <option value="BiPAP Machine & Mechanical Support">BiPAP Machine & Mechanical Support</option>
-              <option value="IV Fluids & Infusions (NS/RL/D5)">IV Fluids & Infusions (NS/RL/D5)</option>
-              <option value="Nebulization Therapy At Home">Nebulization Therapy At Home</option>
-              <option value="All Types of Patient Care (Elderly/Post-Op)">All Types of Patient Care (Elderly / Post-Op)</option>
-              <option value="Drug Administration & Injections">Drug Administration & Injections</option>
-              <option value="Injectables & Catheterization (Foley/Ryle's Tube)">Injectables & Catheterization (Foley / Ryle's Tube)</option>
-              <option value="Advanced Surgical & Wound Dressing">Advanced Surgical & Wound Dressing</option>
-              <option value="Critical Care & Vital Monitoring">Critical Care & Vital Monitoring</option>
-              <option value="Diagnostic Sample Collection at Home">Diagnostic Sample Collection at Home</option>
-            </select>
-          </div>
+          <form id="doorstep-booking-form" class="space-y-4">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="booking-name" class="block text-xs font-bold text-slate-700 uppercase mb-1">Patient Name *</label>
+                <input type="text" id="booking-name" required placeholder="Full Name" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+              </div>
+
+              <div>
+                <label for="booking-phone" class="block text-xs font-bold text-slate-700 uppercase mb-1">Mobile Number *</label>
+                <input type="tel" id="booking-phone" required placeholder="10-digit Mobile" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+              </div>
+            </div>
+
+            <!-- Consulting Doctor Selection Field -->
+            <div>
+              <label for="booking-doctor" class="block text-xs font-bold text-slate-700 uppercase mb-1">Select Consulting Doctor *</label>
+              <select id="booking-doctor" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none font-medium text-slate-800">
+                <option value="Dr. Piyush Saxena">Dr. Piyush Saxena (Lead Medical Practitioner & Founder)</option>
+                <option value="Dr. Akash Shrivastav">Dr. Akash Shrivastav (M.B.B.S. • Emergency & General Physician)</option>
+                <option value="Dr. Reshmi R">Dr. Reshmi R (M.B.B.S. • Physician & Women's Health Clinician)</option>
+                <option value="Dr. Desh Deepak Singh">Dr. Desh Deepak Singh (B.P.T., M.P.T. • Neuro Physiotherapist)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="modal-service-select" class="block text-xs font-bold text-slate-700 uppercase mb-1">Required Service *</label>
+              <select id="modal-service-select" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+                <option value="Online Doctor Consultation (₹500)">Online Doctor Consultation (₹500)</option>
+                <option value="Doctor Consultation At Door Step (Within 5km - ₹2000)">Doctor Consultation At Door Step (Within 5km - ₹2000)</option>
+                <option value="Physiotherapy At Door Step (₹600)">Physiotherapy At Door Step (₹600)</option>
+                <option value="BiPAP Machine & Mechanical Support">BiPAP Machine & Mechanical Support</option>
+                <option value="IV Fluids & Infusions (NS/RL/D5)">IV Fluids & Infusions (NS/RL/D5)</option>
+                <option value="Nebulization Therapy At Home">Nebulization Therapy At Home</option>
+                <option value="All Types of Patient Care (Elderly/Post-Op)">All Types of Patient Care (Elderly / Post-Op)</option>
+                <option value="Drug Administration & Injections">Drug Administration & Injections</option>
+                <option value="Injectables & Catheterization (Foley/Ryle's Tube)">Injectables & Catheterization (Foley / Ryle's Tube)</option>
+                <option value="Advanced Surgical & Wound Dressing">Advanced Surgical & Wound Dressing</option>
+                <option value="Critical Care & Vital Monitoring">Critical Care & Vital Monitoring</option>
+                <option value="Diagnostic Sample Collection at Home">Diagnostic Sample Collection at Home</option>
+              </select>
+            </div>
 
           <div id="modal-address-field">
             <label for="modal-address-input" class="block text-xs font-bold text-slate-700 uppercase mb-1">
@@ -2113,9 +2125,14 @@
           <button onclick="backToBookingForm()" type="button" class="text-xs font-bold text-slate-600 hover:text-brand-600 flex items-center gap-1.5 transition">
             <i class="fa-solid fa-arrow-left"></i> Edit Details
           </button>
-          <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-            Step 2: Online Payment
-          </span>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+              Step 2: Online Payment
+            </span>
+            <button onclick="closeBookingModal()" type="button" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition focus:outline-none" title="Close Window">
+              <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+          </div>
         </div>
 
         <!-- Consultation Summary Card -->
@@ -2214,11 +2231,27 @@
 
         </div>
 
+        <!-- Cancel / Close Modal Option in Step 2 -->
+        <div class="pt-2 text-center border-t border-slate-100">
+          <button onclick="closeBookingModal()" type="button" class="text-xs text-slate-500 hover:text-slate-800 font-semibold underline">
+            Cancel & Close Window
+          </button>
+        </div>
+
       </div>
 
       <!-- Step 3: Confirmation & Digital Invoice Container -->
       <div id="modal-invoice-content" class="hidden p-6 sm:p-8 space-y-5">
         
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+            <i class="fa-solid fa-circle-check"></i> Confirmed Slot & Official Receipt
+          </span>
+          <button onclick="resetBookingModal()" type="button" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition focus:outline-none" title="Close Window">
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+
         <!-- Prominent Doctor Connect Announcement -->
         <div class="text-center space-y-2">
           <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto shadow-inner">
@@ -2229,9 +2262,9 @@
           </h3>
           <div class="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-md max-w-md mx-auto text-center">
             <div class="flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-100 mb-0.5">
-              <i class="fa-solid fa-stethoscope"></i> Dr. Piyush Saxena Connecting
+              <i class="fa-solid fa-stethoscope"></i> <span id="inv-badge-doctor">Dr. Piyush Saxena</span> Connecting
             </div>
-            <p class="text-sm sm:text-base font-extrabold">
+            <p id="inv-connect-banner-text" class="text-sm sm:text-base font-extrabold">
               Dr. Piyush Saxena will connect with you shortly on Video / Phone Call.
             </p>
             <span class="text-xs text-emerald-100 font-medium block mt-1">
@@ -2283,7 +2316,7 @@
             </div>
             <div>
               <span class="text-[10px] text-slate-400 font-bold uppercase block">Consulting Doctor</span>
-              <strong class="text-slate-800 block">Dr. Piyush Saxena</strong>
+              <strong id="inv-doctor-name" class="text-slate-800 block">Dr. Piyush Saxena</strong>
             </div>
             <div>
               <span class="text-[10px] text-slate-400 font-bold uppercase block">Date & Time</span>

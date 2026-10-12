@@ -443,6 +443,18 @@ function setupEventListeners() {
     modalServiceSelect.addEventListener("change", syncModalServiceMode);
   }
 
+  const bookingDoctorSelect = document.getElementById("booking-doctor");
+  if (bookingDoctorSelect) {
+    bookingDoctorSelect.addEventListener("change", syncModalServiceMode);
+  }
+
+  // Close modal on Escape key press
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeBookingModal();
+    }
+  });
+
   // Mobile Menu Toggle
   const mobileMenuBtn = document.getElementById("mobile-menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -494,6 +506,7 @@ function initCalculator() {
 // Synchronize modal state between Online Consultation (UPI + Invoice) and Doorstep (WhatsApp)
 function syncModalServiceMode() {
   const serviceSelect = document.getElementById("modal-service-select");
+  const doctorSelect = document.getElementById("booking-doctor");
   const alertBox = document.getElementById("online-consult-alert");
   const submitText = document.getElementById("modal-submit-text");
   const submitIcon = document.getElementById("modal-submit-icon");
@@ -505,6 +518,7 @@ function syncModalServiceMode() {
   if (!serviceSelect) return;
   const val = serviceSelect.value || "";
   const isOnline = val.includes("Online Doctor Consultation");
+  const selectedDoctor = doctorSelect ? doctorSelect.value : "Dr. Piyush Saxena";
 
   if (isOnline) {
     if (alertBox) alertBox.classList.remove("hidden");
@@ -516,7 +530,7 @@ function syncModalServiceMode() {
       addressInput.placeholder = "e.g. Lucknow / Gomti Nagar";
     }
     if (modalTitle) modalTitle.textContent = "Online Doctor Consultation";
-    if (modalSubtitle) modalSubtitle.textContent = "Dr. Piyush Saxena • Video & Tele-Call";
+    if (modalSubtitle) modalSubtitle.textContent = `${selectedDoctor} • Video & Tele-Call`;
   } else {
     if (alertBox) alertBox.classList.add("hidden");
     if (submitText) submitText.textContent = "Submit & Confirm on WhatsApp";
@@ -527,12 +541,12 @@ function syncModalServiceMode() {
       addressInput.placeholder = "e.g. Flat 302, Sector 4, Gomti Nagar";
     }
     if (modalTitle) modalTitle.textContent = "Book Doorstep Medical Visit";
-    if (modalSubtitle) modalSubtitle.textContent = "Dr. Piyush Saxena • Lucknow Doorstep Service";
+    if (modalSubtitle) modalSubtitle.textContent = `${selectedDoctor} • Lucknow Doorstep Service`;
   }
 }
 
 // Modal handling
-function openBookingModal(defaultServiceId = null) {
+function openBookingModal(defaultServiceId = null, defaultDoctor = null) {
   const modal = document.getElementById("booking-modal");
   if (!modal) return;
 
@@ -559,6 +573,13 @@ function openBookingModal(defaultServiceId = null) {
     }
   }
 
+  if (defaultDoctor) {
+    const doctorSelect = document.getElementById("booking-doctor");
+    if (doctorSelect) {
+      doctorSelect.value = defaultDoctor;
+    }
+  }
+
   syncModalServiceMode();
   modal.classList.remove("hidden");
   document.body.classList.add("overflow-hidden");
@@ -569,6 +590,12 @@ function closeBookingModal() {
   if (!modal) return;
   modal.classList.add("hidden");
   document.body.classList.remove("overflow-hidden");
+}
+
+function handleBackdropClick(event) {
+  if (event.target.id === "booking-modal" || event.target.classList.contains("modal-backdrop-wrap")) {
+    closeBookingModal();
+  }
 }
 
 function bookForArea(areaName) {
@@ -601,6 +628,7 @@ function handleBookingSubmit(e) {
   
   const name = document.getElementById("booking-name")?.value.trim() || "Patient";
   const phone = document.getElementById("booking-phone")?.value.trim() || "";
+  const doctor = document.getElementById("booking-doctor")?.value || "Dr. Piyush Saxena";
   const service = document.getElementById("modal-service-select")?.value || "Patient Care";
   const address = document.getElementById("modal-address-input")?.value.trim() || "Gomti Nagar, Lucknow";
   const date = document.getElementById("booking-date")?.value || "Earliest Available";
@@ -635,6 +663,7 @@ function handleBookingSubmit(e) {
       bookingId: bookingId,
       name: name,
       phone: phone,
+      doctor: doctor,
       service: service,
       amount: "₹500",
       address: address || "Online Consultation",
@@ -663,7 +692,7 @@ function handleBookingSubmit(e) {
     // 4. Update Patient Summary in Payment Screen
     const summaryElem = document.getElementById("pay-patient-summary");
     if (summaryElem) {
-      summaryElem.textContent = `Patient: ${name} (${phone}) • ${timeSlot}`;
+      summaryElem.textContent = `Patient: ${name} (${phone}) • Doctor: ${doctor} • ${timeSlot}`;
     }
 
     const upiIdDisplay = document.getElementById("upi-id-text");
@@ -684,10 +713,11 @@ function handleBookingSubmit(e) {
   // ================= BRANCH B: DOORSTEP MEDICAL SERVICES (WHATSAPP COORDINATION) =================
   const whatsappMsg = [
     "*NEW DOORSTEP CARE BOOKING REQUEST*",
-    "*Srinika Medisurge | Dr. Piyush Saxena*",
+    `*Srinika Medisurge | ${doctor}*`,
     "----------------------------------------",
     `* Patient Name:* ${name}`,
     `* Mobile:* ${phone}`,
+    `* Consulting Doctor:* ${doctor}`,
     `* Service:* ${service}`,
     `* Address:* ${address}`,
     `* Preferred Date:* ${formattedDate}`,
@@ -704,6 +734,7 @@ function handleBookingSubmit(e) {
     type: "Doorstep Care Booking",
     name: name,
     phone: phone,
+    doctor: doctor,
     service: service,
     address: address,
     date: formattedDate,
@@ -761,7 +792,7 @@ function launchRazorpayPayment() {
     amount: 50000, // 500.00 INR in paise
     currency: "INR",
     name: CLINIC_INFO.name,
-    description: "Online Doctor Consultation Fee - Dr. Piyush Saxena",
+    description: `Online Doctor Consultation Fee - ${activeConsultationData.doctor || 'Dr. Piyush Saxena'}`,
     image: "https://srinikamedisurge.in/favicon.svg",
     prefill: {
       name: activeConsultationData.name,
@@ -770,7 +801,7 @@ function launchRazorpayPayment() {
     notes: {
       booking_id: activeConsultationData.bookingId,
       service: activeConsultationData.service,
-      doctor: "Dr. Piyush Saxena"
+      doctor: activeConsultationData.doctor || "Dr. Piyush Saxena"
     },
     theme: {
       color: "#0284c7"
@@ -824,11 +855,15 @@ function onPaymentVerifiedSuccess(transactionId, paymentMode) {
   if (!activeConsultationData) return;
 
   const isAutoVerified = paymentMode.includes("Razorpay");
+  const doctorName = activeConsultationData.doctor || "Dr. Piyush Saxena";
 
   // 1. Populate Invoice Screen
   const invNumberElem = document.getElementById("inv-number-display");
   const invNameElem = document.getElementById("inv-patient-name");
   const invPhoneElem = document.getElementById("inv-patient-phone");
+  const invDoctorElem = document.getElementById("inv-doctor-name");
+  const invBadgeDoctor = document.getElementById("inv-badge-doctor");
+  const invConnectBanner = document.getElementById("inv-connect-banner-text");
   const invDateElem = document.getElementById("inv-date-time");
   const invModeElem = document.getElementById("inv-payment-mode");
   const invUtrElem = document.getElementById("inv-utr-display");
@@ -836,6 +871,11 @@ function onPaymentVerifiedSuccess(transactionId, paymentMode) {
   if (invNumberElem) invNumberElem.textContent = `#${activeConsultationData.bookingId}`;
   if (invNameElem) invNameElem.textContent = activeConsultationData.name;
   if (invPhoneElem) invPhoneElem.textContent = activeConsultationData.phone;
+  if (invDoctorElem) invDoctorElem.textContent = doctorName;
+  if (invBadgeDoctor) invBadgeDoctor.textContent = doctorName;
+  if (invConnectBanner) {
+    invConnectBanner.textContent = `${doctorName} will connect with you shortly on Video / Phone Call.`;
+  }
   if (invDateElem) invDateElem.textContent = activeConsultationData.timestamp;
   if (invModeElem) invModeElem.textContent = paymentMode;
   if (invUtrElem) invUtrElem.textContent = transactionId;
@@ -843,11 +883,12 @@ function onPaymentVerifiedSuccess(transactionId, paymentMode) {
   // 2. Pre-format Clean WhatsApp Alert to Dr. Piyush Saxena / Mama
   const waConfirmMsg = [
     isAutoVerified ? "🔔 *NEW ONLINE CONSULTATION (PAID VIA RAZORPAY)*" : "🔔 *NEW ONLINE CONSULTATION (UPI PAYMENT SUBMITTED)*",
-    "*Srinika Medisurge | Dr. Piyush Saxena*",
+    `*Srinika Medisurge | ${doctorName}*`,
     "----------------------------------------",
     `* Booking ID:* #${activeConsultationData.bookingId}`,
     `* Patient Name:* ${activeConsultationData.name}`,
     `* Mobile:* ${activeConsultationData.phone}`,
+    `* Consulting Doctor:* ${doctorName}`,
     `* Service:* Online Doctor Consultation (₹500)`,
     `* Payment Status:* ${isAutoVerified ? 'PAID & VERIFIED (₹500)' : 'SUBMITTED (UTR Entered)'}`,
     `* Payment Mode:* ${paymentMode}`,
@@ -857,7 +898,7 @@ function onPaymentVerifiedSuccess(transactionId, paymentMode) {
     `* Symptoms / Notes:* ${activeConsultationData.notes}`,
     "----------------------------------------",
     isAutoVerified 
-      ? "_Payment is 100% verified by Razorpay. Please connect via Video or Phone call._"
+      ? `_Payment is 100% verified by Razorpay. Please connect ${doctorName} via Video or Phone call._`
       : "_Please verify ₹500 credit in your bank account before starting consultation call._"
   ].join("\n");
 
@@ -873,6 +914,7 @@ function onPaymentVerifiedSuccess(transactionId, paymentMode) {
     bookingId: activeConsultationData.bookingId,
     name: activeConsultationData.name,
     phone: activeConsultationData.phone,
+    doctor: doctorName,
     service: activeConsultationData.service,
     amount: "₹500",
     paymentStatus: isAutoVerified ? "PAID (Razorpay Verified)" : "PENDING_VERIFICATION (UPI)",
@@ -950,9 +992,85 @@ function fallbackCopyUpi() {
   }
 }
 
-// Print / Save Invoice helper
+// Print / Save Invoice helper - Strictly 1 Page Only via isolated frame
 function takeInvoiceScreenshot() {
-  window.print();
+  const invoiceCard = document.getElementById("consultation-invoice-card");
+  if (!invoiceCard) {
+    window.print();
+    return;
+  }
+
+  // Remove any previously created print iframe
+  const existingFrame = document.getElementById("print-invoice-frame");
+  if (existingFrame) existingFrame.remove();
+
+  const iframe = document.createElement("iframe");
+  iframe.id = "print-invoice-frame";
+  iframe.style.position = "fixed";
+  iframe.style.right = "0";
+  iframe.style.bottom = "0";
+  iframe.style.width = "0";
+  iframe.style.height = "0";
+  iframe.style.border = "0";
+  iframe.setAttribute("aria-hidden", "true");
+  document.body.appendChild(iframe);
+
+  const doc = iframe.contentWindow.document;
+  const bookingId = activeConsultationData ? activeConsultationData.bookingId : "SRN-2610";
+
+  doc.open();
+  doc.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Srinika Medisurge Receipt - #${bookingId}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #0f172a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .invoice-wrapper {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 10px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  </style>
+</head>
+<body>
+  <div class="invoice-wrapper">
+    ${invoiceCard.outerHTML}
+  </div>
+</body>
+</html>`);
+  doc.close();
+
+  // Give Tailwind & fonts a short moment to render, then open print dialog
+  setTimeout(() => {
+    try {
+      iframe.contentWindow.focus();
+      iframe.contentWindow.print();
+    } catch (e) {
+      console.warn("Iframe print fallback:", e);
+      window.print();
+    }
+  }, 450);
 }
 
 // Reset booking modal back to original form
