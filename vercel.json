@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.srinikamedisurge.in"
+        }
+      ],
+      "destination": "https://srinikamedisurge.in/:path*",
+      "permanent": true
+    }
+  ]
+}
