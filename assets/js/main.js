@@ -1051,6 +1051,14 @@ function takeInvoiceScreenshot() {
       page-break-inside: avoid;
       break-inside: avoid;
     }
+    .text-brand-600 { color: #0284c7 !important; }
+    .bg-brand-600 { background-color: #0284c7 !important; }
+    img {
+      max-width: 100%;
+      height: auto;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
   </style>
 </head>
 <body>

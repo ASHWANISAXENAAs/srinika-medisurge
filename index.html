@@ -26,13 +26,13 @@
   <meta property="og:url" content="https://srinikamedisurge.in/">
   <meta property="og:title" content="Srinika Medisurge | 24/7 Doorstep Healthcare & Home Nursing in Lucknow">
   <meta property="og:description" content="24/7 Doorstep Medical Care, Home Nursing, IV Infusion, Catheterization & Wound Dressing by Dr. Piyush Saxena in Lucknow. Call +91 8931985484.">
-  <meta property="og:image" content="https://srinikamedisurge.in/favicon.svg">
+  <meta property="og:image" content="https://srinikamedisurge.in/assets/images/logo.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Srinika Medisurge | 24/7 Doorstep Healthcare & Home Nursing in Lucknow">
   <meta name="twitter:description" content="Professional doorstep healthcare, patient care, drug administration, catheterization & wound dressing in Lucknow by Dr. Piyush Saxena.">
-  <meta name="twitter:image" content="https://srinikamedisurge.in/favicon.svg">
+  <meta name="twitter:image" content="https://srinikamedisurge.in/assets/images/logo.png">
 
   <!-- Structured Data: Local & Medical Business Schema (JSON-LD) -->
   <script type="application/ld+json">
@@ -45,8 +45,8 @@
         "name": "Srinika Medisurge",
         "alternateName": "Srinika Doorstep Healthcare Lucknow",
         "url": "https://srinikamedisurge.in/",
-        "logo": "https://srinikamedisurge.in/favicon.svg",
-        "image": "https://srinikamedisurge.in/favicon.svg",
+        "logo": "https://srinikamedisurge.in/assets/images/logo.png",
+        "image": "https://srinikamedisurge.in/assets/images/logo.png",
         "hasMap": "https://share.google/xOFCwF7mYkANqIxis",
         "sameAs": [
           "https://share.google/xOFCwF7mYkANqIxis"
@@ -267,10 +267,12 @@
   <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Favicon (Srinika Medisurge Cross & Leaf) -->
+  <!-- Official Brand Favicons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="shortcut icon" href="favicon.svg">
-  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/images/logo-192.png">
 
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="assets/css/custom.css">
@@ -307,14 +309,8 @@
       <div class="flex items-center justify-between h-20 gap-3">
         
         <!-- Brand Logo -->
-        <a href="#home" class="flex items-center gap-2.5 group shrink-0">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-700 via-brand-600 to-medical-teal flex items-center justify-center shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform shrink-0">
-            <!-- Custom Medical Care SVG Emblem -->
-            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 6v12m-6-6h12" />
-              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" fill="currentColor" fill-opacity="0.2" />
-            </svg>
-          </div>
+        <a href="#home" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <img src="assets/images/logo.png" alt="Srinika Medisurge Official Logo" class="w-10 h-10 sm:w-11 sm:h-11 object-contain group-hover:scale-105 transition-transform shrink-0 drop-shadow-sm" />
           <div class="flex flex-col">
             <span class="text-lg xl:text-xl font-black tracking-tight text-slate-900 font-heading whitespace-nowrap leading-none">
               Srinika <span class="text-brand-600">Medisurge</span>
@@ -1863,8 +1859,8 @@
         <!-- Col 1: Brand Info -->
         <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-medical-teal flex items-center justify-center text-white">
-              <i class="fa-solid fa-plus text-xl font-bold"></i>
+            <div class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shadow-sm shrink-0">
+              <img src="assets/images/logo.png" alt="Srinika Medisurge Official Logo" class="w-full h-full object-contain" />
             </div>
             <span class="text-xl font-extrabold font-heading">
               Srinika <span class="text-brand-400">Medisurge</span>
@@ -2277,17 +2273,15 @@
         <div id="consultation-invoice-card" class="bg-white rounded-2xl border-2 border-dashed border-slate-300 p-5 sm:p-6 shadow-sm space-y-4 relative overflow-hidden">
           
           <!-- Medical Watermark Logo (subtle background) -->
-          <div class="absolute -right-6 -bottom-6 text-slate-100 pointer-events-none text-9xl font-black select-none opacity-40">
-            <i class="fa-solid fa-house-medical"></i>
+          <div class="absolute -right-6 -bottom-6 pointer-events-none select-none opacity-[0.07]">
+            <img src="assets/images/logo.png" alt="" class="w-48 h-48 object-contain">
           </div>
 
           <!-- Invoice Header -->
-          <div class="flex items-start justify-between border-b border-slate-200 pb-3">
+          <div class="flex items-start justify-between border-b border-slate-200 pb-3 relative z-10">
             <div>
-              <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-lg bg-brand-600 text-white flex items-center justify-center text-xs font-bold">
-                  <i class="fa-solid fa-plus"></i>
-                </span>
+              <div class="flex items-center gap-2.5">
+                <img src="assets/images/logo.png" alt="Srinika Medisurge Official Logo" class="w-7 h-7 sm:w-8 sm:h-8 object-contain">
                 <span class="font-extrabold text-base sm:text-lg text-slate-900 font-heading">
                   Srinika <span class="text-brand-600">Medisurge</span>
                 </span>
