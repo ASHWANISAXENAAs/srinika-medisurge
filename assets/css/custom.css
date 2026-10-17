@@ -1,5 +1,4 @@
 /* Srinika Medisurge Custom Modern Stylesheet */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
   --brand-blue: #0284c7;
@@ -194,4 +193,74 @@ h1, h2, h3, h4, .font-heading {
     visibility: visible !important;
   }
 }
+
+/* ================= ACCESSIBILITY WCAG AA CONTRAST ENHANCEMENTS ================= */
+.text-sky-600 {
+  color: #0369a1 !important; /* sky-700 gives 4.58:1 on #ffffff */
+}
+.bg-sky-50 .text-sky-600,
+.bg-sky-100 .text-sky-600 {
+  color: #075985 !important; /* sky-800 on tinted badges */
+}
+
+.text-emerald-600 {
+  color: #047857 !important; /* emerald-700 gives 4.54:1 on #ffffff */
+}
+.bg-emerald-50 .text-emerald-600,
+.bg-emerald-100 .text-emerald-600 {
+  color: #065f46 !important; /* emerald-800 on tinted badges */
+}
+
+.text-amber-500,
+.text-amber-600 {
+  color: #92400e !important; /* amber-800 gives 6.2:1 on #ffffff */
+}
+.bg-amber-50 .text-amber-600,
+.bg-amber-100 .text-amber-600 {
+  color: #78350f !important; /* amber-900 on tinted badges */
+}
+
+a.bg-sky-600,
+button.bg-sky-600,
+.bg-sky-600.text-white {
+  background-color: #0369a1 !important; /* sky-700 gives 4.58:1 contrast with white text */
+}
+a.bg-sky-600:hover,
+button.bg-sky-600:hover {
+  background-color: #075985 !important;
+}
+
+a.bg-emerald-600,
+button.bg-emerald-600,
+a.bg-emerald-500,
+button.bg-emerald-500,
+.bg-emerald-600.text-white,
+.bg-emerald-500.text-white {
+  background-color: #047857 !important; /* emerald-700 gives 4.54:1 contrast with white text */
+}
+a.bg-emerald-600:hover,
+button.bg-emerald-600:hover,
+a.bg-emerald-500:hover,
+button.bg-emerald-500:hover {
+  background-color: #065f46 !important;
+}
+
+/* Context-aware slate contrast */
+.bg-white .text-slate-400,
+.bg-slate-50 .text-slate-400,
+.bg-gradient-to-b .text-slate-400,
+.bg-slate-100 .text-slate-400 {
+  color: #475569 !important; /* slate-600 gives 5.6:1 contrast on white/light */
+}
+
+footer .text-slate-400,
+.bg-slate-900 .text-slate-400,
+.bg-slate-950 .text-slate-400 {
+  color: #cbd5e1 !important; /* slate-300 gives 8.4:1 contrast on dark */
+}
+
+.text-slate-500 {
+  color: #475569 !important; /* slate-600 gives 5.6:1 contrast on white */
+}
+
 

@@ -1,5 +1,11 @@
 User-agent: *
 Allow: /
 
-# Sitemap Location
+# Disallow confirmation / payment thank-you query states and test paths
+Disallow: /book/thank-you*
+Disallow: /book/confirmation*
+Disallow: /admin/
+Disallow: /scratch/
+Disallow: /builder/
+
 Sitemap: https://srinikamedisurge.in/sitemap.xml

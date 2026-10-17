@@ -1,27 +1,24 @@
 /**
  * Srinika Medisurge - Modern Healthcare Web Platform
  * Lead Doctor: Dr. Piyush Saxena
- * Location: Gomti Nagar, Lucknow
- * Contact: +91 8931985484
+ * Location: Kaushal Puri Rd, Khargapur, Gomti Nagar, Lucknow, UP 226010
+ * Main Helpline: +91 96530 01359 | Dr. Piyush: +91 8931985484 | WhatsApp: wa.me/919653001359
  */
 
 // Core Business Data
 const CLINIC_INFO = {
   name: "Srinika Medisurge",
   doctor: "Dr. Piyush Saxena",
-  phone: "8931985484",
-  phoneDisplay: "+91 8931985484",
-  address: "Gomti Nagar, Lucknow, Uttar Pradesh",
+  phone: "9653001359",
+  phoneDisplay: "+91 96530 01359",
+  phoneTel: "+919653001359",
+  address: "Kaushal Puri Rd, Khargapur, Gomti Nagar, Lucknow, UP 226010",
   taglines: [
     "All types of care, every step we share",
     "Strong Bonds. Lifelong Care."
   ],
-  whatsappNumber: "918931985484",
-  // Razorpay Gateway Live Production Configuration:
-  razorpayKeyId: "rzp_live_Tn6PZUwraJ9021",
-  // Direct UPI Configuration (0% fee direct bank transfer fallback):
-  upiId: "8931985484@upi", 
-  upiName: "Dr Piyush Saxena"
+  whatsappNumber: "919653001359",
+  razorpayKeyId: "rzp_live_Tn6PZUwraJ9021"
 };
 
 // Google Sheet Webhook Integration (Automatic Patient Entry & Feedback)
@@ -31,6 +28,7 @@ const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwIKwcF-eVAOvO
 const SERVICES_DATA = [
   {
     id: "consultation-online",
+    slug: "online-doctor-consultation",
     category: "consultation",
     title: "Online Doctor Consultation",
     badge: "Popular • Instant Access",
@@ -49,6 +47,7 @@ const SERVICES_DATA = [
   },
   {
     id: "consultation-doorstep",
+    slug: "doctor-home-visit-lucknow",
     category: "consultation",
     title: "Doctor Consultation At Your Doorstep",
     badge: "Within 5km Radius",
@@ -67,6 +66,7 @@ const SERVICES_DATA = [
   },
   {
     id: "physiotherapy-doorstep",
+    slug: "physiotherapy-at-home-lucknow",
     category: "physiotherapy",
     title: "Physiotherapy At Your Doorstep",
     badge: "Neuro & Ortho Care",
@@ -85,6 +85,7 @@ const SERVICES_DATA = [
   },
   {
     id: "bipap-therapy",
+    slug: "bipap-oxygen-support-at-home-lucknow",
     category: "icu",
     title: "BiPAP & Mechanical Respiratory Therapy",
     badge: "ICU Respiratory Support",
@@ -97,12 +98,13 @@ const SERVICES_DATA = [
       "Oxygen Saturation (SpO2) Continuous Monitoring",
       "Mask Fit & Airway Hygiene Support"
     ],
-    pricing: "Charges as per requirement",
+    pricing: "Charges as per requirement / ₹1,200",
     estimatedDuration: "As required / Shift",
     includesKit: true
   },
   {
     id: "iv-fluids",
+    slug: "iv-drip-injection-at-home-lucknow",
     category: "injection",
     title: "IV Fluids & Saline Infusion Therapy",
     badge: "100% Sterile Protocol",
@@ -115,12 +117,13 @@ const SERVICES_DATA = [
       "Dehydration, Post-operative & Weakness Recovery",
       "Single-use Hospital Grade Sterile Disposables"
     ],
-    pricing: "Charges as per requirement",
+    pricing: "From ₹299 / visit",
     estimatedDuration: "45 - 75 mins",
     includesKit: true
   },
   {
     id: "nebulization-therapy",
+    slug: "nebulization-vitals-ecg-at-home",
     category: "icu",
     title: "Nebulization Therapy At Home",
     badge: "Immediate Breathing Relief",
@@ -133,14 +136,15 @@ const SERVICES_DATA = [
       "Pre & Post SpO2 / Pulse / Respiratory Rate Check",
       "Chest Percussion & Airway Clearance Guidance"
     ],
-    pricing: "Charges as per requirement",
+    pricing: "From ₹350 / session",
     estimatedDuration: "20 - 30 mins",
     includesKit: true
   },
   {
     id: "patient-care",
+    slug: "patient-attendant-lucknow",
     category: "nursing",
-    title: "All Types of Patient Care",
+    title: "All Types of Patient Care & Attendant",
     badge: "Most Requested",
     icon: "fa-user-nurse",
     iconColor: "text-emerald-600 bg-emerald-50",
@@ -157,6 +161,7 @@ const SERVICES_DATA = [
   },
   {
     id: "drug-admin",
+    slug: "iv-drip-injection-at-home-lucknow",
     category: "injection",
     title: "Drug Administration & Injections",
     badge: "100% Sterile",
@@ -169,22 +174,23 @@ const SERVICES_DATA = [
       "Vitals Tracking Before & After Medication",
       "Hospital Grade Sterile Protocol"
     ],
-    pricing: "From ₹349 / visit",
+    pricing: "From ₹299 / visit",
     estimatedDuration: "30 - 45 mins",
     includesKit: true
   },
   {
     id: "catheterization",
+    slug: "urinary-catheterization-at-home-lucknow",
     category: "catheter",
-    title: "Injectables & Catheterization",
-    badge: "Specialized",
+    title: "Urinary Catheterization at Home",
+    badge: "Specialized & Gentle",
     icon: "fa-stethoscope",
     iconColor: "text-teal-600 bg-teal-50",
-    description: "Expert aseptic urinary catheterization and Ryle's tube / NG tube insertion and removal by trained professionals.",
+    description: "Expert aseptic urinary catheterization and bladder wash by trained nursing officers with 2% Lignocaine jelly.",
     features: [
       "Foley / Silicone Urinary Catheter Insertion & Removal",
-      "Ryle's Tube / Nasogastric (NG) Feeding Tube Placement",
-      "IV Cannula Placement with Sterile Heparin Lock",
+      "Gentle Anesthetic Lignocaine Lubrication",
+      "Closed Sterile Urobag Drainage System",
       "Bladder Wash & Catheter Hygiene Maintenance"
     ],
     pricing: "From ₹599 / procedure",
@@ -192,10 +198,30 @@ const SERVICES_DATA = [
     includesKit: true
   },
   {
+    id: "ryles-tube",
+    slug: "ng-tube-insertion-at-home-lucknow",
+    category: "catheter",
+    title: "Ryle's Tube / NG Feeding Tube Insertion",
+    badge: "Clinical Precision",
+    icon: "fa-utensils",
+    iconColor: "text-rose-600 bg-rose-50",
+    description: "Gentle nasogastric feeding tube insertion and clinical position verification for dysphagia, stroke, and comatose patients.",
+    features: [
+      "Medical-Grade Silicone / PVC Ryle's Feeding Tube",
+      "Stethoscope Auscultation Placement Verification",
+      "Secure Nose-Bridge Hypoallergenic Taping",
+      "Caregiver Enteral Feeding Demonstration"
+    ],
+    pricing: "From ₹699 / procedure",
+    estimatedDuration: "30 - 45 mins",
+    includesKit: true
+  },
+  {
     id: "wound-dressing",
+    slug: "wound-dressing-at-home-lucknow",
     category: "dressing",
     title: "Advanced Surgical & Wound Dressing",
-    badge: "Hospital-Grade",
+    badge: "Hospital-Grade Sterile",
     icon: "fa-bandage",
     iconColor: "text-amber-600 bg-amber-50",
     description: "Sterile, antiseptic dressing using surgical-grade packs to accelerate wound healing and prevent bacterial infection.",
@@ -210,55 +236,38 @@ const SERVICES_DATA = [
     includesKit: true
   },
   {
-    id: "home-icu",
-    category: "icu",
-    title: "Critical Care & Vital Monitoring",
-    badge: "24/7 Available",
-    icon: "fa-heart-pulse",
-    iconColor: "text-rose-600 bg-rose-50",
-    description: "Continuous vital signs tracking, oxygen setup management, and specialized monitoring for high-dependency patients.",
+    id: "home-nursing-care",
+    slug: "home-nursing-lucknow",
+    category: "nursing",
+    title: "Certified Home Nursing Care",
+    badge: "100% Certified Nurses",
+    icon: "fa-user-nurse",
+    iconColor: "text-emerald-600 bg-emerald-50",
+    description: "Qualified GNM/B.Sc nursing care for post-operative recovery, chronic illnesses, and elderly patients across Lucknow.",
     features: [
-      "Oxygen Concentrator & Cylinder Setup / Titration",
-      "Multi-Para Cardiac Monitor & SpO2 Setup",
-      "Infusion Pump Setup & Fluid Management",
-      "Digital ECG at Home & Blood Glucose Profiling"
+      "Continuous Vital Signs & Clinical Charting",
+      "Medication Administration & IV Infusions",
+      "Tracheostomy & Stoma Clinical Care",
+      "Supervised Directly by Dr. Piyush Saxena"
     ],
-    pricing: "From ₹799 / visit",
-    estimatedDuration: "1 - 2 hours",
-    includesKit: true
-  },
-  {
-    id: "lab-diagnostics",
-    category: "tests",
-    title: "Diagnostic Sample Collection at Home",
-    badge: "Quick Digital Reports",
-    icon: "fa-vial",
-    iconColor: "text-indigo-600 bg-indigo-50",
-    description: "Hassle-free blood and urine sample collection from the comfort of your home with prompt digital reports sent on WhatsApp.",
-    features: [
-      "Fasting Blood Sugar & HbA1c Tests",
-      "Complete Blood Count (CBC) & Lipid Profile",
-      "Kidney (KFT) & Liver (LFT) Function Tests",
-      "Urine Routine & Culture Collection"
-    ],
-    pricing: "From ₹299 + test MRP",
-    estimatedDuration: "15 - 20 mins",
+    pricing: "From ₹999 / shift",
+    estimatedDuration: "12h / 24h / Shift",
     includesKit: true
   }
 ];
 
 // Lucknow Area Response Estimates
 const LUCKNOW_AREAS = [
-  { name: "Gomti Nagar", time: "15 - 25 Mins", status: "Primary Hub", badge: "Immediate Available" },
-  { name: "Gomti Nagar Extension", time: "20 - 30 Mins", status: "Fast Dispatch", badge: "Immediate Available" },
-  { name: "Vibhuti Khand", time: "15 - 25 Mins", status: "Primary Hub", badge: "Immediate Available" },
-  { name: "Indira Nagar", time: "25 - 35 Mins", status: "Fast Dispatch", badge: "Immediate Available" },
-  { name: "Hazratganj", time: "30 - 40 Mins", status: "Standard", badge: "Available" },
-  { name: "Mahanagar", time: "30 - 40 Mins", status: "Standard", badge: "Available" },
-  { name: "Aliganj & Jankipuram", time: "35 - 45 Mins", status: "Standard", badge: "Available" },
-  { name: "Shaheed Path / Sushant Golf City", time: "25 - 35 Mins", status: "Fast Dispatch", badge: "Immediate Available" },
-  { name: "Alambagh & Ashiyana", time: "35 - 50 Mins", status: "Scheduled / Priority", badge: "Available" },
-  { name: "Chinhat & Kamta", time: "20 - 30 Mins", status: "Fast Dispatch", badge: "Immediate Available" }
+  { name: "Gomti Nagar", slug: "home-nursing-gomti-nagar", time: "15 - 25 Mins", status: "Primary Hub", badge: "Immediate Available" },
+  { name: "Gomti Nagar Extension", slug: "home-nursing-gomti-nagar-extension", time: "20 - 30 Mins", status: "Fast Dispatch", badge: "Immediate Available" },
+  { name: "Vibhuti Khand", slug: "home-nursing-vibhuti-khand", time: "15 - 25 Mins", status: "Primary Hub", badge: "Immediate Available" },
+  { name: "Indira Nagar", slug: "home-nursing-indira-nagar", time: "25 - 35 Mins", status: "Fast Dispatch", badge: "Immediate Available" },
+  { name: "Hazratganj", slug: "home-nursing-hazratganj", time: "30 - 40 Mins", status: "Standard", badge: "Available" },
+  { name: "Mahanagar", slug: "home-nursing-mahanagar", time: "30 - 40 Mins", status: "Standard", badge: "Available" },
+  { name: "Aliganj & Jankipuram", slug: "home-nursing-aliganj-jankipuram", time: "35 - 45 Mins", status: "Standard", badge: "Available" },
+  { name: "Shaheed Path / Sushant Golf City", slug: "home-nursing-shaheed-path-sushant-golf-city", time: "25 - 35 Mins", status: "Fast Dispatch", badge: "Immediate Available" },
+  { name: "Alambagh & Ashiyana", slug: "home-nursing-alambagh-ashiyana", time: "35 - 50 Mins", status: "Scheduled / Priority", badge: "Available" },
+  { name: "Chinhat & Kamta", slug: "home-nursing-chinhat-kamta", time: "20 - 30 Mins", status: "Fast Dispatch", badge: "Immediate Available" }
 ];
 
 // Service Calculator Base Rates
@@ -279,12 +288,13 @@ const PRICING_CATALOG = {
   "vitals-ecg": { label: "Full Vitals & Sugar / ECG Checkup", price: 499 }
 };
 
-// Initialize DOM Events
+// Initialize DOM Events safely
 document.addEventListener("DOMContentLoaded", () => {
   renderServices("all");
   renderCoverageAreas("");
   setupEventListeners();
   initCalculator();
+  setupAnalyticsTracking();
 });
 
 // Render Services dynamically based on category
@@ -309,7 +319,7 @@ function renderServices(filterCategory = "all") {
         </div>
 
         <h3 class="text-xl font-bold text-slate-900 group-hover:text-sky-600 transition-colors mb-2">
-          ${service.title}
+          <a href="/services/${service.slug}/" class="hover:underline">${service.title}</a>
         </h3>
         
         <p class="text-slate-600 text-sm leading-relaxed mb-5">
@@ -339,25 +349,25 @@ function renderServices(filterCategory = "all") {
         </div>
 
         <div class="grid grid-cols-2 gap-2">
-          ${service.id === 'consultation-online' ? `
-            <button onclick="openBookingModal('${service.id}')" 
-              class="w-full py-2.5 px-3 bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 text-white font-semibold text-xs sm:text-sm rounded-xl transition duration-200 flex items-center justify-center gap-1.5 shadow-sm">
-              <i class="fa-solid fa-video text-xs"></i>
-              <span>Consult ₹500</span>
-            </button>
-          ` : `
-            <button onclick="openBookingModal('${service.id}')" 
-              class="w-full py-2.5 px-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm rounded-xl transition duration-200 flex items-center justify-center gap-1.5 shadow-sm">
-              <i class="fa-regular fa-calendar-check text-xs"></i>
-              <span>Book Visit</span>
-            </button>
-          `}
+          <a href="/book/?service=${encodeURIComponent(service.title)}" 
+            class="w-full py-2.5 px-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm rounded-xl transition duration-200 flex items-center justify-center gap-1.5 shadow-sm">
+            <i class="fa-regular fa-calendar-check text-xs"></i>
+            <span>Book Visit</span>
+          </a>
           
-          <button onclick="quickWhatsAppService('${service.title}')" 
-            class="w-full py-2.5 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-semibold text-sm rounded-xl transition duration-200 flex items-center justify-center gap-1.5">
+          <button type="button" onclick="quickWhatsAppService('${service.title}')" 
+            class="w-full py-2.5 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-semibold text-sm rounded-xl transition duration-200 flex items-center justify-center gap-1.5"
+            aria-label="Enquire about ${service.title} on WhatsApp">
             <i class="fa-brands fa-whatsapp text-emerald-600"></i>
             <span>WhatsApp</span>
           </button>
+        </div>
+
+        <div class="mt-3 text-center">
+          <a href="/services/${service.slug}/" class="text-xs font-bold text-sky-600 hover:text-sky-800 hover:underline inline-flex items-center gap-1">
+            <span>Read full service guide</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -379,7 +389,7 @@ function renderCoverageAreas(searchQuery = "") {
       <div class="col-span-full text-center py-8 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
         <i class="fa-solid fa-map-location-dot text-3xl text-slate-400 mb-2"></i>
         <p class="text-slate-700 font-medium">We serve all areas of Lucknow!</p>
-        <p class="text-xs text-slate-500 mt-1">Please call Dr. Piyush Saxena directly at <strong>+91 8931985484</strong> for immediate doorstep dispatch.</p>
+        <p class="text-xs text-slate-500 mt-1">Please call our 24/7 helpline directly at <strong>${CLINIC_INFO.phoneDisplay}</strong> for immediate doorstep dispatch.</p>
       </div>
     `;
     return;
@@ -392,16 +402,18 @@ function renderCoverageAreas(searchQuery = "") {
           <i class="fa-solid fa-location-dot"></i>
         </div>
         <div>
-          <h4 class="font-bold text-slate-800 text-sm">${area.name}</h4>
+          <h4 class="font-bold text-slate-800 text-sm">
+            <a href="/areas/${area.slug}/" class="hover:text-sky-600">${area.name}</a>
+          </h4>
           <span class="text-xs text-emerald-600 font-medium flex items-center gap-1">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-ping"></span>
             Doorstep response: ${area.time}
           </span>
         </div>
       </div>
-      <button onclick="bookForArea('${area.name}')" class="text-xs bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 font-semibold py-1.5 px-3 rounded-lg transition">
-        Book Here
-      </button>
+      <a href="/areas/${area.slug}/" class="text-xs bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 font-semibold py-1.5 px-3 rounded-lg transition">
+        View Area
+      </a>
     </div>
   `).join('');
 }
@@ -460,12 +472,14 @@ function setupEventListeners() {
   const mobileMenu = document.getElementById("mobile-menu");
   if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener("click", () => {
+      const isHidden = mobileMenu.classList.contains("hidden");
       mobileMenu.classList.toggle("hidden");
+      mobileMenuBtn.setAttribute("aria-expanded", isHidden ? "true" : "false");
     });
   }
 }
 
-// Interactive Cost Estimator
+// Interactive Cost Estimator with fixed Bug (a): Direct WhatsApp generation
 function initCalculator() {
   const serviceSelect = document.getElementById("calc-service");
   const areaSelect = document.getElementById("calc-area");
@@ -482,23 +496,35 @@ function initCalculator() {
 
     const isUrgent = urgentCheckbox && urgentCheckbox.checked;
     if (isUrgent) {
-      total += 150; // Priority quick dispatch fee
+      total += 150; // Priority dispatch fee
     }
 
     totalDisplay.innerText = `₹${total}`;
 
+    const area = areaSelect ? areaSelect.value : "Gomti Nagar";
+    const urgentText = isUrgent ? " (URGENT DISPATCH REQUEST)" : "";
+    const text = `Namaste Dr. Piyush Saxena,\nI checked your website cost estimator for *${baseItem.label}* in *${area}, Lucknow*.\nEstimated amount: *₹${total}*${urgentText}.\nPlease confirm availability for home visit.`;
+    const url = `https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${encodeURIComponent(text)}`;
+
     if (whatsappCalcBtn) {
-      const area = areaSelect ? areaSelect.value : "Gomti Nagar";
-      const urgentText = isUrgent ? " (URGENT DISPATCH REQUEST)" : "";
-      const text = `Namaste Dr. Piyush Saxena,\nI checked your website cost estimator for *${baseItem.label}* in *${area}, Lucknow*.\nEstimated amount: *₹${total}*${urgentText}.\nPlease confirm availability for home visit.`;
-      const url = `https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${encodeURIComponent(text)}`;
       whatsappCalcBtn.href = url;
+      whatsappCalcBtn.target = "_blank";
+      whatsappCalcBtn.rel = "noopener noreferrer";
     }
+
+    return { text, url };
   }
 
   serviceSelect.addEventListener("change", updateEstimate);
   if (areaSelect) areaSelect.addEventListener("change", updateEstimate);
   if (urgentCheckbox) urgentCheckbox.addEventListener("change", updateEstimate);
+
+  if (whatsappCalcBtn) {
+    whatsappCalcBtn.addEventListener("click", (e) => {
+      const { url } = updateEstimate();
+      whatsappCalcBtn.href = url;
+    });
+  }
 
   updateEstimate();
 }
@@ -548,7 +574,14 @@ function syncModalServiceMode() {
 // Modal handling
 function openBookingModal(defaultServiceId = null, defaultDoctor = null) {
   const modal = document.getElementById("booking-modal");
-  if (!modal) return;
+  if (!modal) {
+    // If modal is not in current DOM (inner page), redirect smoothly to /book/
+    const params = new URLSearchParams();
+    if (defaultServiceId) params.set("service", defaultServiceId);
+    if (defaultDoctor) params.set("doctor", defaultDoctor);
+    window.location.href = `/book/${params.toString() ? '?' + params.toString() : ''}`;
+    return;
+  }
 
   if (defaultServiceId) {
     const select = document.getElementById("modal-service-select");
@@ -569,6 +602,8 @@ function openBookingModal(defaultServiceId = null, defaultDoctor = null) {
       };
       if (mapping[defaultServiceId]) {
         select.value = mapping[defaultServiceId];
+      } else {
+        select.value = defaultServiceId;
       }
     }
   }
@@ -626,6 +661,13 @@ let activeConsultationData = null;
 function handleBookingSubmit(e) {
   e.preventDefault();
   
+  // Anti-spam honeypot check
+  const honeypot = document.getElementById("booking-hp");
+  if (honeypot && honeypot.value.trim() !== "") {
+    console.warn("Spam submission prevented.");
+    return;
+  }
+
   const name = document.getElementById("booking-name")?.value.trim() || "Patient";
   const phone = document.getElementById("booking-phone")?.value.trim() || "";
   const doctor = document.getElementById("booking-doctor")?.value || "Dr. Piyush Saxena";
@@ -635,7 +677,7 @@ function handleBookingSubmit(e) {
   const timeSlot = document.getElementById("booking-time")?.value || "Immediate / Earliest (Within 15-30 mins)";
   const notes = document.getElementById("booking-notes")?.value.trim() || "None";
 
-  // Validate phone number
+  // Validate phone number (must be valid 10 digits)
   if (!phone || phone.replace(/\D/g, '').length < 10) {
     alert("Please enter a valid 10-digit mobile number.");
     return;
@@ -652,7 +694,7 @@ function handleBookingSubmit(e) {
 
   const isOnlineConsultation = service.includes("Online Doctor Consultation");
 
-  // ================= BRANCH A: ONLINE DOCTOR CONSULTATION (UPI PAYMENT) =================
+  // ================= BRANCH A: ONLINE DOCTOR CONSULTATION (RAZORPAY GATEWAY) =================
   if (isOnlineConsultation) {
     // Generate Unique Booking Reference Number
     const randomDigits = Math.floor(1000 + Math.random() * 9000);
@@ -673,34 +715,13 @@ function handleBookingSubmit(e) {
       timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
     };
 
-    // 1. Build Universal UPI Intent URL
-    // Format: upi://pay?pa=<UPI_ID>&pn=<NAME>&am=500&cu=INR&tn=Consultation-<ID>
-    const upiUrl = `upi://pay?pa=${CLINIC_INFO.upiId}&pn=${encodeURIComponent(CLINIC_INFO.upiName)}&am=500&cu=INR&tn=${encodeURIComponent('Consultation-' + bookingId)}`;
-
-    // 2. Setup Mobile Intent Link
-    const upiIntentBtn = document.getElementById("pay-upi-intent-link");
-    if (upiIntentBtn) {
-      upiIntentBtn.href = upiUrl;
-    }
-
-    // 3. Setup Dynamic QR Code Image (100% Free Public High-Res QR Engine)
-    const qrImage = document.getElementById("upi-qr-image");
-    if (qrImage) {
-      qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&margin=10&data=${encodeURIComponent(upiUrl)}`;
-    }
-
-    // 4. Update Patient Summary in Payment Screen
+    // Update Patient Summary in Payment Screen
     const summaryElem = document.getElementById("pay-patient-summary");
     if (summaryElem) {
       summaryElem.textContent = `Patient: ${name} (${phone}) • Doctor: ${doctor} • ${timeSlot}`;
     }
 
-    const upiIdDisplay = document.getElementById("upi-id-text");
-    if (upiIdDisplay) {
-      upiIdDisplay.textContent = CLINIC_INFO.upiId;
-    }
-
-    // 5. Transition to Payment Step
+    // Transition to Payment Step
     const formContainer = document.getElementById("modal-form-content");
     const paymentContainer = document.getElementById("modal-payment-content");
     if (formContainer && paymentContainer) {
@@ -774,7 +795,7 @@ function handleBookingSubmit(e) {
   }
 }
 
-// Launch Razorpay Payment Gateway Modal (100% Automatic Bank Verification)
+// Launch Razorpay Payment Gateway Modal
 function launchRazorpayPayment() {
   if (!activeConsultationData) {
     alert("Please fill your patient details first.");
@@ -783,7 +804,11 @@ function launchRazorpayPayment() {
   }
 
   if (typeof Razorpay === "undefined") {
-    alert("Payment gateway SDK is loading. Please wait a moment or use the Direct UPI QR code below.");
+    const s = document.createElement("script");
+    s.src = "https://checkout.razorpay.com/v1/checkout.js";
+    s.onload = () => launchRazorpayPayment();
+    s.onerror = () => alert("Could not load Razorpay payment gateway. Please check your internet connection.");
+    document.head.appendChild(s);
     return;
   }
 
@@ -793,7 +818,7 @@ function launchRazorpayPayment() {
     currency: "INR",
     name: CLINIC_INFO.name,
     description: `Online Doctor Consultation Fee - ${activeConsultationData.doctor || 'Dr. Piyush Saxena'}`,
-    image: "https://srinikamedisurge.in/favicon.svg",
+    image: "/assets/images/logo.png",
     prefill: {
       name: activeConsultationData.name,
       contact: activeConsultationData.phone
@@ -807,7 +832,6 @@ function launchRazorpayPayment() {
       color: "#0284c7"
     },
     handler: function (response) {
-      // Payment Successful & Cryptographically Verified by Razorpay!
       const paymentId = response.razorpay_payment_id || `pay_${Date.now()}`;
       onPaymentVerifiedSuccess(paymentId, "Razorpay Verified");
     },
@@ -821,43 +845,23 @@ function launchRazorpayPayment() {
   try {
     const rzpInstance = new Razorpay(options);
     rzpInstance.on("payment.failed", function (response) {
-      alert("Payment was not completed. You can try again or scan the Direct UPI QR below.");
+      console.warn("Payment failed response:", response);
+      alert("Payment was not completed. You can try again.");
     });
     rzpInstance.open();
   } catch (err) {
     console.error("Razorpay launcher notice:", err);
-    alert("Razorpay is currently in setup mode. Please enter your live key, or use the Direct UPI QR below.");
+    alert("Unable to open Razorpay gateway. Please check your internet connection.");
   }
 }
 
-// Confirm Direct UPI QR Payment with Mandatory UTR Verification
-function confirmOnlinePayment() {
-  if (!activeConsultationData) {
-    alert("Please fill your booking details first.");
-    backToBookingForm();
-    return;
-  }
-
-  const utrInput = document.getElementById("upi-utr-input")?.value.trim() || "";
-  const cleanedUtr = utrInput.replace(/\s+/g, "");
-
-  // Prevent blank or fake single-digit submissions
-  if (!cleanedUtr || cleanedUtr.length < 8) {
-    alert("Kripya apna genuine 12-digit UPI Reference / UTR Number darj karein jo aapke GPay / PhonePe / Paytm transaction details me dikh raha hai.");
-    return;
-  }
-
-  onPaymentVerifiedSuccess(cleanedUtr, "UPI Direct (Bank Verification Pending)");
-}
-
-// Unified Payment Success & Invoice Generation Engine
+// Unified Payment Success & Real Invoice Population
 function onPaymentVerifiedSuccess(transactionId, paymentMode) {
   if (!activeConsultationData) return;
 
-  const isAutoVerified = paymentMode.includes("Razorpay");
   const doctorName = activeConsultationData.doctor || "Dr. Piyush Saxena";
 
-  // 1. Populate Invoice Screen
+  // 1. Populate Real Invoice Values
   const invNumberElem = document.getElementById("inv-number-display");
   const invNameElem = document.getElementById("inv-patient-name");
   const invPhoneElem = document.getElementById("inv-patient-phone");
@@ -880,9 +884,9 @@ function onPaymentVerifiedSuccess(transactionId, paymentMode) {
   if (invModeElem) invModeElem.textContent = paymentMode;
   if (invUtrElem) invUtrElem.textContent = transactionId;
 
-  // 2. Pre-format Clean WhatsApp Alert to Dr. Piyush Saxena / Mama
+  // 2. Pre-format Clean WhatsApp Alert to Dr. Piyush Saxena
   const waConfirmMsg = [
-    isAutoVerified ? "🔔 *NEW ONLINE CONSULTATION (PAID VIA RAZORPAY)*" : "🔔 *NEW ONLINE CONSULTATION (UPI PAYMENT SUBMITTED)*",
+    "🔔 *NEW ONLINE CONSULTATION (PAID VIA RAZORPAY)*",
     `*Srinika Medisurge | ${doctorName}*`,
     "----------------------------------------",
     `* Booking ID:* #${activeConsultationData.bookingId}`,
@@ -890,16 +894,14 @@ function onPaymentVerifiedSuccess(transactionId, paymentMode) {
     `* Mobile:* ${activeConsultationData.phone}`,
     `* Consulting Doctor:* ${doctorName}`,
     `* Service:* Online Doctor Consultation (₹500)`,
-    `* Payment Status:* ${isAutoVerified ? 'PAID & VERIFIED (₹500)' : 'SUBMITTED (UTR Entered)'}`,
+    `* Payment Status:* PAID & VERIFIED (₹500)`,
     `* Payment Mode:* ${paymentMode}`,
-    `* Transaction / Ref ID:* ${transactionId}`,
+    `* Razorpay Payment ID:* ${transactionId}`,
     `* Preferred Date:* ${activeConsultationData.date}`,
     `* Preferred Slot:* ${activeConsultationData.time}`,
     `* Symptoms / Notes:* ${activeConsultationData.notes}`,
     "----------------------------------------",
-    isAutoVerified 
-      ? `_Payment is 100% verified by Razorpay. Please connect ${doctorName} via Video or Phone call._`
-      : "_Please verify ₹500 credit in your bank account before starting consultation call._"
+    `_Payment is 100% verified by Razorpay. Please connect ${doctorName} via Video or Phone call._`
   ].join("\n");
 
   const waConfirmUrl = `https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${encodeURIComponent(waConfirmMsg)}`;
@@ -917,10 +919,10 @@ function onPaymentVerifiedSuccess(transactionId, paymentMode) {
     doctor: doctorName,
     service: activeConsultationData.service,
     amount: "₹500",
-    paymentStatus: isAutoVerified ? "PAID (Razorpay Verified)" : "PENDING_VERIFICATION (UPI)",
+    paymentStatus: "PAID (Razorpay Verified)",
     paymentMode: paymentMode,
     transactionId: transactionId,
-    utr: transactionId,
+    razorpayPaymentId: transactionId,
     address: activeConsultationData.address,
     date: activeConsultationData.date,
     time: activeConsultationData.time,
@@ -959,40 +961,7 @@ function backToBookingForm() {
   if (formContainer) formContainer.classList.remove("hidden");
 }
 
-// Copy UPI ID to clipboard
-function copyUpiId() {
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(CLINIC_INFO.upiId).then(() => {
-      const btn = document.getElementById("copy-upi-btn");
-      if (btn) {
-        btn.innerHTML = '<i class="fa-solid fa-check text-emerald-600"></i> Copied!';
-        setTimeout(() => {
-          btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
-        }, 2000);
-      }
-    }).catch(() => fallbackCopyUpi());
-  } else {
-    fallbackCopyUpi();
-  }
-}
-
-function fallbackCopyUpi() {
-  const tempInput = document.createElement("input");
-  tempInput.value = CLINIC_INFO.upiId;
-  document.body.appendChild(tempInput);
-  tempInput.select();
-  document.execCommand("copy");
-  document.body.removeChild(tempInput);
-  const btn = document.getElementById("copy-upi-btn");
-  if (btn) {
-    btn.innerHTML = '<i class="fa-solid fa-check text-emerald-600"></i> Copied!';
-    setTimeout(() => {
-      btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
-    }, 2000);
-  }
-}
-
-// Print / Save Invoice helper - Strictly 1 Page Only via isolated frame
+// Print / Save Invoice helper
 function takeInvoiceScreenshot() {
   const invoiceCard = document.getElementById("consultation-invoice-card");
   if (!invoiceCard) {
@@ -1000,7 +969,6 @@ function takeInvoiceScreenshot() {
     return;
   }
 
-  // Remove any previously created print iframe
   const existingFrame = document.getElementById("print-invoice-frame");
   if (existingFrame) existingFrame.remove();
 
@@ -1020,45 +988,18 @@ function takeInvoiceScreenshot() {
 
   doc.open();
   doc.write(`<!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="UTF-8">
   <title>Srinika Medisurge Receipt - #${bookingId}</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
-    @page {
-      size: A4 portrait;
-      margin: 12mm;
-    }
-    * {
-      box-sizing: border-box;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: #0f172a;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .invoice-wrapper {
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 10px;
-      page-break-inside: avoid;
-      break-inside: avoid;
-    }
-    .text-brand-600 { color: #0284c7 !important; }
-    .bg-brand-600 { background-color: #0284c7 !important; }
-    img {
-      max-width: 100%;
-      height: auto;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
+    @page { size: A4 portrait; margin: 12mm; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    html, body { margin: 0; padding: 0; background: #ffffff; color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .invoice-wrapper { max-width: 620px; margin: 0 auto; padding: 10px; page-break-inside: avoid; break-inside: avoid; }
   </style>
 </head>
 <body>
@@ -1069,13 +1010,11 @@ function takeInvoiceScreenshot() {
 </html>`);
   doc.close();
 
-  // Give Tailwind & fonts a short moment to render, then open print dialog
   setTimeout(() => {
     try {
       iframe.contentWindow.focus();
       iframe.contentWindow.print();
     } catch (e) {
-      console.warn("Iframe print fallback:", e);
       window.print();
     }
   }, 450);
@@ -1110,7 +1049,6 @@ function toggleFaq(button) {
   if (!content) return;
   const isOpen = content.classList.contains("open");
 
-  // Close all other FAQs
   document.querySelectorAll(".faq-item").forEach(i => {
     i.classList.remove("active");
     const c = i.querySelector(".faq-content");
@@ -1124,8 +1062,6 @@ function toggleFaq(button) {
 }
 
 // ================= PATIENT FEEDBACK & GOOGLE SHEET SYNC =================
-
-// Interactive Star Rating Selector
 function setFeedbackRating(rating) {
   const ratingInput = document.getElementById("fb-rating");
   const ratingText = document.getElementById("star-rating-text");
@@ -1155,7 +1091,6 @@ function setFeedbackRating(rating) {
   });
 }
 
-// Handle Patient Feedback Submission & Google Sheet Posting
 async function submitPatientFeedback(event) {
   event.preventDefault();
 
@@ -1182,7 +1117,6 @@ async function submitPatientFeedback(event) {
     return;
   }
 
-  // Button loading state
   const origBtnContent = submitBtn ? submitBtn.innerHTML : "";
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -1204,18 +1138,14 @@ async function submitPatientFeedback(event) {
 
   try {
     if (GOOGLE_SHEET_URL) {
-      // Send directly to Google Sheet Web App
       await fetch(GOOGLE_SHEET_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(feedbackPayload)
       });
     }
 
-    // Success response UI (High contrast on white container)
     if (statusMsg) {
       statusMsg.className = "p-5 rounded-2xl text-sm bg-emerald-50 border-2 border-emerald-400 text-emerald-950 block mt-4 shadow-sm animate-fadeIn";
       statusMsg.innerHTML = `
@@ -1234,7 +1164,6 @@ async function submitPatientFeedback(event) {
       statusMsg.classList.remove("hidden");
     }
 
-    // Reset Form
     const form = document.getElementById("patient-feedback-form");
     if (form) form.reset();
     setFeedbackRating(5);
@@ -1264,4 +1193,43 @@ async function submitPatientFeedback(event) {
       submitBtn.innerHTML = origBtnContent;
     }
   }
+}
+
+// Track GA4 and custom conversion events
+function setupAnalyticsTracking() {
+  // Call clicks
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener("click", () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'call_click', {
+          event_category: 'contact',
+          event_label: link.getAttribute('href')
+        });
+      }
+    });
+  });
+
+  // WhatsApp clicks
+  document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener("click", () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'whatsapp_click', {
+          event_category: 'contact',
+          event_label: 'whatsapp_lead'
+        });
+      }
+    });
+  });
+
+  // Book Visit CTA clicks
+  document.querySelectorAll('a[href="/book/"]').forEach(link => {
+    link.addEventListener("click", () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'book_visit_click', {
+          event_category: 'conversion',
+          event_label: 'book_visit_cta'
+        });
+      }
+    });
+  });
 }

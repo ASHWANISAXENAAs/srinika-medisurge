@@ -1,0 +1,22 @@
+# Vercel Deployment Ignore
+# Exclude build tools, scratch scripts, audit files, and internal docs from production publish
+
+builder/
+scripts/
+scratch/
+audit/
+node_modules/
+.git/
+.github/
+
+# Documentation and scratch files
+*.md
+*.log
+*.tmp
+live.html
+
+# Configuration and dependency files (build-time only)
+site.config.js
+site.config.json
+package.json
+package-lock.json
