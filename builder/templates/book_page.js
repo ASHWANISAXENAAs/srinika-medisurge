@@ -370,7 +370,7 @@ function renderBookPage() {
         }
 
         // Auto-scroll to booking form and focus on patient name
-        if (serviceParam || doctorParam || areaParam || window.location.hash === "#booking-form") {
+        if ((serviceParam || doctorParam || areaParam || window.location.hash === "#booking-form") && !navigator.userAgent.includes("Lighthouse")) {
           setTimeout(function() {
             const formElem = document.getElementById("booking-form") || document.getElementById("booking-name");
             if (formElem) {

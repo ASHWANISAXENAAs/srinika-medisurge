@@ -187,8 +187,8 @@ function renderHomePage() {
                 </div>
 
                 <div class="grid grid-cols-2 gap-2">
-                  <a href="${service.slug === 'online-doctor-consultation-lucknow' ? '/book/?service=online-consultation#booking-form' : '/book/?service=' + encodeURIComponent(service.shortTitle)}" class="py-2.5 px-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl text-center shadow-sm transition">
-                    ${service.slug === 'online-doctor-consultation-lucknow' ? 'Book Consultation' : 'Book Visit'}
+                  <a href="${service.slug === 'online-doctor-consultation' ? '/book/?service=online-consultation#booking-form' : '/book/?service=' + encodeURIComponent(service.shortTitle)}" class="py-2.5 px-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl text-center shadow-sm transition">
+                    ${service.slug === 'online-doctor-consultation' ? 'Book Consultation' : 'Book Visit'}
                   </a>
                   <a href="/services/${service.slug}/" class="py-2.5 px-3 bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs rounded-xl text-center border border-slate-200 transition">
                     Details

@@ -93,10 +93,10 @@ function renderServicesOverview() {
                 </div>
 
                 <div class="grid grid-cols-2 gap-2 mb-2">
-                  <a href="${service.slug === 'online-doctor-consultation-lucknow' ? '/book/?service=online-consultation#booking-form' : '/book/?service=' + encodeURIComponent(service.shortTitle)}" 
+                  <a href="${service.slug === 'online-doctor-consultation' ? '/book/?service=online-consultation#booking-form' : '/book/?service=' + encodeURIComponent(service.shortTitle)}" 
                     class="w-full py-2.5 px-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-xs sm:text-sm rounded-xl transition duration-200 flex items-center justify-center gap-1.5 shadow-sm text-center">
                     <i class="fa-regular fa-calendar-check text-xs"></i>
-                    <span>${service.slug === 'online-doctor-consultation-lucknow' ? 'Book Consultation' : 'Book Visit'}</span>
+                    <span>${service.slug === 'online-doctor-consultation' ? 'Book Consultation' : 'Book Visit'}</span>
                   </a>
                   
                   <button type="button" onclick="quickWhatsAppService('${service.shortTitle}')" 
