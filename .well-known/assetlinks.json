@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "in.srinikamedisurge.app",
+      "sha256_cert_fingerprints": [
+        "6F:41:A1:3C:C1:7A:93:65:C6:F8:BC:5C:32:44:86:39:CE:93:47:A0:93:F7:B0:35:75:9F:3C:C5:1A:92:7C:E3"
+      ]
+    }
+  }
+]

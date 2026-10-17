@@ -194,6 +194,8 @@ function renderMasterLayout({
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="192x192" href="/assets/images/logo-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0e7490">
 
   <!-- Google Fonts Preconnect & Display Swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -12,3 +12,5 @@ check_*
 run_*
 review-screenshots/
 *.tmp
+android-app/
+android-release/
