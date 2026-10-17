@@ -39,15 +39,17 @@ function renderBookPage() {
           <!-- Step 1: Booking Details Form -->
           <div id="modal-form-content" class="p-6 sm:p-8 space-y-4">
             
-            <div id="online-consult-alert" class="hidden p-4 rounded-2xl bg-gradient-to-r from-sky-50 to-emerald-50 border border-sky-200 text-sky-950 text-xs sm:text-sm flex items-start gap-3">
-              <div class="w-8 h-8 rounded-xl bg-sky-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                <i class="fa-solid fa-video text-xs"></i>
-              </div>
-              <div>
-                <strong class="font-bold text-slate-900 block">Online Tele-Consultation (₹500 Fee)</strong>
-                <span class="text-slate-600 text-xs leading-relaxed">
-                  Connect directly via video or tele-call. Pay ₹500 securely via Razorpay (UPI, Debit/Credit Cards, NetBanking) to generate your confirmed invoice & instant doctor slot.
-                </span>
+            <div id="online-consult-alert-wrap" class="transition-all duration-200">
+              <div id="online-consult-alert" class="hidden p-4 rounded-2xl bg-gradient-to-r from-sky-50 to-emerald-50 border border-sky-200 text-sky-950 text-xs sm:text-sm flex items-start gap-3">
+                <div class="w-8 h-8 rounded-xl bg-sky-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  <i class="fa-solid fa-video text-xs"></i>
+                </div>
+                <div>
+                  <strong class="font-bold text-slate-900 block">Online Tele-Consultation (₹500 Fee)</strong>
+                  <span class="text-slate-600 text-xs leading-relaxed">
+                    Connect directly via video or tele-call. Pay ₹500 securely via Razorpay (UPI, Debit/Credit Cards, NetBanking) to generate your confirmed invoice & instant doctor slot.
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -321,17 +323,17 @@ function renderBookPage() {
       </div>
     </div>
 
-    <!-- URL Query Param Sync Script for Booking Page -->
+    <!-- URL Query Param Sync Script for Booking Page (Executed synchronously before paint) -->
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const serviceParam = urlParams.get("service");
-        const doctorParam = urlParams.get("doctor");
-        const areaParam = urlParams.get("area");
+      (function() {
+        try {
+          const urlParams = new URLSearchParams(window.location.search);
+          const serviceParam = urlParams.get("service");
+          const doctorParam = urlParams.get("doctor");
+          const areaParam = urlParams.get("area");
 
-        if (serviceParam) {
           const select = document.getElementById("modal-service-select");
-          if (select) {
+          if (serviceParam && select) {
             const isOnline = serviceParam.toLowerCase().includes("online");
             if (isOnline) {
               select.value = "Online Doctor Consultation (₹500)";
@@ -344,11 +346,9 @@ function renderBookPage() {
               }
             }
           }
-        }
 
-        if (doctorParam) {
           const docSelect = document.getElementById("booking-doctor");
-          if (docSelect) {
+          if (doctorParam && docSelect) {
             for (let opt of docSelect.options) {
               if (opt.value.toLowerCase().includes(doctorParam.toLowerCase())) {
                 docSelect.value = opt.value;
@@ -356,31 +356,21 @@ function renderBookPage() {
               }
             }
           }
-        }
 
-        if (areaParam) {
           const addr = document.getElementById("modal-address-input");
-          if (addr) {
+          if (areaParam && addr) {
             addr.value = areaParam + ", Lucknow";
           }
-        }
 
+          if (typeof syncModalServiceMode === "function") {
+            syncModalServiceMode();
+          }
+        } catch(e) {}
+      })();
+
+      document.addEventListener("DOMContentLoaded", function() {
         if (typeof syncModalServiceMode === "function") {
           syncModalServiceMode();
-        }
-
-        // Auto-scroll to booking form and focus on patient name
-        if ((serviceParam || doctorParam || areaParam || window.location.hash === "#booking-form") && !navigator.userAgent.includes("Lighthouse")) {
-          setTimeout(function() {
-            const formElem = document.getElementById("booking-form") || document.getElementById("booking-name");
-            if (formElem) {
-              formElem.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-            const nameInput = document.getElementById("booking-name");
-            if (nameInput) {
-              nameInput.focus();
-            }
-          }, 150);
         }
       });
     </script>

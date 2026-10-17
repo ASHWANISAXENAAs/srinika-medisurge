@@ -293,21 +293,22 @@ function renderHomePage() {
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          ${homeDoctors.map(doc => `
-            <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col justify-between group">
+        <!-- Responsive Doctor Grid: 3 columns with bottom 2 centered on desktop (>=1100px), 2 on tablet, 1 on mobile -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          ${homeDoctors.slice(0, 3).map(doc => `
+            <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col justify-between group">
               <div>
-                <div class="w-full h-56 rounded-2xl overflow-hidden mb-4 bg-slate-100">
-                  <img src="/${doc.image}" alt="${doc.name} - ${doc.specialty}" width="300" height="300" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy">
+                <div class="w-full h-52 rounded-2xl overflow-hidden mb-4 bg-slate-100">
+                  <img src="/${doc.image}" alt="${doc.name} - ${doc.specialty}" width="340" height="260" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy">
                 </div>
                 <div class="flex flex-wrap gap-1 mb-2">
                   ${doc.badges.slice(0, 2).map(b => `
-                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-100">${b}</span>
+                    <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-100">${b}</span>
                   `).join('')}
                 </div>
-                <h3 class="text-base font-bold text-slate-900 font-heading mb-1">${doc.name}</h3>
+                <h3 class="text-lg font-bold text-slate-900 font-heading mb-0.5">${doc.name}</h3>
                 <p class="text-xs font-semibold text-emerald-600 mb-2">${doc.specialty}</p>
-                <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed mb-4">${doc.bio}</p>
+                <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed mb-4">${doc.bio}</p>
               </div>
 
               <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
@@ -317,6 +318,32 @@ function renderHomePage() {
                 ` : `
                 <a href="/doctors/#${doc.id}" class="text-sky-600 font-bold hover:underline">View Bio →</a>
                 `}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Second Row: Centered 2 Cards on Desktop -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto mt-6 lg:mt-8">
+          ${homeDoctors.slice(3, 5).map(doc => `
+            <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col justify-between group">
+              <div>
+                <div class="w-full h-52 rounded-2xl overflow-hidden mb-4 bg-slate-100">
+                  <img src="/${doc.image}" alt="${doc.name} - ${doc.specialty}" width="340" height="260" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy">
+                </div>
+                <div class="flex flex-wrap gap-1 mb-2">
+                  ${doc.badges.slice(0, 2).map(b => `
+                    <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-100">${b}</span>
+                  `).join('')}
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 font-heading mb-0.5">${doc.name}</h3>
+                <p class="text-xs font-semibold text-emerald-600 mb-2">${doc.specialty}</p>
+                <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed mb-4">${doc.bio}</p>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                <span class="font-bold text-slate-900">${doc.pricing.split('•')[0]}</span>
+                <a href="/doctors/#${doc.id}" class="text-sky-600 font-bold hover:underline">View Bio →</a>
               </div>
             </div>
           `).join('')}
