@@ -6,5 +6,9 @@ audit/
 live.html
 lh_*.json
 extract_*
+audit_*
+test_*
+check_*
+run_*
 review-screenshots/
 *.tmp
