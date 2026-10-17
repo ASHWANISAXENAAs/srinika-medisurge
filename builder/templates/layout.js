@@ -408,7 +408,7 @@ function renderMasterLayout({
 
         <!-- Mobile Hamburger Button (< 1100px) -->
         <div class="flex items-center min-[1100px]:hidden shrink-0">
-          <a href="/book/" class="mr-2 inline-flex items-center bg-sky-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shrink-0 whitespace-nowrap">
+          <a href="/book/" class="mr-2 hidden sm:inline-flex items-center bg-sky-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shrink-0 whitespace-nowrap">
             Book
           </a>
           <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -599,8 +599,8 @@ function renderMasterLayout({
     </div>
   </footer>
 
-  <!-- ================= FLOATING ACTION BUTTONS (DESKTOP & MOBILE) ================= -->
-  <div class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-40 flex flex-col items-end gap-3 pointer-events-none">
+  <!-- ================= FLOATING ACTION BUTTONS (DESKTOP ONLY) ================= -->
+  <div class="hidden sm:flex fixed bottom-6 right-6 z-40 flex-col items-end gap-3 pointer-events-none">
     
     <!-- Floating WhatsApp -->
     <a href="${CONFIG.whatsappUrl}?text=${encodeURIComponent('Namaste Dr. Piyush, I need home medical care in Lucknow')}" target="_blank" rel="noopener noreferrer" 

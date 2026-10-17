@@ -32,30 +32,32 @@ function renderHomePage() {
               <span class="text-gradient">Right At Your Doorstep.</span>
             </h1>
 
-            <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p class="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Founded by <strong>${CONFIG.founderName}</strong>. Experience compassionate, sterile, and professional patient care, drug administration, catheterization, and surgical dressing in the comfort of your home.
             </p>
 
-            <p class="text-xs sm:text-sm text-slate-500 italic max-w-xl mx-auto lg:mx-0 font-medium">
+            <p class="hidden sm:block text-xs sm:text-sm text-slate-500 italic max-w-xl mx-auto lg:mx-0 font-medium">
               &ldquo;All types of care, every step we share &bull; Strong Bonds. Lifelong Care.&rdquo;
             </p>
 
-            <!-- 3 Hero CTAs: Consistent Height, Radius & Font -->
-            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3">
+            <!-- Hero CTAs: Primary Action + Side-by-Side Quick Contact on Mobile -->
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-3">
               <a href="/book/" class="h-12 px-6 rounded-xl bg-gradient-to-r from-brand-600 to-medical-teal hover:from-brand-700 hover:to-teal-700 text-white font-extrabold text-sm sm:text-base shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center justify-center gap-2">
                 <i class="fa-solid fa-calendar-check"></i>
                 <span>Book Doorstep Visit</span>
               </a>
 
-              <a href="${CONFIG.whatsappUrl}?text=${encodeURIComponent('Namaste Dr. Piyush Saxena, I need doorstep medical care in Lucknow')}" target="_blank" rel="noopener noreferrer" class="h-12 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center justify-center gap-2">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span>WhatsApp Us</span>
-              </a>
+              <div class="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-3">
+                <a href="tel:${CONFIG.drPiyushPhoneTel}" class="h-11 sm:h-12 px-3 sm:px-5 rounded-xl border-2 border-sky-600 hover:bg-sky-50 text-sky-700 font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 whitespace-nowrap">
+                  <i class="fa-solid fa-phone text-sky-600"></i>
+                  <span>Call Doctor</span>
+                </a>
 
-              <a href="tel:${CONFIG.drPiyushPhoneTel}" class="h-12 px-5 rounded-xl border-2 border-sky-600 hover:bg-sky-50 text-sky-700 font-extrabold text-sm sm:text-base transition flex items-center justify-center gap-2">
-                <i class="fa-solid fa-phone text-sky-600"></i>
-                <span>Call Doctor</span>
-              </a>
+                <a href="${CONFIG.whatsappUrl}?text=${encodeURIComponent('Namaste Dr. Piyush Saxena, I need doorstep medical care in Lucknow')}" target="_blank" rel="noopener noreferrer" class="h-11 sm:h-12 px-3 sm:px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center justify-center gap-1.5 whitespace-nowrap">
+                  <i class="fa-brands fa-whatsapp text-base"></i>
+                  <span>WhatsApp Us</span>
+                </a>
+              </div>
             </div>
 
             <!-- Online Consultation Direct Flow Teal Pill Button -->
@@ -65,6 +67,51 @@ function renderHomePage() {
                 <span>Need immediate teleconsultation? Consult Online (₹500)</span>
                 <i class="fa-solid fa-arrow-right text-[11px] text-teal-600 ml-0.5"></i>
               </a>
+            </div>
+
+            <!-- Quick Services Picker: Instant clarity on what services can be booked -->
+            <div class="pt-2 text-left">
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <a href="/services/doctor-home-visit-lucknow/" class="bg-white hover:bg-sky-50 p-2.5 sm:p-3 rounded-xl border border-slate-200 hover:border-sky-400 shadow-xs transition group flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center text-sm font-bold shrink-0 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-user-doctor"></i>
+                  </div>
+                  <div>
+                    <strong class="text-xs font-bold text-slate-900 block leading-tight">Doctor Visit</strong>
+                    <span class="text-[10px] text-sky-600 font-semibold block">₹2,000</span>
+                  </div>
+                </a>
+
+                <a href="/services/home-nursing-lucknow/" class="bg-white hover:bg-emerald-50 p-2.5 sm:p-3 rounded-xl border border-slate-200 hover:border-emerald-400 shadow-xs transition group flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-bold shrink-0 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-user-nurse"></i>
+                  </div>
+                  <div>
+                    <strong class="text-xs font-bold text-slate-900 block leading-tight">Home Nursing</strong>
+                    <span class="text-[10px] text-emerald-600 font-semibold block">From ₹299</span>
+                  </div>
+                </a>
+
+                <a href="/services/urinary-catheterization-at-home-lucknow/" class="bg-white hover:bg-amber-50 p-2.5 sm:p-3 rounded-xl border border-slate-200 hover:border-amber-400 shadow-xs transition group flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-sm font-bold shrink-0 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-kit-medical"></i>
+                  </div>
+                  <div>
+                    <strong class="text-xs font-bold text-slate-900 block leading-tight">Catheter Care</strong>
+                    <span class="text-[10px] text-amber-600 font-semibold block">₹599</span>
+                  </div>
+                </a>
+
+                <a href="/services/online-doctor-consultation/" class="bg-white hover:bg-teal-50 p-2.5 sm:p-3 rounded-xl border border-slate-200 hover:border-teal-400 shadow-xs transition group flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-teal-100 text-teal-600 flex items-center justify-center text-sm font-bold shrink-0 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-video"></i>
+                  </div>
+                  <div>
+                    <strong class="text-xs font-bold text-slate-900 block leading-tight">Tele-Consult</strong>
+                    <span class="text-[10px] text-teal-600 font-semibold block">₹500</span>
+                  </div>
+                </a>
+              </div>
             </div>
 
             <!-- Existing 4 Stats -->
