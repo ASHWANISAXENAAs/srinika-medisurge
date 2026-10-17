@@ -51,7 +51,7 @@ function renderBookPage() {
               </div>
             </div>
 
-            <form id="doorstep-booking-form" class="space-y-4">
+            <form id="booking-form" class="space-y-4">
               <!-- Spam protection honeypot field (hidden from real users) -->
               <input type="text" id="booking-hp" name="hp_field" class="hidden" tabindex="-1" autocomplete="off">
 
@@ -70,8 +70,8 @@ function renderBookPage() {
                 <label for="booking-doctor" class="block text-xs font-bold text-slate-700 uppercase mb-1">Select Consulting Doctor *</label>
                 <select id="booking-doctor" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 outline-none font-medium text-slate-800">
                   <option value="Dr. Piyush Saxena">Dr. Piyush Saxena (Lead Medical Practitioner & Founder)</option>
-                  <option value="Dr. Akash Shrivastav">Dr. Akash Shrivastav (M.B.B.S. • Emergency & General Physician)</option>
-                  <option value="Dr. Reshmi R">Dr. Reshmi R (M.B.B.S. • Physician & Women's Health Clinician)</option>
+                  <option value="Dr. Akash Shrivastav">Dr. Akash Shrivastav (M.B.B.S. • UP Medical Council Reg. • Emergency)</option>
+                  <option value="Dr. Reshmi R">Dr. Reshmi R (M.B.B.S. • UP Medical Council Reg. • Physician)</option>
                   <option value="Dr. Desh Deepak Singh">Dr. Desh Deepak Singh (B.P.T., M.P.T. • Neuro Physiotherapist)</option>
                 </select>
               </div>
@@ -92,6 +92,11 @@ function renderBookPage() {
                   <option value="Critical Care & Vital Monitoring">Critical Care & Vital Monitoring</option>
                   <option value="Diagnostic Sample Collection at Home">Diagnostic Sample Collection at Home</option>
                 </select>
+                <!-- Payment clarity notice -->
+                <p class="text-[11px] text-slate-500 mt-1.5 flex items-center gap-1.5">
+                  <i class="fa-solid fa-circle-info text-sky-500"></i>
+                  <span><strong>Online Consultation (₹500)</strong> is paid upfront securely via Razorpay. All <strong>doorstep visits and nursing procedures</strong> are confirmed directly on WhatsApp/call first, with payment after service confirmation.</span>
+                </p>
               </div>
 
               <div id="modal-address-field">
@@ -279,7 +284,7 @@ function renderBookPage() {
                 <i class="fa-solid fa-print"></i>
                 <span>Save / Print Invoice</span>
               </button>
-              <a id="inv-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2 text-center">
+              <a id="inv-whatsapp-btn" href="https://wa.me/919653001359?text=Namaste%20Dr.%20Piyush%20Saxena%2C%20I%20have%20completed%20the%20online%20consultation%20booking%20and%20payment%20on%20Srinika%20Medisurge." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2 text-center">
                 <i class="fa-brands fa-whatsapp text-base"></i>
                 <span>Notify Doctor</span>
               </a>
@@ -298,7 +303,7 @@ function renderBookPage() {
               Your details have been logged. Dr. Piyush Saxena or our duty clinical officer is reviewing your request. Please confirm via WhatsApp to ensure immediate dispatch.
             </p>
             <div class="pt-2">
-              <a id="success-whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition inline-flex items-center justify-center gap-2">
+              <a id="success-whatsapp-link" href="https://wa.me/919653001359?text=Namaste%20Dr.%20Piyush%20Saxena%2C%20I%20would%20like%20to%20confirm%20my%20doorstep%20healthcare%20booking%20with%20Srinika%20Medisurge." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition inline-flex items-center justify-center gap-2">
                 <i class="fa-brands fa-whatsapp text-lg"></i>
                 <span>Open WhatsApp & Confirm</span>
               </a>
@@ -326,10 +331,15 @@ function renderBookPage() {
         if (serviceParam) {
           const select = document.getElementById("modal-service-select");
           if (select) {
-            for (let opt of select.options) {
-              if (opt.value.toLowerCase().includes(serviceParam.toLowerCase()) || opt.text.toLowerCase().includes(serviceParam.toLowerCase())) {
-                select.value = opt.value;
-                break;
+            const isOnline = serviceParam.toLowerCase().includes("online");
+            if (isOnline) {
+              select.value = "Online Doctor Consultation (₹500)";
+            } else {
+              for (let opt of select.options) {
+                if (opt.value.toLowerCase().includes(serviceParam.toLowerCase()) || opt.text.toLowerCase().includes(serviceParam.toLowerCase())) {
+                  select.value = opt.value;
+                  break;
+                }
               }
             }
           }
@@ -356,6 +366,20 @@ function renderBookPage() {
 
         if (typeof syncModalServiceMode === "function") {
           syncModalServiceMode();
+        }
+
+        // Auto-scroll to booking form and focus on patient name
+        if (serviceParam || doctorParam || areaParam || window.location.hash === "#booking-form") {
+          setTimeout(function() {
+            const formElem = document.getElementById("booking-form") || document.getElementById("booking-name");
+            if (formElem) {
+              formElem.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+            const nameInput = document.getElementById("booking-name");
+            if (nameInput) {
+              nameInput.focus();
+            }
+          }, 150);
         }
       });
     </script>

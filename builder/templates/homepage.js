@@ -14,20 +14,20 @@ function renderHomePage() {
 
   return `
     <!-- 1. HERO SECTION -->
-    <section id="hero" class="relative pt-12 pb-20 sm:pt-20 sm:pb-28 overflow-hidden bg-gradient-to-b from-brand-50 via-white to-slate-50 border-b border-slate-200/60">
+    <section id="hero" class="relative pt-6 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 overflow-hidden bg-gradient-to-b from-brand-50 via-white to-slate-50 border-b border-slate-200/60">
       <!-- Background subtle glow -->
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-tr from-brand-100/40 via-medical-lightGreen/50 to-transparent blur-3xl pointer-events-none -z-10"></div>
       
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-sky-100 text-sky-800 border border-sky-200 shadow-sm">
               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
               <span>All Types of Medical & Surgical Services at Your Doorstep | Gomti Nagar, Lucknow</span>
             </div>
 
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight font-heading leading-[1.15]">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-slate-900 tracking-tight font-heading leading-[1.15]">
               Hospital-Grade Care, <br>
               <span class="text-gradient">Right At Your Doorstep.</span>
             </h1>
@@ -40,46 +40,48 @@ function renderHomePage() {
               &ldquo;All types of care, every step we share &bull; Strong Bonds. Lifelong Care.&rdquo;
             </p>
 
-            <!-- Only 2 Primary CTAs + Call Link + Secondary Consult Online link -->
-            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
-              <a href="/book/" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-brand-600 to-medical-teal hover:from-brand-700 hover:to-teal-700 text-white font-extrabold text-base shadow-lg shadow-sky-600/20 hover:shadow-xl transition transform active:scale-95 flex items-center justify-center gap-2">
+            <!-- 3 Hero CTAs: Consistent Height, Radius & Font -->
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3">
+              <a href="/book/" class="h-12 px-6 rounded-xl bg-gradient-to-r from-brand-600 to-medical-teal hover:from-brand-700 hover:to-teal-700 text-white font-extrabold text-sm sm:text-base shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center justify-center gap-2">
                 <i class="fa-solid fa-calendar-check"></i>
                 <span>Book Doorstep Visit</span>
               </a>
 
-              <a href="${CONFIG.whatsappUrl}?text=${encodeURIComponent('Namaste Dr. Piyush Saxena, I need doorstep medical care in Lucknow')}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base shadow-lg shadow-emerald-600/20 hover:shadow-xl transition transform active:scale-95 flex items-center justify-center gap-2">
+              <a href="${CONFIG.whatsappUrl}?text=${encodeURIComponent('Namaste Dr. Piyush Saxena, I need doorstep medical care in Lucknow')}" target="_blank" rel="noopener noreferrer" class="h-12 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center justify-center gap-2">
                 <i class="fa-brands fa-whatsapp text-lg"></i>
                 <span>WhatsApp Us</span>
               </a>
 
-              <a href="tel:${CONFIG.drPiyushPhoneTel}" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-700 hover:text-sky-600 px-3 py-2 transition">
-                <i class="fa-solid fa-phone text-sky-600 text-xs"></i>
+              <a href="tel:${CONFIG.drPiyushPhoneTel}" class="h-12 px-5 rounded-xl border-2 border-sky-600 hover:bg-sky-50 text-sky-700 font-extrabold text-sm sm:text-base transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-phone text-sky-600"></i>
                 <span>Call Doctor</span>
               </a>
             </div>
 
-            <div class="pt-1 text-center lg:text-left">
-              <span class="text-xs text-slate-500">Need immediate teleconsultation? </span>
-              <a href="/services/online-doctor-consultation/" class="text-xs font-bold text-sky-600 hover:text-sky-800 hover:underline">
-                Consult Online (₹500) →
+            <!-- Online Consultation Direct Flow Teal Pill Button -->
+            <div class="pt-1 flex items-center justify-center lg:justify-start">
+              <a href="/book/?service=online-consultation#booking-form" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 text-xs sm:text-sm font-bold shadow-2xs transition group">
+                <i class="fa-solid fa-video text-teal-600 group-hover:scale-110 transition-transform"></i>
+                <span>Need immediate teleconsultation? Consult Online (₹500)</span>
+                <i class="fa-solid fa-arrow-right text-[11px] text-teal-600 ml-0.5"></i>
               </a>
             </div>
 
             <!-- Existing 4 Stats -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-200/80">
-              <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 border-t border-slate-200/80">
+              <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm text-center">
                 <span class="block text-2xl font-black text-slate-900 font-heading">30-45m</span>
                 <span class="text-xs font-semibold text-slate-500">Doorstep Response</span>
               </div>
-              <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center">
+              <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm text-center">
                 <span class="block text-2xl font-black text-emerald-600 font-heading">100%</span>
                 <span class="text-xs font-semibold text-slate-500">Sterile Surgical Kits</span>
               </div>
-              <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center">
+              <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm text-center">
                 <span class="block text-2xl font-black text-slate-900 font-heading">2,500+</span>
                 <span class="text-xs font-semibold text-slate-500">Home Visits Done</span>
               </div>
-              <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center">
+              <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm text-center">
                 <span class="block text-2xl font-black text-amber-500 font-heading">4.9 ★</span>
                 <span class="text-xs font-semibold text-slate-500">Patient Satisfaction</span>
               </div>
@@ -91,15 +93,15 @@ function renderHomePage() {
           <div class="lg:col-span-5 relative">
             <div class="relative mx-auto max-w-md lg:max-w-none">
               <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
-                <img src="/assets/images/dr-piyush-saxena.jpg" alt="Dr. Piyush Saxena - Founder Srinika Medisurge Lucknow" width="500" height="580" class="w-full h-[440px] sm:h-[500px] object-cover object-top transition duration-500 group-hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6 text-white space-y-1">
+                <img src="/assets/images/dr-piyush-saxena.jpg" alt="Dr. Piyush Saxena - Founder Srinika Medisurge Lucknow" width="500" height="580" class="w-full h-[380px] sm:h-[460px] object-cover object-top transition duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white space-y-1 z-10">
                   <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Doctor On-Call Active
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Doctor On-Call Active
                   </div>
                   <p class="text-2xl font-bold font-heading">Dr. Piyush Saxena</p>
-                  <p class="text-xs text-slate-300">Founder & Lead Medical Practitioner • Srinika Medisurge</p>
-                  <p class="text-[11px] text-slate-400 pt-1">Kaushal Puri Rd, Khargapur, Gomti Nagar HQ</p>
+                  <p class="text-xs text-slate-200">Founder & Lead Medical Practitioner • Srinika Medisurge</p>
+                  <p class="text-[11px] text-slate-300 pt-0.5">Kaushal Puri Rd, Khargapur, Gomti Nagar HQ</p>
                 </div>
               </div>
             </div>
@@ -185,8 +187,8 @@ function renderHomePage() {
                 </div>
 
                 <div class="grid grid-cols-2 gap-2">
-                  <a href="/book/?service=${encodeURIComponent(service.shortTitle)}" class="py-2.5 px-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl text-center shadow-sm transition">
-                    Book Visit
+                  <a href="${service.slug === 'online-doctor-consultation-lucknow' ? '/book/?service=online-consultation#booking-form' : '/book/?service=' + encodeURIComponent(service.shortTitle)}" class="py-2.5 px-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl text-center shadow-sm transition">
+                    ${service.slug === 'online-doctor-consultation-lucknow' ? 'Book Consultation' : 'Book Visit'}
                   </a>
                   <a href="/services/${service.slug}/" class="py-2.5 px-3 bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs rounded-xl text-center border border-slate-200 transition">
                     Details

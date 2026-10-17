@@ -445,7 +445,7 @@ function setupEventListeners() {
   }
 
   // Booking Form Submission & Service Mode Change
-  const bookingForm = document.getElementById("doorstep-booking-form");
+  const bookingForm = document.getElementById("booking-form") || document.getElementById("doorstep-booking-form");
   if (bookingForm) {
     bookingForm.addEventListener("submit", handleBookingSubmit);
   }
@@ -1026,7 +1026,7 @@ function resetBookingModal() {
   const paymentContainer = document.getElementById("modal-payment-content");
   const invoiceContainer = document.getElementById("modal-invoice-content");
   const successContainer = document.getElementById("modal-success-content");
-  const bookingForm = document.getElementById("doorstep-booking-form");
+  const bookingForm = document.getElementById("booking-form") || document.getElementById("doorstep-booking-form");
   const utrInput = document.getElementById("upi-utr-input");
 
   if (paymentContainer) paymentContainer.classList.add("hidden");

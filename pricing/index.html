@@ -171,19 +171,19 @@
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white flex flex-col min-h-screen">
 
   <!-- ================= TOP EMERGENCY & ANNOUNCEMENT BAR ================= -->
-  <div class="bg-gradient-to-r from-medical-navy via-brand-900 to-medical-teal text-white text-xs sm:text-sm py-2 px-4 shadow-sm border-b border-sky-900/50">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div class="flex items-center gap-2 font-medium">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500 text-white animate-pulse">
-          <i class="fa-solid fa-circle-check mr-1 text-[9px]"></i> 24/7 ACTIVE
+  <div class="bg-gradient-to-r from-medical-navy via-brand-900 to-medical-teal text-white text-xs py-2 px-4 shadow-sm border-b border-sky-900/50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 overflow-x-auto no-scrollbar">
+      <div class="flex items-center gap-2 font-medium shrink-0">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500 text-white animate-pulse">
+          <i class="fa-solid fa-circle-check mr-1 text-[8px]"></i> 24/7 ACTIVE
         </span>
-        <span class="text-slate-200 text-xs sm:text-sm">Doorstep Medical & Nursing Care in Gomti Nagar & Lucknow</span>
+        <span class="text-slate-200 text-xs hidden md:inline">Doorstep Medical & Nursing Care in Gomti Nagar & Lucknow</span>
+        <a href="https://share.google/xOFCwF7mYkANqIxis" target="_blank" rel="noopener noreferrer" class="hidden xl:inline-flex items-center text-slate-300 hover:text-white transition ml-2" title="View on Google Maps">
+          <i class="fa-solid fa-location-dot text-emerald-400 mr-1"></i> Kaushal Puri Rd, Khargapur, Gomti Nagar
+        </a>
       </div>
 
-      <div class="flex items-center gap-3 sm:gap-4 text-xs font-semibold">
-        <a href="https://share.google/xOFCwF7mYkANqIxis" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center text-slate-300 hover:text-white transition" title="View on Google Maps">
-          <i class="fa-solid fa-location-dot text-emerald-400 mr-1.5"></i> Kaushal Puri Rd, Khargapur, Gomti Nagar
-        </a>
+      <div class="flex items-center gap-3 sm:gap-4 text-xs font-semibold shrink-0 ml-auto">
         
         <a href="https://www.facebook.com/share/1BajYwmrsG/" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center text-slate-300 hover:text-white transition" aria-label="Visit Srinika Medisurge on Facebook">
           <i class="fa-brands fa-facebook-f mr-1"></i> Facebook
@@ -192,10 +192,10 @@
         <a href="https://www.instagram.com/srinika_medisurge/" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center text-slate-300 hover:text-white transition" aria-label="Visit Srinika Medisurge on Instagram">
           <i class="fa-brands fa-instagram mr-1"></i> Instagram
         </a>
-        <a href="tel:9653001359" class="inline-flex items-center text-amber-300 hover:text-amber-200 transition font-bold">
+        <a href="tel:9653001359" class="inline-flex items-center text-amber-300 hover:text-amber-200 transition font-bold whitespace-nowrap">
           <i class="fa-solid fa-phone-volume mr-1.5"></i> +91 96530 01359
         </a>
-        <a href="https://wa.me/919653001359?text=Namaste%20Dr.%20Piyush%2C%20I%20need%20home%20medical%20care%20in%20Lucknow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-emerald-300 hover:text-emerald-200 transition">
+        <a href="https://wa.me/919653001359?text=Namaste%20Dr.%20Piyush%2C%20I%20need%20home%20medical%20care%20in%20Lucknow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-emerald-300 hover:text-emerald-200 transition whitespace-nowrap">
           <i class="fa-brands fa-whatsapp text-sm mr-1"></i> Quick WhatsApp
         </a>
       </div>
@@ -203,80 +203,86 @@
   </div>
 
   <!-- ================= STICKY NAVBAR ================= -->
-  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300 h-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex items-center justify-between h-full gap-2 sm:gap-4">
         
-        <!-- Brand Logo -->
-        <a href="/" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg p-1">
-          <img src="https://srinikamedisurge.in/assets/images/logo.png" alt="Srinika Medisurge Logo" width="56" height="56" class="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
-          <div>
-            <span class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight block font-heading group-hover:text-brand-600 transition">
+        <!-- Brand Logo & Name Single Row -->
+        <a href="/" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg p-1 shrink-0">
+          <img src="https://srinikamedisurge.in/assets/images/logo.png" alt="Srinika Medisurge Logo" width="52" height="52" class="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+          <div class="leading-tight">
+            <span class="text-lg sm:text-xl xl:text-2xl font-extrabold text-slate-900 tracking-tight whitespace-nowrap block font-heading group-hover:text-brand-600 transition">
               Srinika <span class="text-gradient">Medisurge</span>
             </span>
-            <span class="text-[10px] sm:text-xs font-semibold text-slate-500 tracking-wider uppercase block">
+            <span class="text-[10px] font-semibold text-slate-500 tracking-wider uppercase whitespace-nowrap hidden sm:block">
               Doorstep Healthcare • Lucknow
             </span>
           </div>
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-semibold text-slate-700" aria-label="Main Navigation">
-          
-              <a href="/" class="px-2.5 py-2 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
-                Home
-              </a>
-            
-              <a href="/services/" class="px-2.5 py-2 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
-                Services
-              </a>
-            
-              <a href="/doctors/" class="px-2.5 py-2 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
-                Doctors
-              </a>
-            
-              <a href="/equipment/" class="px-2.5 py-2 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
-                Equipment
-              </a>
-            
-              <a href="/areas/" class="px-2.5 py-2 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
-                Areas
-              </a>
-            
-              <a href="/pricing/" class="px-2.5 py-2 rounded-lg transition text-sky-600 font-bold bg-sky-50">
-                Pricing
-              </a>
-            
-              <a href="/reviews/" class="px-2.5 py-2 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
-                Reviews
-              </a>
-            
-              <a href="/blog/" class="px-2.5 py-2 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
-                Blog
-              </a>
-            
-              <a href="/contact/" class="px-2.5 py-2 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
-                Contact
-              </a>
-            
+        <!-- Desktop Navigation: 8 Items + Equipment dropdown under Services -->
+        <nav class="hidden min-[1100px]:flex items-center gap-1 xl:gap-2 text-sm font-semibold text-slate-700" aria-label="Main Navigation">
+          <a href="/" class="px-2.5 py-1.5 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
+            Home
+          </a>
+
+          <!-- Services with Equipment Submenu -->
+          <div class="relative group">
+            <a href="/services/" class="px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1 hover:text-sky-600 hover:bg-slate-50">
+              <span>Services</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:text-sky-600 transition"></i>
+            </a>
+            <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50">
+              <div class="w-56 bg-white rounded-xl shadow-xl border border-slate-200 py-2">
+                <a href="/services/" class="block px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600">
+                  <i class="fa-solid fa-list-ul mr-2 text-sky-500"></i> All Doorstep Services
+                </a>
+                <a href="/services/online-doctor-consultation-lucknow/" class="block px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600">
+                  <i class="fa-solid fa-video mr-2 text-sky-500"></i> Online Consultation (₹500)
+                </a>
+                <a href="/equipment/" class="block px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600 border-t border-slate-100">
+                  <i class="fa-solid fa-lungs mr-2 text-rose-500"></i> Medical Equipment (BiPAP)
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/doctors/" class="px-2.5 py-1.5 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
+            Doctors
+          </a>
+          <a href="/areas/" class="px-2.5 py-1.5 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
+            Areas
+          </a>
+          <a href="/pricing/" class="px-2.5 py-1.5 rounded-lg transition text-sky-600 font-bold bg-sky-50">
+            Pricing
+          </a>
+          <a href="/reviews/" class="px-2.5 py-1.5 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
+            Reviews
+          </a>
+          <a href="/blog/" class="px-2.5 py-1.5 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
+            Blog
+          </a>
+          <a href="/contact/" class="px-2.5 py-1.5 rounded-lg transition hover:text-sky-600 hover:bg-slate-50">
+            Contact
+          </a>
         </nav>
 
-        <!-- Right Side Desktop CTAs -->
-        <div class="hidden sm:flex items-center gap-3">
-          <a href="tel:9653001359" class="hidden xl:flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-sky-600 px-3 py-2 border border-slate-200 rounded-xl hover:border-sky-300 transition">
+        <!-- Right Side Desktop CTAs: Guaranteed Non-Wrapping -->
+        <div class="hidden sm:flex items-center gap-2 xl:gap-3 shrink-0 whitespace-nowrap">
+          <a href="tel:9653001359" class="hidden xl:flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-sky-600 px-3 py-2 border border-slate-200 rounded-xl hover:border-sky-300 transition shrink-0 whitespace-nowrap">
             <i class="fa-solid fa-phone text-sky-600"></i>
             <span>+91 96530 01359</span>
           </a>
 
-          <a href="/book/" class="inline-flex items-center gap-2 bg-gradient-to-r from-brand-600 to-medical-teal hover:from-brand-700 hover:to-teal-700 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm hover:shadow-md transition transform active:scale-95">
+          <a href="/book/" class="inline-flex items-center gap-2 bg-gradient-to-r from-brand-600 to-medical-teal hover:from-brand-700 hover:to-teal-700 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm hover:shadow-md transition transform active:scale-95 shrink-0 whitespace-nowrap">
             <i class="fa-solid fa-calendar-check text-xs"></i>
             <span>Book Visit</span>
           </a>
         </div>
 
-        <!-- Mobile Hamburger Button -->
-        <div class="flex items-center sm:hidden">
-          <a href="/book/" class="mr-2 inline-flex items-center bg-sky-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg">
+        <!-- Mobile Hamburger Button (< 1100px) -->
+        <div class="flex items-center min-[1100px]:hidden shrink-0">
+          <a href="/book/" class="mr-2 inline-flex items-center bg-sky-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shrink-0 whitespace-nowrap">
             Book
           </a>
           <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -288,7 +294,7 @@
     </div>
 
     <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 shadow-xl transition-all">
+    <div id="mobile-menu" class="hidden min-[1100px]:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 shadow-xl transition-all">
       <nav class="flex flex-col space-y-1.5" aria-label="Mobile Navigation">
         
             <a href="/" class="px-3 py-2 rounded-lg text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-sky-600">

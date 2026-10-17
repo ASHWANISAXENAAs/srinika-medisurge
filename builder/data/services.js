@@ -251,13 +251,13 @@ const SERVICES = [
       "Diabetic patients suffering from non-healing diabetic foot ulcers (DFU) requiring specialized antiseptic care and slough removal.",
       "Bedridden elderly patients suffering from Grade 1 to Grade 4 pressure ulcers (bedsores) on the sacrum, heels, or hips.",
       "Accidental traumatic abrasions, lacerations, or burn wounds needing sterile dressing changes.",
-      "Patients needing surgical stitch removal or staple removal in a clean, painless home environment."
+      "Patients needing surgical stitch removal or staple removal in a clean, gentle home environment."
     ],
     whatsIncluded: [
       "Single-use sealed surgical dressing kit: Sterile gauze swabs, micropore tape, sterile forceps, surgical scissors, disposable drape.",
       "Medical-grade antiseptic cleansing: Normal Saline (0.9%), Povidone-Iodine (Betadine 5%/10%), Hydrogen Peroxide or Chlorhexidine as clinically indicated.",
       "Advanced therapeutic dressings: Hydrogel, silver-sulfadiazine, foam dressings, or collagen sheets for deep or exudative ulcers.",
-      "Gentle, painless debridement of superficial dead slough and biofilm under antiseptic technique.",
+      "Gentle debridement of superficial dead slough and biofilm under antiseptic technique.",
       "Clinical photography (with family consent) to track wound granulation, tissue epithelialization, and contraction over time.",
       "Post-procedure hygiene guidance and dietary recommendations (protein intake, vitamin C) to accelerate tissue regeneration."
     ],
@@ -318,9 +318,9 @@ const SERVICES = [
     priceNumber: 599,
     priceNote: "Catheter insertion / change from ₹599. Includes sterile consumables kit and bladder wash when needed.",
     duration: "35 - 50 mins",
-    responseTime: "15 - 30 Mins in Gomti Nagar (30 - 45 Mins across Lucknow)",
+    responseTime: "15 - 25 Mins in Gomti Nagar (30 - 45 Mins across Lucknow)",
     metaTitle: "Urinary Catheterization at Home Lucknow | Foley Catheter Nurse",
-    metaDescription: "Gentle, painless urinary catheterization at home in Lucknow by certified nurses under Dr. Piyush Saxena. Foley & silicone catheter change, bladder wash. Call +91 96530 01359.",
+    metaDescription: "Gentle urinary catheterization at home in Lucknow by certified nurses under Dr. Piyush Saxena. Foley & silicone catheter change, bladder wash. Call +91 96530 01359.",
     summary: "Expert aseptic urinary catheter insertion, replacement, removal, and bladder wash performed gently at home by certified clinical nursing officers.",
     whoNeedsIt: [
       "Elderly bedridden males or females suffering from acute urinary retention or benign prostatic hyperplasia (BPH).",
@@ -332,7 +332,7 @@ const SERVICES = [
     whatsIncluded: [
       "Hospital-grade 2-way or 3-way latex Foley catheter or 100% medical-grade silicone catheter (sizes 12Fr to 18Fr).",
       "Sterile single-use catheterization pack: Sterile drape, fenestrated sheet, sterile gloves, antiseptic swab sticks.",
-      "Anesthetic lubrication: 2% Lignocaine jelly to ensure smooth, painless, and friction-free urethral insertion.",
+      "Anesthetic lubrication: 2% Lignocaine jelly to ensure smooth, gentle, and friction-free urethral insertion.",
       "Sterile distilled water for safe balloon inflation (10ml-20ml) and sterile urobag with anti-reflux valve.",
       "Gentle bladder wash / irrigation with sterile Normal Saline if sediment, blood clots, or turbidity is present.",
       "Catheter anchoring and securement on the inner thigh to prevent traction pain or traumatic dislodgement."
@@ -350,7 +350,7 @@ const SERVICES = [
       },
       {
         step: 3,
-        title: "Painless Aseptic Insertion",
+        title: "Gentle Aseptic Insertion",
         desc: "Area cleaned with antiseptic, 2% Lignocaine anesthetic jelly instilled, gentle insertion performed without trauma, and balloon inflated."
       },
       {
@@ -364,7 +364,7 @@ const SERVICES = [
     faqs: [
       {
         q: "Is catheter insertion at home painful?",
-        a: "When performed by untrained attendants, catheter insertion can be uncomfortable. At Srinika Medisurge, our certified nurses use 2% Lignocaine local anesthetic jelly and gentle clinical technique to make the procedure virtually painless."
+        a: "When performed by untrained attendants, catheter insertion can be uncomfortable. At Srinika Medisurge, our certified nurses use 2% Lignocaine local anesthetic jelly and gentle clinical technique to make the procedure as comfortable as possible."
       },
       {
         q: "Do you have male nurses for elderly male catheterization?",
@@ -376,7 +376,7 @@ const SERVICES = [
       },
       {
         q: "What should we do if urine stops draining into the catheter bag?",
-        a: "Call us immediately at +91 96530 01359. A blocked catheter can cause acute bladder distension and severe pain. Our nurse can arrive within 20-30 minutes to perform a sterile saline flush or replace the tube."
+        a: "Call us immediately at +91 96530 01359. A blocked catheter can cause acute bladder distension and severe discomfort. For urgent catheter blockage, our nurse can arrive usually within 20-30 minutes to perform a sterile saline flush or replace the tube. If there is severe pain, fever, or no urine for many hours, call 108 or go to the nearest hospital immediately."
       }
     ],
     relatedServices: ["home-nursing-lucknow", "wound-dressing-at-home-lucknow", "ng-tube-insertion-at-home-lucknow", "iv-drip-injection-at-home-lucknow"],
@@ -444,7 +444,7 @@ const SERVICES = [
       },
       {
         q: "What should we do if the patient accidentally pulls the feeding tube out?",
-        a: "Do not attempt to reinsert it yourself, as blind reinsertion by untrained persons can cause tracheal trauma. Call Srinika Medisurge immediately at +91 96530 01359 for rapid reinsertion at home."
+        a: "Do not attempt to reinsert it yourself, as blind reinsertion by untrained persons can cause tracheal trauma. Call Srinika Medisurge immediately at +91 96530 01359 for rapid reinsertion at home. If the patient develops coughing, breathing distress, choking, or severe pain, call 108 or proceed to the nearest emergency room immediately."
       },
       {
         q: "How often should a Ryle's feeding tube be replaced?",
@@ -472,8 +472,8 @@ const SERVICES = [
     duration: "45 - 75 mins",
     responseTime: "30 - 45 Mins in Lucknow (15 - 25 Mins in Gomti Nagar)",
     metaTitle: "IV Drip & Injection at Home Lucknow | Saline & Antibiotics",
-    metaDescription: "Painless IV drip, saline infusion & injection at home in Lucknow by certified nurses under Dr. Piyush Saxena. Normal saline, RL, antibiotics & iron sucrose. Call +91 96530 01359.",
-    summary: "Safe, sterile intravenous (IV) fluid infusion and painless intramuscular (IM) or subcutaneous (SC) injection administration at home following strict hospital protocols.",
+    metaDescription: "Safe IV drip, saline infusion & injection at home in Lucknow by certified nurses under Dr. Piyush Saxena. Normal saline, RL, antibiotics & iron sucrose. Call +91 96530 01359.",
+    summary: "Safe, sterile intravenous (IV) fluid infusion and gentle intramuscular (IM) or subcutaneous (SC) injection administration at home following strict hospital protocols.",
     whoNeedsIt: [
       "Dehydrated patients suffering from acute gastroenteritis, vomiting, food poisoning, or extreme weakness needing Normal Saline (NS) or Ringer Lactate (RL).",
       "Post-operative patients requiring daily course of prescribed IV antibiotics (e.g., Ceftriaxone, Piperacillin-Tazobactam, Amikacin).",
@@ -484,7 +484,7 @@ const SERVICES = [
     whatsIncluded: [
       "Hospital-grade IV cannula placement (sizes 20G, 22G, 24G) with sterile dressing and heparin lock.",
       "Administration of prescribed fluids: Normal Saline (0.9%), Ringer's Lactate (RL), Dextrose (D5/D10/DNS).",
-      "Painless Intramuscular (IM), Intravenous (IV), or Subcutaneous (SC) medication delivery.",
+      "Gentle Intramuscular (IM), Intravenous (IV), or Subcutaneous (SC) medication delivery.",
       "Continuous bedside monitoring of drip flow rate, infusion speed titration, and vital sign tracking.",
       "Emergency readiness: Continuous observation for allergic reactions, phlebitis, or extravasation.",
       "Safe biomedical waste disposal of used syringes, needles, and IV sets following biohazard guidelines."
@@ -680,7 +680,7 @@ const SERVICES = [
       },
       {
         q: "What should we do during a power cut if the patient is on BiPAP?",
-        a: "We recommend keeping a backup medical oxygen cylinder with regulator at home. Our team can supply emergency backup oxygen cylinders alongside your BiPAP rental."
+        a: "We recommend keeping a backup medical oxygen cylinder with regulator at home. Our team can supply emergency backup oxygen cylinders alongside your BiPAP rental. If the patient develops acute respiratory distress, severe breathlessness, or chest pain, call 108 or go to the nearest emergency hospital immediately."
       }
     ],
     relatedServices: ["nebulization-vitals-ecg-at-home", "home-nursing-lucknow", "doctor-home-visit-lucknow"],
@@ -832,7 +832,7 @@ const SERVICES = [
       },
       {
         q: "What happens if our assigned attendant falls sick or takes leave?",
-        a: "Srinika Medisurge provides guaranteed seamless replacement attendants so your family never experiences any gap in patient care."
+        a: "Srinika Medisurge provides seamless replacement attendants so your family never experiences any gap in patient care."
       }
     ],
     relatedServices: ["home-nursing-lucknow", "doctor-home-visit-lucknow", "physiotherapy-at-home-lucknow"],

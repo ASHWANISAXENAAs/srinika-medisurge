@@ -121,7 +121,7 @@ const AREAS = [
     highlights: [
       "25-35 minute doorstep dispatch across all Sectors of Indira Nagar.",
       "Specialized in compassionate care for elderly parents living independently.",
-      "Painless injection administration, IV drips, and catheter care at home.",
+      "Gentle injection administration, IV drips, and catheter care at home.",
       "Certified physiotherapists available for stroke and knee arthritis mobility."
     ],
     faqs: [
@@ -145,16 +145,17 @@ const AREAS = [
   },
   {
     slug: "home-nursing-hazratganj",
+    name: "Hazratganj",
     title: "Home Nursing & Healthcare Services in Hazratganj, Lucknow",
-    responseTime: "30 - 40 Mins",
+    responseTime: "30 - 45 Mins",
     status: "Standard",
     badge: "Available 24/7",
     metaTitle: "Home Nursing in Hazratganj Lucknow | Doorstep Doctor Care",
     metaDescription: "Trusted home nursing care & doctor home visits in Hazratganj, Lucknow by Srinika Medisurge. Catheterization, IV drips & patient care. Call +91 96530 01359.",
-    intro: "Hazratganj, the cultural and heritage heart of Lucknow, features established multi-generational homes and residential lanes. For families seeking reliable, hospital-grade clinical procedures without battling downtown traffic, Srinika Medisurge provides prompt doorstep nursing, doctor home visits, and post-surgery care within 30 to 40 minutes.",
+    intro: "Hazratganj, the cultural and heritage heart of Lucknow, features established multi-generational homes and residential lanes. For families seeking reliable, hospital-grade clinical procedures without battling downtown traffic, Srinika Medisurge provides prompt doorstep nursing, doctor home visits, and post-surgery care within 30 to 45 minutes.",
     landmarks: "MG Marg, Capitol, Mayfair, Raj Bhavan area, Narhi, Ashok Marg, Butler Palace",
     highlights: [
-      "30-40 minute arrival time right in the heart of Lucknow.",
+      "30-45 minute arrival time right in the heart of Lucknow.",
       "Private, confidential, and dignified medical care in your family home.",
       "Eliminates parking and traffic hassles in central Lucknow.",
       "Senior doctor telephonic review before and after every procedure."
@@ -166,7 +167,7 @@ const AREAS = [
       },
       {
         q: "How quickly can a nurse reach Hazratganj?",
-        a: "Our standard response time to Hazratganj is 30 to 40 minutes, depending on the time of day."
+        a: "Our standard response time to Hazratganj is 30 to 45 minutes, depending on the time of day."
       },
       {
         q: "Do you perform surgical wound dressing in Hazratganj?",
@@ -180,16 +181,17 @@ const AREAS = [
   },
   {
     slug: "home-nursing-mahanagar",
+    name: "Mahanagar",
     title: "Home Nursing & Healthcare Services in Mahanagar, Lucknow",
-    responseTime: "30 - 40 Mins",
+    responseTime: "30 - 45 Mins",
     status: "Standard",
     badge: "Available 24/7",
     metaTitle: "Home Nursing Mahanagar Lucknow | Certified Nurse At Home",
-    metaDescription: "Hospital-grade home nursing, IV drips & doctor visits in Mahanagar, Lucknow by Srinika Medisurge under Dr. Piyush Saxena. 30-40 min arrival. Call +91 96530 01359.",
+    metaDescription: "Hospital-grade home nursing, IV drips & doctor visits in Mahanagar, Lucknow by Srinika Medisurge under Dr. Piyush Saxena. 30-45 min arrival. Call +91 96530 01359.",
     intro: "Mahanagar is one of Lucknow's premier residential localities, featuring spacious residences and elderly citizens whose children often reside out of city or abroad. Srinika Medisurge acts as an extended medical family, offering sterile catheterization, IV drips, wound care, and daily patient attendants with complete clinical transparency.",
     landmarks: "Gole Market, Mandir Marg, Nishatganj border, Badshahnagar, Kapoorthala vicinity",
     highlights: [
-      "Reliable 30-40 minute doorstep medical response in Mahanagar.",
+      "Reliable 30-45 minute doorstep medical response in Mahanagar.",
       "Trusted elder care and daily vital monitoring for seniors living alone.",
       "100% single-use sterile kits preventing hospital cross-infections.",
       "Direct contact with Dr. Piyush Saxena for recovery guidance."
@@ -298,7 +300,7 @@ const AREAS = [
     landmarks: "Alambagh Bus Terminal, Ashiyana Sector M/N, LDA Colony, Bangla Bazar, VIP Road",
     highlights: [
       "Dedicated South Lucknow dispatch for scheduled and emergency care.",
-      "Painless catheter replacement and Ryle's tube feeding support.",
+      "Gentle catheter replacement and Ryle's tube feeding support.",
       "Affordable home physiotherapy sessions (₹600) for stroke recovery.",
       "Direct doctor follow-up on recovery progress."
     ],

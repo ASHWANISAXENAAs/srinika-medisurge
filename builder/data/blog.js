@@ -35,7 +35,7 @@ const BLOG_POSTS = [
 
       <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3">2. Sterile Urinary Catheterization (Foley & Silicone)</h3>
       <p class="text-slate-600 leading-relaxed mb-4">
-        Urinary retention in elderly men or post-surgical patients is an emergency that demands gentle clinical expertise. Attempting to rush an 80-year-old with urinary retention to an ER late at night causes immense trauma. Our trained nurses arrive with sealed, sterile catheterization trays, 2% Lignocaine anesthetic jelly, and medical-grade latex or silicone Foley catheters to relieve retention gently and painlessly. Explore our <a href="/services/urinary-catheterization-at-home-lucknow/" class="text-sky-600 font-semibold hover:underline">urinary catheterization home service</a>.
+        Urinary retention in elderly men or post-surgical patients is an emergency that demands gentle clinical expertise. Attempting to rush an 80-year-old with urinary retention to an ER late at night causes immense trauma. Our trained nurses arrive with sealed, sterile catheterization trays, 2% Lignocaine anesthetic jelly, and medical-grade latex or silicone Foley catheters to relieve retention gently and with minimal discomfort. Explore our <a href="/services/urinary-catheterization-at-home-lucknow/" class="text-sky-600 font-semibold hover:underline">urinary catheterization home service</a>.
       </p>
 
       <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3">3. Advanced Surgical & Wound Dressing</h3>
@@ -188,8 +188,8 @@ const BLOG_POSTS = [
         a: "Bypassing occurs due to bladder spasms, catheter lumen blockage with mucous/crystals, or incorrect balloon positioning. A nurse can check for blockage and gently flush or replace the catheter."
       },
       {
-        q: "Can a catheter change be done painlessly at home?",
-        a: "Yes. Our certified nurses instill 2% Lignocaine anesthetic jelly into the urethra before insertion, minimizing discomfort and making the process smooth and painless."
+        q: "Can a catheter change be done with minimal discomfort at home?",
+        a: "Yes. Our certified nurses instill 2% Lignocaine anesthetic jelly into the urethra before insertion, minimizing discomfort and making the process gentle and smooth."
       },
       {
         q: "Do you have male nurses for male catheterization in Lucknow?",
