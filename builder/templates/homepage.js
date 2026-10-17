@@ -10,7 +10,7 @@ const BLOG_POSTS = require('../data/blog.js');
 function renderHomePage() {
   const top6Services = SERVICES.slice(0, 6);
   const top3Testimonials = TESTIMONIALS.slice(0, 3);
-  const homeDoctors = DOCTORS.slice(0, 4);
+  const homeDoctors = DOCTORS.filter(d => d.id !== 'certified-nursing-officers');
 
   return `
     <!-- 1. HERO SECTION -->
@@ -293,7 +293,7 @@ function renderHomePage() {
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           ${homeDoctors.map(doc => `
             <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col justify-between group">
               <div>
@@ -305,7 +305,7 @@ function renderHomePage() {
                     <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-100">${b}</span>
                   `).join('')}
                 </div>
-                <h3 class="text-lg font-bold text-slate-900 font-heading mb-1">${doc.name}</h3>
+                <h3 class="text-base font-bold text-slate-900 font-heading mb-1">${doc.name}</h3>
                 <p class="text-xs font-semibold text-emerald-600 mb-2">${doc.specialty}</p>
                 <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed mb-4">${doc.bio}</p>
               </div>
@@ -315,7 +315,7 @@ function renderHomePage() {
                 ${doc.id === 'dr-piyush-saxena' ? `
                 <a href="tel:${CONFIG.drPiyushPhoneTel}" class="text-sky-600 font-bold hover:underline">Call Dr. Piyush →</a>
                 ` : `
-                <a href="/doctors/" class="text-sky-600 font-bold hover:underline">View Bio →</a>
+                <a href="/doctors/#${doc.id}" class="text-sky-600 font-bold hover:underline">View Bio →</a>
                 `}
               </div>
             </div>

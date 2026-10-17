@@ -39,15 +39,15 @@ const AREAS = [
     slug: "home-nursing-gomti-nagar-extension",
     name: "Gomti Nagar Extension",
     title: "Home Nursing & Healthcare Services in Gomti Nagar Extension, Lucknow",
-    responseTime: "20 - 30 Mins",
-    status: "Fast Dispatch",
-    badge: "Immediate Available",
+    responseTime: "15 - 25 Mins",
+    status: "Primary Hub",
+    badge: "Immediate Available • Near Hub",
     metaTitle: "Home Nursing Gomti Nagar Extension | Doorstep Medical Care",
-    metaDescription: "Rapid 20-30 min home nursing & doctor visits in Gomti Nagar Extension, Lucknow. IV drips, Foley catheter change, wound dressing & elder care. Call +91 96530 01359.",
-    intro: "Gomti Nagar Extension has grown rapidly into a prime residential hub with numerous multi-storey townships such as Omaxe, Eldeco, Rohtas, Shalimar Oneworld, and green gated communities. Srinika Medisurge provides priority dispatch to Gomti Nagar Extension, reaching high-rise apartments and bungalows within 20 to 30 minutes with complete sterile surgical kits.",
+    metaDescription: "15-25 min home nursing & doctor visits in Gomti Nagar Extension, Lucknow. IV drips, Foley catheter change, wound dressing & elder care. Call +91 96530 01359.",
+    intro: "Gomti Nagar Extension has grown rapidly into a prime residential hub with numerous multi-storey townships such as Omaxe, Eldeco, Rohtas, Shalimar Oneworld, and green gated communities. Srinika Medisurge provides priority dispatch to Gomti Nagar Extension, reaching high-rise apartments and bungalows within 15 to 25 minutes with complete sterile surgical kits.",
     landmarks: "Shaheed Path, Omaxe Heights, Eldeco Elegance, Shalimar Oneworld, Police Headquarters, Ekana Stadium vicinity",
     highlights: [
-      "Rapid 20-30 minute doorstep arrival across high-rise residential complexes.",
+      "Rapid 15-25 minute doorstep arrival across high-rise residential complexes.",
       "Specialized in post-discharge care for patients arriving from Medanta and Apollomedics hospitals.",
       "Sterile catheterization, dressing, and IV infusion administered in apartment comfort.",
       "Direct doctor guidance from Dr. Piyush Saxena."
@@ -111,15 +111,15 @@ const AREAS = [
     slug: "home-nursing-indira-nagar",
     name: "Indira Nagar",
     title: "Home Nursing & Healthcare Services in Indira Nagar, Lucknow",
-    responseTime: "25 - 35 Mins",
-    status: "Fast Dispatch",
-    badge: "Immediate Available",
+    responseTime: "30 - 45 Mins",
+    status: "Standard",
+    badge: "Available 24/7",
     metaTitle: "Home Nursing in Indira Nagar Lucknow | Srinika Medisurge",
-    metaDescription: "Professional home nursing care, IV infusion & doctor visits in Indira Nagar, Lucknow by Dr. Piyush Saxena's certified team. Fast 25-35 min arrival. Call +91 96530 01359.",
+    metaDescription: "Professional home nursing care, IV infusion & doctor visits in Indira Nagar, Lucknow by Dr. Piyush Saxena's certified team. 30-45 min arrival. Call +91 96530 01359.",
     intro: "Indira Nagar is one of Asia's largest residential colonies, home to thousands of retired senior citizens, elderly couples, and busy families. Srinika Medisurge provides compassionate doorstep healthcare across Sectors 1 through 25, Munshipulia, Bhootnath, and Ring Road. We eliminate the trauma of navigating crowded hospital OPDs for elderly residents.",
     landmarks: "Munshipulia, Bhootnath Market, Ring Road, Lekhraj, Sector 14, Sector 18, HAL vicinity",
     highlights: [
-      "25-35 minute doorstep dispatch across all Sectors of Indira Nagar.",
+      "30-45 minute doorstep dispatch across all Sectors of Indira Nagar.",
       "Specialized in compassionate care for elderly parents living independently.",
       "Gentle injection administration, IV drips, and catheter care at home.",
       "Certified physiotherapists available for stroke and knee arthritis mobility."
@@ -255,15 +255,15 @@ const AREAS = [
     slug: "home-nursing-shaheed-path-sushant-golf-city",
     name: "Shaheed Path / Sushant Golf City",
     title: "Home Nursing & Healthcare Services in Shaheed Path & Sushant Golf City",
-    responseTime: "25 - 35 Mins",
-    status: "Fast Dispatch",
-    badge: "Fast Corridor Dispatch",
+    responseTime: "30 - 45 Mins",
+    status: "Standard",
+    badge: "Available 24/7",
     metaTitle: "Home Nursing Shaheed Path & Sushant Golf City Lucknow",
-    metaDescription: "Rapid 25-35 min home nursing care & doctor visits in Sushant Golf City & Shaheed Path, Lucknow. Catheter, IV drips & post-op dressing. Call +91 96530 01359.",
-    intro: "Along the modern Shaheed Path arterial highway and inside the expansive Sushant Golf City township (Celebrity Meadows, Golf Ridge, Ansal API, Lulu Mall vicinity), Srinika Medisurge offers rapid 25 to 35 minute doorstep clinical service. We regularly care for patients discharged from nearby super-specialty hospitals like Medanta, Apollomedics, and SGPGI.",
+    metaDescription: "30-45 min home nursing care & doctor visits in Sushant Golf City & Shaheed Path, Lucknow. Catheter, IV drips & post-op dressing. Call +91 96530 01359.",
+    intro: "Along the modern Shaheed Path arterial highway and inside the expansive Sushant Golf City township (Celebrity Meadows, Golf Ridge, Ansal API, Lulu Mall vicinity), Srinika Medisurge offers prompt 30 to 45 minute doorstep clinical service. We regularly care for patients discharged from nearby super-specialty hospitals like Medanta, Apollomedics, and SGPGI.",
     landmarks: "Shaheed Path Highway, Lulu Mall, Medanta Hospital corridor, Celebrity Greens, Ansal API, Ekana Stadium",
     highlights: [
-      "Fast 25-35 minute arrival via direct Shaheed Path highway corridor.",
+      "Consistent 30-45 minute arrival via direct Shaheed Path highway corridor.",
       "Preferred home care partner for post-surgical discharges from Medanta & SGPGI.",
       "Specialized in complex wound dressings, tracheostomy, and catheter care.",
       "Doctor visits at home under Dr. Piyush Saxena and Dr. Akash Shrivastav."
@@ -271,7 +271,7 @@ const AREAS = [
     faqs: [
       {
         q: "How fast do you reach Sushant Golf City?",
-        a: "Via the signal-free Shaheed Path corridor, our nursing team typically arrives within 25 to 35 minutes."
+        a: "Via the Shaheed Path corridor, our nursing team typically arrives within 30 to 45 minutes."
       },
       {
         q: "Can you provide post-operative dressing after surgery at Medanta Lucknow?",
@@ -291,15 +291,15 @@ const AREAS = [
     slug: "home-nursing-alambagh-ashiyana",
     name: "Alambagh & Ashiyana",
     title: "Home Nursing & Healthcare Services in Alambagh & Ashiyana, Lucknow",
-    responseTime: "35 - 50 Mins",
-    status: "Scheduled / Priority",
+    responseTime: "30 - 45 Mins",
+    status: "Standard",
     badge: "Available 24/7",
     metaTitle: "Home Nursing in Alambagh & Ashiyana Lucknow | Doorstep Care",
     metaDescription: "Professional home nursing care, catheterization & doctor consultations in Alambagh & Ashiyana, Lucknow by Srinika Medisurge. Call +91 96530 01359.",
     intro: "Extending professional care to South Lucknow, Srinika Medisurge serves Alambagh, Ashiyana, LDA Colony, VIP Road, and Krishna Nagar. From managing post-stroke paralysis with home physiotherapy to administering daily saline drips and sterile catheter changes, our team delivers certified clinical expertise straight to your bedroom.",
     landmarks: "Alambagh Bus Terminal, Ashiyana Sector M/N, LDA Colony, Bangla Bazar, VIP Road",
     highlights: [
-      "Dedicated South Lucknow dispatch for scheduled and emergency care.",
+      "Dedicated South Lucknow dispatch for scheduled and emergency care (30-45 mins).",
       "Gentle catheter replacement and Ryle's tube feeding support.",
       "Affordable home physiotherapy sessions (₹600) for stroke recovery.",
       "Direct doctor follow-up on recovery progress."
@@ -327,15 +327,15 @@ const AREAS = [
     slug: "home-nursing-chinhat-kamta",
     name: "Chinhat & Kamta",
     title: "Home Nursing & Healthcare Services in Chinhat & Kamta, Lucknow",
-    responseTime: "20 - 30 Mins",
-    status: "Fast Dispatch",
-    badge: "Immediate Available • Near Hub",
+    responseTime: "30 - 45 Mins",
+    status: "Standard",
+    badge: "Available 24/7",
     metaTitle: "Home Nursing Chinhat & Kamta Lucknow | Fast Doorstep Care",
-    metaDescription: "Rapid 20-30 min home nursing care, IV infusion & catheterization in Chinhat & Kamta, Lucknow. Certified staff under Dr. Piyush Saxena. Call +91 96530 01359.",
-    intro: "Located just minutes from our primary Khargapur dispatch base, Chinhat, Kamta, Faizabad Road, and Matiyari receive priority dispatch from Srinika Medisurge. Our medical staff reaches homes in 20 to 30 minutes, delivering hospital-standard nursing, IV drips, nebulization, and catheter changes without waiting.",
+    metaDescription: "Professional 30-45 min home nursing care, IV infusion & catheterization in Chinhat & Kamta, Lucknow. Certified staff under Dr. Piyush Saxena. Call +91 96530 01359.",
+    intro: "Located along Faizabad Road corridor, Chinhat, Kamta, and Matiyari receive reliable dispatch from Srinika Medisurge. Our medical staff reaches homes in 30 to 45 minutes, delivering hospital-standard nursing, IV drips, nebulization, and catheter changes without waiting.",
     landmarks: "Chinhat Chauraha, Kamta Chauraha, Faizabad Road, Matiyari, High Court corridor",
     highlights: [
-      "Near-hub priority dispatch: 20-30 minute arrival time.",
+      "Consistent 30-45 minute arrival time across Chinhat & Kamta.",
       "Quick access for Faizabad Road townships and residential colonies.",
       "Hospital-grade sterile consumables and certified GNM nurses.",
       "24/7 on-call availability for urgent clinical needs."
@@ -343,7 +343,7 @@ const AREAS = [
     faqs: [
       {
         q: "How fast can you reach Chinhat or Kamta?",
-        a: "Because of our close proximity in Gomti Nagar/Khargapur, our nurse or doctor can reach within 20 to 30 minutes."
+        a: "Our certified nurse or doctor can reach within 30 to 45 minutes."
       },
       {
         q: "Can you change a urinary catheter late in the evening in Chinhat?",

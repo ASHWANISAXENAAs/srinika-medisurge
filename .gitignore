@@ -4,3 +4,7 @@ scratch/
 audit/
 *.log
 live.html
+lh_*.json
+extract_*
+review-screenshots/
+*.tmp

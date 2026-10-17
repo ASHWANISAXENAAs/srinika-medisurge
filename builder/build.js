@@ -28,6 +28,7 @@ const {
   renderMedicalDisclaimer,
   render404Page
 } = require('./templates/policy_pages.js');
+const { renderSitemapPage } = require('./templates/sitemap_page.js');
 
 // Root output directory
 const ROOT_DIR = path.resolve(__dirname, '..');
@@ -207,7 +208,7 @@ const doctorsSchema = {
 
 const doctorsHtml = renderMasterLayout({
   title: "Specialist Doctors & Clinicians Lucknow | Dr. Piyush Saxena",
-  metaDescription: "Meet our dedicated doctors & clinicians in Lucknow: Dr. Piyush Saxena, Dr. Desh Deepak Singh (MPT Neuro), Dr. Akash Shrivastav & Dr. Reshmi R. Call +91 96530 01359.",
+  metaDescription: "Meet our dedicated doctors & clinicians in Lucknow: Dr. Piyush Saxena, Dr. Harshit Nigam (MD), Dr. Desh Deepak Singh (MPT Neuro), Dr. Akash Shrivastav & Dr. Reshmi R. Call +91 96530 01359.",
   canonicalUrl: "/doctors/",
   currentPath: "/doctors/",
   breadcrumbs: [
@@ -469,7 +470,19 @@ const disclaimerHtml = renderMasterLayout({
 writeHtml("medical-disclaimer/index.html", disclaimerHtml);
 registerSitemap("/medical-disclaimer/", "0.4", "yearly");
 
-// 16. CUSTOM 404 PAGE (with noindex)
+// 16. HTML SITEMAP PAGE
+const sitemapPageHtml = renderMasterLayout({
+  title: "Site Map | Srinika Medisurge",
+  metaDescription: "Structured sitemap of all pages, doorstep clinical services, doctor directory, Lucknow area guides, and health blog articles on Srinika Medisurge.",
+  canonicalUrl: "/sitemap/",
+  currentPath: "/sitemap/",
+  breadcrumbs: [{ name: "Sitemap", url: "/sitemap/" }],
+  content: renderSitemapPage()
+});
+writeHtml("sitemap/index.html", sitemapPageHtml);
+registerSitemap("/sitemap/", "0.3", "monthly");
+
+// 17. CUSTOM 404 PAGE (with noindex)
 const notFoundHtml = renderMasterLayout({
   title: "404 - Page Not Found | Srinika Medisurge Lucknow",
   metaDescription: "The requested page was not found. Browse Srinika Medisurge doorstep healthcare services, doctors, and pricing in Lucknow.",

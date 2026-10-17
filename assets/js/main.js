@@ -448,6 +448,8 @@ function setupEventListeners() {
   const bookingForm = document.getElementById("booking-form") || document.getElementById("doorstep-booking-form");
   if (bookingForm) {
     bookingForm.addEventListener("submit", handleBookingSubmit);
+    bookingForm.addEventListener("input", updateDynamicWhatsAppLinks);
+    bookingForm.addEventListener("change", updateDynamicWhatsAppLinks);
   }
 
   const modalServiceSelect = document.getElementById("modal-service-select");
@@ -529,6 +531,63 @@ function initCalculator() {
   updateEstimate();
 }
 
+// Update dynamic WhatsApp prefilled links across modal/page
+function updateDynamicWhatsAppLinks() {
+  const name = document.getElementById("booking-name")?.value.trim() || "Patient";
+  const phone = document.getElementById("booking-phone")?.value.trim() || "";
+  const doctor = document.getElementById("booking-doctor")?.value || "Dr. Piyush Saxena";
+  const service = document.getElementById("modal-service-select")?.value || "Doorstep Care";
+  const address = document.getElementById("modal-address-input")?.value.trim() || "Lucknow";
+  const date = document.getElementById("booking-date")?.value || "Earliest Available";
+  const timeSlot = document.getElementById("booking-time")?.value || "Immediate / Earliest";
+  const notes = document.getElementById("booking-notes")?.value.trim() || "None";
+
+  // Build Doorstep WhatsApp Request Message
+  const doorstepMsg = [
+    "*NEW DOORSTEP CARE BOOKING REQUEST*",
+    `*Srinika Medisurge | ${doctor}*`,
+    "----------------------------------------",
+    `* Patient Name:* ${name}`,
+    `* Mobile:* ${phone}`,
+    `* Consulting Doctor:* ${doctor}`,
+    `* Service:* ${service}`,
+    `* Address:* ${address}`,
+    `* Preferred Date:* ${date}`,
+    `* Time Slot:* ${timeSlot}`,
+    `* Patient Notes:* ${notes}`,
+    "----------------------------------------",
+    "_Sent via Srinika Medisurge Portal_"
+  ].join("\n");
+
+  const doorstepUrl = `https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${encodeURIComponent(doorstepMsg)}`;
+  const waSuccessLink = document.getElementById("success-whatsapp-link");
+  if (waSuccessLink) {
+    waSuccessLink.href = doorstepUrl;
+  }
+
+  // Pre-update Notify Doctor Link on Invoice
+  const consultMsg = [
+    "🔔 *ONLINE CONSULTATION BOOKING INQUIRY*",
+    `*Srinika Medisurge | ${doctor}*`,
+    "----------------------------------------",
+    `* Patient Name:* ${name}`,
+    `* Mobile:* ${phone}`,
+    `* Consulting Doctor:* ${doctor}`,
+    `* Service:* Online Doctor Consultation (₹500)`,
+    `* Preferred Date:* ${date}`,
+    `* Preferred Slot:* ${timeSlot}`,
+    `* Notes:* ${notes}`,
+    "----------------------------------------",
+    "_Sent via Srinika Medisurge Portal_"
+  ].join("\n");
+
+  const notifyUrl = `https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${encodeURIComponent(consultMsg)}`;
+  const invWaBtn = document.getElementById("inv-whatsapp-btn");
+  if (invWaBtn && !invWaBtn.getAttribute("data-payment-verified")) {
+    invWaBtn.href = notifyUrl;
+  }
+}
+
 // Synchronize modal state between Online Consultation (UPI + Invoice) and Doorstep (WhatsApp)
 function syncModalServiceMode() {
   const serviceSelect = document.getElementById("modal-service-select");
@@ -569,6 +628,8 @@ function syncModalServiceMode() {
     if (modalTitle) modalTitle.textContent = "Book Doorstep Medical Visit";
     if (modalSubtitle) modalSubtitle.textContent = `${selectedDoctor} • Lucknow Doorstep Service`;
   }
+
+  updateDynamicWhatsAppLinks();
 }
 
 // Modal handling

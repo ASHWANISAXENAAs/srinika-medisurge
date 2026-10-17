@@ -23,7 +23,7 @@ function renderDoctorsPage() {
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           ${DOCTORS.map(doc => `
-            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div id="${doc.id}" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between scroll-mt-24">
               <div>
                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-5 text-center sm:text-left">
                   <div class="w-32 h-32 rounded-2xl overflow-hidden shrink-0 bg-slate-100 border-2 border-slate-100 shadow-inner">
@@ -38,7 +38,7 @@ function renderDoctorsPage() {
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-heading">${doc.name}</h2>
                     <p class="text-xs font-bold text-emerald-600 mb-1">${doc.degrees}</p>
                     <p class="text-xs font-semibold text-slate-500">${doc.specialty}</p>
-                    <p class="text-[11px] text-slate-400 mt-1">${doc.experience}</p>
+                    <p class="text-[11px] text-slate-400 mt-1">${Array.isArray(doc.experience) ? doc.experience.join(' • ') : doc.experience}</p>
                   </div>
                 </div>
 

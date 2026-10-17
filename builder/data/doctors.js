@@ -19,6 +19,32 @@ const DOCTORS = [
     }
   },
   {
+    id: "dr-harshit-nigam",
+    name: "Dr. Harshit Nigam",
+    role: "Senior Medical Officer | General Practitioner",
+    specialty: "Internal Medicine & General Practice",
+    degrees: "MBBS, MD (Medicine)",
+    regNumber: null,
+    experience: [
+      "Ex Regency Hospital, Kanpur and Lucknow",
+      "Ex Ursula Horsemen Hospital, Kanpur",
+      "Ex Family Hospital, Kanpur",
+      "Ex Health City Vistaar Hospital, Lucknow"
+    ],
+    experienceText: "Ex Regency Hospital • Ex Ursula Horsemen Hospital • Ex Family Hospital • Ex Health City Vistaar Hospital",
+    image: "assets/images/dr-harshit-nigam.jpg",
+    bio: "8+ years of clinical experience with expertise in diagnosis, patient care, treatment planning, and medical consultation.",
+    badges: ["MBBS, MD (Medicine)", "Senior Medical Officer", "General Practitioner"],
+    pricing: "Online Consultation: ₹500 • Doorstep Consultation: ₹2,000 (within 5 km)",
+    schemaSpecialty: "General Practice, Internal Medicine",
+    actions: {
+      call: true,
+      whatsapp: true,
+      onlineConsult: true,
+      doorstepVisit: true
+    }
+  },
+  {
     id: "dr-desh-deepak-singh",
     name: "Dr. Desh Deepak Singh (P.T.)",
     role: "Senior Consultant Physiotherapist",
